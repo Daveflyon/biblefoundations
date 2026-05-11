@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 01: Eternal Life – Bible Truth Foundations Part 1</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #1c1c1e;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) { body { padding: 0 32px; } }
+  @media (min-width: 900px) { body { max-width: 900px; margin: 0 auto; } }
+
+  /* ── Title block ── */
+  .title-block {
+    text-align: center;
+    padding: 40px 0 0;
+  }
+  .series-name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    line-height: 1.2;
+  }
+  .series-part {
+    font-size: 17px;
+    font-style: italic;
+    color: #1c1c1e;
+    margin: 0 0 10px;
+  }
+  .title-rule {
+    border: none;
+    border-top: 2px solid #1F3864;
+    margin: 12px auto 20px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+  .lesson-meta {
+    font-size: 13px;
+    color: #555;
+    margin: 0 0 4px;
+  }
+  .lesson-author {
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+    margin: 0 0 24px;
+  }
+
+  /* ── Headings ── */
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F3864;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 4px;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1c1c1e;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  p { margin-bottom: 16px; }
+
+  a { color: #1F3864; text-decoration: underline; }
+  a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Core Truth ── */
+  .core-truth-box {
+    background: #1F3864;
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .core-truth-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f0b429;
+    margin: 0 0 12px;
+  }
+  .core-truth-statement {
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ── Opening question ── */
+  .opening-box {
+    border: 2px solid #1F3864;
+    border-radius: 4px;
+    padding: 20px 24px;
+    background: #f2f2f2;
+    margin: 16px 0 24px;
+  }
+  .opening-box p:last-child { margin-bottom: 0; }
+  .question-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 12px 0 0;
+  }
+
+  /* ── Scripture blocks ── */
+  .scripture-block {
+    border-left: 4px solid #1F3864;
+    background: #f2f2f2;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .scripture-ref {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .scripture-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1c1c1e;
+    margin: 0;
+    font-style: italic;
+  }
+  .scripture-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: -12px;
+    margin-bottom: 24px;
+  }
+
+  /* ── Callout boxes ── */
+  .callout {
+    padding: 14px 18px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.note {
+    border-left: 4px solid #d97706;
+    background: #fffbf0;
+  }
+  .callout.note .callout-label { color: #d97706; }
+
+  .callout.depth {
+    border-left: 4px solid #1F3864;
+    background: #eef2f8;
+  }
+  .callout.depth .callout-label { color: #1F3864; }
+
+  .callout.tip {
+    border-left: 4px solid #276221;
+    background: #f0f7f0;
+  }
+  .callout.tip .callout-label { color: #276221; }
+
+  .callout.caution {
+    border-left: 4px solid #8b0000;
+    background: #fce8e8;
+  }
+  .callout.caution .callout-label { color: #8b0000; }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead tr { background: #1F3864; color: #ffffff; }
+  thead th {
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: 1px solid #cccccc;
+    text-align: left;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border: 1px solid #cccccc;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+  tbody tr:nth-child(even) { background: #f2f2f2; }
+  td.label-cell {
+    background: #f2f2f2;
+    font-weight: 700;
+    white-space: nowrap;
+    width: 160px;
+  }
+
+  /* ── Flashcards ── */
+  .flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+  .flashcard {
+    height: 180px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+    border-radius: 6px;
+  }
+  .flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+  .flashcard-front,
+  .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flashcard-front {
+    background: #ffffff;
+    border: 2px solid #1F3864;
+  }
+  .flashcard-back {
+    background: #1F3864;
+    transform: rotateY(180deg);
+  }
+  .fc-prompt {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 8px;
+    line-height: 1.4;
+  }
+  .fc-ref {
+    font-size: 12px;
+    color: #60a5fa;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+  .fc-verse {
+    font-size: 13px;
+    color: #e8e4dc;
+    font-style: italic;
+    margin: 0 0 8px;
+    line-height: 1.5;
+  }
+  .fc-ref-back {
+    font-size: 12px;
+    color: #f0b429;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+  .fc-def {
+    font-size: 13px;
+    color: #e8e4dc;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .flashcard-hint {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* ── Fillable answer cells ── */
+  .fillable {
+    min-height: 60px;
+    outline: none;
+    background: #fffbf0;
+    border-radius: 2px;
+    padding: 4px 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1c1c1e;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.15s;
+  }
+  .fillable:focus {
+    background: #fff8e1;
+    outline: 2px solid #d97706;
+    outline-offset: 0;
+  }
+  .fillable:empty::before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    pointer-events: none;
+  }
+  .answers-toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 12px 0 4px;
+  }
+  .answers-toolbar button {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+  }
+  .answers-toolbar button:hover { background: #2c54a0; }
+  .answers-toolbar button:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .answers-toolbar button.clear-btn {
+    background: #ffffff;
+    color: #8b0000;
+    border: 1px solid #8b0000;
+  }
+  .answers-toolbar button.clear-btn:hover { background: #fce8e8; }
+  .answers-note {
+    font-size: 12px;
+    color: #777;
+    margin: 0 0 16px;
+  }
+
+  /* ── Who This Is Not For ── */
+  .not-for-box {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 16px 20px;
+    background: #f2f2f2;
+    margin: 16px 0 40px;
+  }
+  .not-for-box p { margin: 0; font-size: 14px; color: #444; }
+
+  /* ── Back link ── */
+  .back-link {
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: block;
+    padding-top: 24px;
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid #cccccc;
+    padding: 24px 0 40px;
+    margin-top: 16px;
+  }
+
+  /* ── Floating TOC ── */
+  .toc-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+  }
+  .toc-btn {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .toc-btn:hover { background: #2c54a0; }
+  .toc-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .toc-menu {
+    display: none;
+    background: #1F3864;
+    border-radius: 4px 4px 0 0;
+    padding: 8px 0;
+    margin-bottom: 4px;
+    max-height: 60vh;
+    overflow-y: auto;
+    min-width: 220px;
+  }
+  .toc-menu.open { display: block; }
+  .toc-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .toc-menu a:hover { background: #2c54a0; color: #ffffff; }
+  .toc-menu a:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Collapsible sections ── */
+  .section-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #1F3864;
+    padding: 8px 0;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    text-align: left;
+  }
+  .section-toggle:hover { color: #2c54a0; border-bottom-color: #2c54a0; }
+  .section-toggle:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .section-chevron {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-weight: 400;
+  }
+  .section-toggle[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
+  .section-body { display: none; }
+  .section-body.open { display: block; }
+
+  /* ── Print ── */
+  @media print {
+    .toc-container { display: none; }
+    .section-body { display: block !important; }
+    body { color: #1c1c1e; }
+    a { color: #1c1c1e; }
+    .flashcard-front { border: 1px solid #cccccc; }
+    .flashcard-back { background: #f2f2f2; }
+    .fc-verse, .fc-def { color: #1c1c1e; }
+    print-color-adjust: exact;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     SECTION 1: TITLE AND SERIES POSITION
+════════════════════════════════════════ -->
+<a class="back-link" href="btf-p1-home.html">&#8592; Back to all lessons</a>
+
+<div class="title-block">
+  <p class="series-name">Bible Truth Foundations</p>
+  <p class="series-part">Part 1 of 3: New Life in Christ</p>
+</div>
+<hr class="title-rule">
+<div class="title-block" style="padding-top:0;">
+  <h1>Eternal Life</h1>
+  <p class="lesson-meta">Lesson 1 of 16 &nbsp;|&nbsp; Section A: The Gospel Foundation</p>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 2: OPENING QUESTION
+════════════════════════════════════════ -->
+<section id="opening-question">
+  <h2>Opening Question</h2>
+  <div class="opening-box">
+    <p>Please begin by answering this question honestly in your own words.</p>
+    <p class="question-text">If someone asked you what "eternal life" means, what would you say? What does the phrase bring to mind?</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 3: KEY SCRIPTURE
+════════════════════════════════════════ -->
+<section id="key-scripture">
+  <h2>Key Scripture</h2>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">John 3:16&ndash;17 (NKJV)</p>
+    <p class="scripture-text">For God so loved the world that He gave His only begotten Son, that whoever believes in Him should not perish but have everlasting life. For God did not send His Son into the world to condemn the world, but that the world through Him might be saved.</p>
+  </div>
+
+  <p class="scripture-note"><em>Read this slowly before moving on. You may have heard it many times. This lesson is about what it is actually saying.</em></p>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 4: CORE TRUTH
+════════════════════════════════════════ -->
+<section id="core-truth">
+  <h2>Core Truth</h2>
+  <div class="core-truth-box">
+    <p class="core-truth-label">The central idea of this lesson</p>
+    <p class="core-truth-statement">Eternal life is not primarily a destination after death. It is a living, personal relationship with God that begins the moment you receive Jesus Christ.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 5: BIBLE TEACHING (collapsible)
+════════════════════════════════════════ -->
+<section id="bible-teaching">
+  <button class="section-toggle" aria-expanded="false" aria-controls="bible-teaching-body" id="bible-teaching-btn">
+    Bible Teaching <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="bible-teaching-body">
+
+  <h3>More than avoiding punishment</h3>
+
+  <p>John 3:16 is one of the most widely known verses in the Bible. Most people understand it to mean that Jesus came so those who believe in Him will not go to hell. That is true, but it is not the whole message. Look at what the verse actually promises: not simply that you will escape punishment, but that you will <em>have everlasting life</em>. The primary gift Jesus came to bring was life. The removal of sin was necessary because sin was a barrier standing between us and that life. God's aim was always the life itself.</p>
+
+  <div class="callout caution">
+    <p class="callout-label">Caution</p>
+    <p>It is easy to reduce the Gospel to "getting into heaven and avoiding hell." While both heaven and hell are real and significant, making them the entire point misses what Jesus said the point was. When salvation is presented as only a future benefit, it can feel irrelevant to someone struggling right now. The truth is that God is offering a living relationship today, not only a distant destination.</p>
+  </div>
+
+  <h3>What eternal life actually is</h3>
+
+  <p>The night before His crucifixion, Jesus prayed and defined eternal life in His own words:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">John 17:3 (NKJV)</p>
+    <p class="scripture-text">And this is eternal life, that they may know You, the only true God, and Jesus Christ whom You have sent.</p>
+  </div>
+
+  <p>Eternal life, according to Jesus, is knowing God. Not knowing <em>about</em> God. Not holding a set of beliefs concerning Him from a safe distance. Knowing Him personally. Every person who has ever lived will continue to exist in some form after death; existence does not end at the grave. What Jesus offers is not simply existence that goes on forever, but a specific quality of life: a real, living relationship with the God who made you.</p>
+
+  <div class="callout note">
+    <p class="callout-label">Note</p>
+    <p>The word translated "know" in John 17:3 carries far more weight than intellectual awareness. In Genesis 4:1, the same Hebrew word is used to describe the closest possible relationship between a husband and wife. When Jesus says eternal life is "knowing" God, He is reaching for the most intimate kind of relationship human language can describe. Knowing God is not a matter of accumulating correct information about Him; it is a matter of genuine, personal closeness.</p>
+  </div>
+
+  <div class="callout depth">
+    <p class="callout-label">Going Deeper</p>
+    <p>The connection between "knowing" and spiritual union runs through the whole of Scripture. In 1 Corinthians 6:17 (NKJV), Paul writes: <em>"But he who is joined to the Lord is one spirit with Him."</em> The same principle that describes the closest human union is applied to our union with God. This is not metaphor for formal membership in a religion; it describes a genuine oneness of spirit. Eternal life, in this frame, is not a status you hold but a union you live in.</p>
+  </div>
+
+  <h3>Eternal life begins now</h3>
+
+  <p>A common assumption is that eternal life is something you receive when you die. The Bible corrects this directly:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">1 John 5:11&ndash;12 (NKJV)</p>
+    <p class="scripture-text">And this is the testimony: that God has given us eternal life, and this life is in His Son. He who has the Son has life; he who does not have the Son of God does not have life.</p>
+  </div>
+
+  <p>The verb is <em>has</em>, not <em>will have</em>. Eternal life is not waiting for you in the future; it becomes yours the moment you receive Jesus. The relationship with God that Jesus came to give is available today. This matters because many people are not primarily asking questions about eternity. Many are dealing with depression, broken relationships, poverty and exhaustion. God's offer meets them in those present realities, not only at the end of their lives.</p>
+
+  <h3>Life in abundance, starting today</h3>
+
+  <p>Jesus was direct about the quality of the life He came to provide:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">John 10:10 (NKJV)</p>
+    <p class="scripture-text">The thief does not come except to steal, and to kill, and to destroy. I have come that they may have life, and that they may have it more abundantly.</p>
+  </div>
+
+  <p>The contrast is deliberate. One force takes; Jesus gives. What He gives is not minimal survival but abundant life. The Apostle Paul confirms that this purpose extends into the present moment, not only into eternity:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">Galatians 1:4 (NKJV)</p>
+    <p class="scripture-text">Who gave Himself for our sins, that He might deliver us from this present evil age, according to the will of our God and Father.</p>
+  </div>
+
+  <p>Christ's mission was not only to secure your future in eternity but to intervene in your present. The relationship He offers with the Father changes how you live right now, not only where you go when you die.</p>
+
+  <div class="callout depth">
+    <p class="callout-label">Going Deeper</p>
+    <p>The word translated "deliver" in Galatians 1:4 carries the sense of active rescue or extraction from present danger, not a future exemption from consequence. This places the Gospel squarely in the middle of present life, not only at its end. The Gospel has two dimensions that belong together: future (everlasting life in the fullness of God's presence) and present (deliverance, restoration and relationship now). Separating them weakens both.</p>
+  </div>
+
+  <div class="callout tip">
+    <p class="callout-label">Practical Tip</p>
+    <p>When you next spend time in prayer or reading your Bible, try approaching it as time with someone who genuinely wants to know you, not as a duty or a transaction. Eternal life, as this lesson defines it, is a relationship. Relationships grow through time spent together. The ordinary rhythms of prayer and reading scripture are where that knowing begins to deepen.</p>
+  </div>
+
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 6: KEY DISCOVERY QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="discovery-questions">
+  <button class="section-toggle" aria-expanded="false" aria-controls="discovery-questions-body" id="discovery-questions-btn">
+    Key Discovery Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="discovery-questions-body">
+  <p>Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.</p>
+
+  <div class="answers-toolbar">
+    <button id="download-btn">&#8595; Download my answers</button>
+    <button class="clear-btn" id="clear-btn">Clear all answers</button>
+  </div>
+  <p class="answers-note">Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:38%;">Question</th>
+          <th style="width:31%;">My Answer</th>
+          <th style="width:31%;">Group Discussion Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Read John 3:16. What does this verse say God's purpose was in sending Jesus into the world?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q1-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q1-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read John 17:3. According to Jesus, what is eternal life? How does this compare to how you would have defined it before this lesson?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q2-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q2-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read 1 John 5:11&ndash;12. The verse uses present tense: "He who has the Son has life." What does it mean to you that eternal life is something you possess now, not only something waiting in the future?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q3-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q3-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read John 10:10. Jesus contrasts the thief with Himself. What does this tell you about God's intentions toward you?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q4-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q4-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>In your own words, describe what an "abundant life" (John 10:10) might look like in practice. What would be different about your daily life?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q5-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l01-q5-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 7: GROUP DISCUSSION QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="group-discussion">
+  <button class="section-toggle" aria-expanded="false" aria-controls="group-discussion-body" id="group-discussion-btn">
+    Group Discussion Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="group-discussion-body">
+  <p>These questions are designed for open conversation at any level of experience. There are no trick questions and no single correct answer.</p>
+
+  <ol>
+    <li style="margin-bottom:16px;">Before this lesson, how would you have described what "eternal life" means? How, if at all, has your understanding changed?</li>
+    <li style="margin-bottom:16px;">Jesus defines eternal life as knowing God (John 17:3). What difference does it make to think of your relationship with God as something personal and intimate rather than something formal or religious?</li>
+    <li style="margin-bottom:16px;">The lesson makes the point that eternal life is available now, not only after death. What would it look like in your own week if you actually lived as someone who has that life today?</li>
+    <li style="margin-bottom:16px;">John 10:10 says Jesus came so that we might have life "more abundantly." What obstacles, inside or outside yourself, do you think most often stop people from experiencing that abundance?</li>
+    <li style="margin-bottom:16px;">Galatians 1:4 says Christ gave Himself to "deliver us from this present evil age." For someone going through a genuinely difficult season right now, what is the most honest and helpful thing you could say about what that promise means?</li>
+  </ol>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 8: APPLICATION (collapsible)
+════════════════════════════════════════ -->
+<section id="application">
+  <button class="section-toggle" aria-expanded="false" aria-controls="application-body" id="application-btn">
+    Application <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="application-body">
+  <p>Eternal life is not a doctrine to hold at arm's length; it is a life to live. Consider how knowing God reshapes how you approach each of these areas.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22%;">Context</th>
+          <th>How I Apply This</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-cell">Personal life</td>
+          <td>Begin treating time with God in prayer and scripture as time in a relationship, not a religious duty. Ask yourself honestly: am I getting to know Him, or am I simply performing Christianity? If knowing God is what eternal life is, then growing in that knowledge matters every day, not only on Sundays.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Church community</td>
+          <td>When you hear others describe faith primarily as "going to heaven," look for a natural opportunity to share what Jesus said in John 17:3. Helping others understand that eternal life is knowing God now changes how they engage with faith today, not only what they expect in the future.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Difficult seasons</td>
+          <td>When life feels overwhelming, return to John 10:10 and Galatians 1:4. Jesus came to give abundant life and to deliver you from this present age, not only to rescue you in the next one. Bring your present circumstances to God with the expectation that He is actively involved in them, because He is.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 10: REVISION CARDS (collapsible)
+════════════════════════════════════════ -->
+<section id="revision-cards">
+  <button class="section-toggle" aria-expanded="false" aria-controls="revision-cards-body" id="revision-cards-btn">
+    Revision Cards <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="revision-cards-body">
+  <p class="flashcard-hint">Tap each card to reveal the answer.</p>
+
+  <div class="flashcard-grid">
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What does Jesus say eternal life is?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What does Jesus say eternal life is?</p>
+          <p class="fc-ref">John 17:3</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"And this is eternal life, that they may know You, the only true God, and Jesus Christ whom You have sent."</p>
+          <p class="fc-ref-back">John 17:3 (NKJV)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What does 'know' mean in John 17:3?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What does the word "know" mean in John 17:3?</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">Intimate, personal relationship; not intellectual knowledge. The same word describes the closest human bond (Genesis 4:1). Knowing God means genuine closeness, not knowing facts about Him from a distance.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: When does eternal life begin?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">When does eternal life begin?</p>
+          <p class="fc-ref">1 John 5:11&ndash;12</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"He who has the Son has life; he who does not have the Son of God does not have life."</p>
+          <p class="fc-ref-back">1 John 5:12 (NKJV). Present tense: now, not later.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What did Jesus say He came to give?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What did Jesus say He came to give?</p>
+          <p class="fc-ref">John 10:10</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"I have come that they may have life, and that they may have it more abundantly."</p>
+          <p class="fc-ref-back">John 10:10 (NKJV)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What present-tense purpose did Christ's death serve?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What present-tense purpose did Christ's death serve?</p>
+          <p class="fc-ref">Galatians 1:4</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"Who gave Himself for our sins, that He might deliver us from this present evil age, according to the will of our God and Father."</p>
+          <p class="fc-ref-back">Galatians 1:4 (NKJV)</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end flashcard-grid -->
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<div class="page-footer">
+  <p>Bible Truth Foundations &middot; Part 1 of 3: New Life in Christ &middot; Lesson 01: Eternal Life<br>
+  The Well Shrewsbury &middot; <a href="btf-p1-home.html">Back to all lessons</a></p>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     FLOATING TOC
+════════════════════════════════════════ -->
+<nav class="toc-container" role="navigation" aria-label="Jump to section">
+  <div class="toc-menu" id="toc-menu">
+    <a href="#opening-question">Opening Question</a>
+    <a href="#key-scripture">Key Scripture</a>
+    <a href="#core-truth">Core Truth</a>
+    <a href="#bible-teaching">Bible Teaching</a>
+    <a href="#discovery-questions">Key Discovery Questions</a>
+    <a href="#group-discussion">Group Discussion</a>
+    <a href="#application">Application</a>
+    <a href="#revision-cards">Revision Cards</a>
+  </div>
+  <button class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">
+    &#9776; Jump to section
+  </button>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // ── Collapsible sections ──
+    ['bible-teaching', 'discovery-questions', 'group-discussion', 'application', 'revision-cards'].forEach(function (id) {
+      var btn  = document.getElementById(id + '-btn');
+      var body = document.getElementById(id + '-body');
+      if (!btn || !body) { return; }
+      btn.addEventListener('click', function () {
+        var open = body.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+
+    // ── Floating TOC ──
+    var tocBtn  = document.getElementById('toc-btn');
+    var tocMenu = document.getElementById('toc-menu');
+    tocBtn.addEventListener('click', function () {
+      var open = tocMenu.classList.toggle('open');
+      tocBtn.setAttribute('aria-expanded', String(open));
+    });
+    tocMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        tocMenu.classList.remove('open');
+        tocBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── Flashcard flip ──
+    document.querySelectorAll('.flashcard').forEach(function (card) {
+      function flip() { card.classList.toggle('flipped'); }
+      card.addEventListener('click', flip);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+      });
+    });
+
+    // ── Fillable answers: localStorage save and restore ──
+    var storageAvailable = false;
+    try {
+      localStorage.setItem('_btf_test', '1');
+      localStorage.removeItem('_btf_test');
+      storageAvailable = true;
+    } catch (e) {
+      storageAvailable = false;
+    }
+
+    var fillables = document.querySelectorAll('.fillable[data-key]');
+
+    // Restore saved answers
+    fillables.forEach(function (el) {
+      if (storageAvailable) {
+        var saved = localStorage.getItem(el.getAttribute('data-key'));
+        if (saved) { el.innerHTML = saved; }
+      }
+    });
+
+    // Save on input
+    fillables.forEach(function (el) {
+      el.addEventListener('input', function () {
+        if (storageAvailable) {
+          localStorage.setItem(el.getAttribute('data-key'), el.innerHTML);
+        }
+      });
+    });
+
+    // ── Download answers as plain text file ──
+    document.getElementById('download-btn').addEventListener('click', function () {
+      var questions = document.querySelectorAll('#discovery-questions tbody tr');
+      var lines = ['Bible Truth Foundations: Part 1 of 3', 'Lesson 01: Eternal Life', 'Key Discovery Questions', ''];
+      questions.forEach(function (row, i) {
+        var cells = row.querySelectorAll('td');
+        var question = cells[0] ? cells[0].innerText.trim() : '';
+        var answer   = cells[1] ? cells[1].querySelector('.fillable').innerText.trim() : '';
+        var notes    = cells[2] ? cells[2].querySelector('.fillable').innerText.trim() : '';
+        lines.push('Q' + (i + 1) + ': ' + question);
+        lines.push('My Answer: ' + (answer || '(no answer entered)'));
+        lines.push('Group Notes: ' + (notes || '(no notes entered)'));
+        lines.push('');
+      });
+      var blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+      var url  = URL.createObjectURL(blob);
+      var a    = document.createElement('a');
+      a.href     = url;
+      a.download = 'btf-p1-l01-my-answers.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    // ── Clear all answers ──
+    document.getElementById('clear-btn').addEventListener('click', function () {
+      if (!confirm('Clear all your answers for this lesson? This cannot be undone.')) { return; }
+      fillables.forEach(function (el) {
+        el.innerHTML = '';
+        if (storageAvailable) { localStorage.removeItem(el.getAttribute('data-key')); }
+      });
+    });
+
+  });
+</script>
+
+</body>
+</html>

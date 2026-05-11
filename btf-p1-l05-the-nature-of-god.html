@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 05: The Nature of God – Bible Truth Foundations Part 1</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #1c1c1e;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) { body { padding: 0 32px; } }
+  @media (min-width: 900px) { body { max-width: 900px; margin: 0 auto; } }
+
+  /* ── Title block ── */
+  .title-block { text-align: center; padding: 40px 0 0; }
+  .series-name {
+    font-size: 28px; font-weight: 700; letter-spacing: 0.06em;
+    color: #1F3864; text-transform: uppercase; margin: 0 0 6px; line-height: 1.2;
+  }
+  .series-part { font-size: 17px; font-style: italic; color: #1c1c1e; margin: 0 0 10px; }
+  .title-rule { border: none; border-top: 2px solid #1F3864; margin: 12px auto 20px; width: 100%; }
+  h1 { font-size: 22px; font-weight: 700; color: #1F3864; margin: 0 0 4px; line-height: 1.3; }
+  .lesson-meta { font-size: 13px; color: #555; margin: 0 0 24px; }
+
+  /* ── Headings ── */
+  h2 {
+    font-size: 22px; font-weight: 700; color: #1F3864;
+    text-transform: uppercase; letter-spacing: 0.07em; margin-top: 40px; margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 18px; font-weight: 700; color: #1F3864;
+    margin-top: 28px; margin-bottom: 8px;
+    border-bottom: 1px solid #cccccc; padding-bottom: 4px;
+  }
+  p { margin-bottom: 16px; }
+  a { color: #1F3864; text-decoration: underline; }
+  a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Opening question ── */
+  .opening-box {
+    border: 2px solid #1F3864; border-radius: 4px;
+    padding: 20px 24px; background: #f2f2f2; margin: 16px 0 24px;
+  }
+  .opening-box p:last-child { margin-bottom: 0; }
+  .question-text { font-size: 17px; font-weight: 700; color: #1F3864; margin: 12px 0 0; }
+
+  /* ── Core Truth ── */
+  .core-truth-box {
+    background: #1F3864; border-radius: 4px;
+    padding: 24px 28px; margin: 24px 0; text-align: center;
+  }
+  .core-truth-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #f0b429; margin: 0 0 12px;
+  }
+  .core-truth-statement {
+    font-size: 19px; font-weight: 700; color: #ffffff; line-height: 1.45; margin: 0;
+  }
+
+  /* ── Scripture blocks ── */
+  .scripture-block {
+    border-left: 4px solid #1F3864; background: #f2f2f2;
+    padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0;
+  }
+  .scripture-ref {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+    color: #1F3864; text-transform: uppercase; margin: 0 0 8px;
+  }
+  .scripture-text { font-size: 15px; line-height: 1.7; color: #1c1c1e; margin: 0; font-style: italic; }
+  .scripture-note { font-size: 13px; color: #555; margin-top: -12px; margin-bottom: 24px; }
+
+  /* ── Callout boxes ── */
+  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+  .callout-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.note    { border-left: 4px solid #d97706; background: #fffbf0; }
+  .callout.note    .callout-label { color: #d97706; }
+  .callout.depth   { border-left: 4px solid #1F3864; background: #eef2f8; }
+  .callout.depth   .callout-label { color: #1F3864; }
+  .callout.tip     { border-left: 4px solid #276221; background: #f0f7f0; }
+  .callout.tip     .callout-label { color: #276221; }
+  .callout.caution { border-left: 4px solid #8b0000; background: #fce8e8; }
+  .callout.caution .callout-label { color: #8b0000; }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #1F3864; color: #ffffff; }
+  thead th {
+    padding: 10px 14px; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.04em; border: 1px solid #cccccc; text-align: left;
+  }
+  tbody td { padding: 10px 14px; border: 1px solid #cccccc; vertical-align: top; }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+  tbody tr:nth-child(even) { background: #f2f2f2; }
+  td.label-cell { background: #f2f2f2; font-weight: 700; white-space: nowrap; width: 160px; }
+
+  /* ── Fillable answer cells ── */
+  .fillable {
+    min-height: 60px; outline: none; background: #fffbf0; border-radius: 2px;
+    padding: 4px 6px; font-family: Arial, Helvetica, sans-serif; font-size: 14px;
+    line-height: 1.5; color: #1c1c1e; display: block; width: 100%;
+    box-sizing: border-box; transition: background 0.15s;
+  }
+  .fillable:focus { background: #fff8e1; outline: 2px solid #d97706; outline-offset: 0; }
+  .fillable:empty::before { content: attr(data-placeholder); color: #aaa; pointer-events: none; }
+  .answers-toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 12px 0 4px; }
+  .answers-toolbar button {
+    background: #1F3864; color: #ffffff; border: none; border-radius: 4px;
+    padding: 7px 14px; font-size: 13px; font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif; cursor: pointer;
+  }
+  .answers-toolbar button:hover { background: #2c54a0; }
+  .answers-toolbar button:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .answers-toolbar button.clear-btn { background: #ffffff; color: #8b0000; border: 1px solid #8b0000; }
+  .answers-toolbar button.clear-btn:hover { background: #fce8e8; }
+  .answers-note { font-size: 12px; color: #777; margin: 0 0 16px; }
+
+  /* ── Collapsible sections ── */
+  .section-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; background: none; border: none;
+    border-bottom: 2px solid #1F3864; padding: 8px 0; cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700;
+    color: #1F3864; text-transform: uppercase; letter-spacing: 0.07em;
+    margin-top: 40px; text-align: left;
+  }
+  .section-toggle:hover { color: #2c54a0; border-bottom-color: #2c54a0; }
+  .section-toggle:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .section-chevron {
+    font-size: 15px; transition: transform 0.25s ease;
+    flex-shrink: 0; margin-left: 12px; font-weight: 400;
+  }
+  .section-toggle[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
+  .section-body { display: none; }
+  .section-body.open { display: block; }
+
+  /* ── Revision cards ── */
+  .flashcard-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px; margin: 16px 0 24px;
+  }
+  .flashcard { height: 180px; perspective: 1000px; cursor: pointer; }
+  .flashcard-inner {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d; transition: transform 0.45s ease; border-radius: 6px;
+  }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-front, .flashcard-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border-radius: 6px; padding: 18px; display: flex;
+    flex-direction: column; justify-content: center;
+  }
+  .flashcard-front { background: #ffffff; border: 2px solid #1F3864; }
+  .flashcard-back  { background: #1F3864; transform: rotateY(180deg); }
+  .fc-prompt   { font-size: 14px; font-weight: 700; color: #1F3864; margin: 0 0 8px; line-height: 1.4; }
+  .fc-ref      { font-size: 12px; color: #60a5fa; font-weight: 700; margin: 0; letter-spacing: 0.05em; }
+  .fc-verse    { font-size: 13px; color: #e8e4dc; font-style: italic; margin: 0 0 8px; line-height: 1.5; }
+  .fc-ref-back { font-size: 12px; color: #f0b429; font-weight: 700; margin: 0; letter-spacing: 0.04em; }
+  .fc-def      { font-size: 13px; color: #e8e4dc; margin: 0; line-height: 1.5; }
+  .flashcard-hint { font-size: 12px; color: #888; text-align: center; margin-bottom: 8px; }
+
+  /* ── Progression link ── */
+  .progression-link {
+    border-left: 4px solid #cccccc; background: #f9f9f9;
+    padding: 12px 16px; margin: 0 0 24px; border-radius: 0 4px 4px 0;
+    font-size: 14px; color: #555;
+  }
+  .progression-link strong { color: #1F3864; }
+
+  /* ── Back link and footer ── */
+  .back-link { font-size: 13px; margin-bottom: 8px; display: block; padding-top: 24px; }
+  .page-footer {
+    font-size: 13px; color: #888; text-align: center;
+    border-top: 1px solid #cccccc; padding: 24px 0 40px; margin-top: 16px;
+  }
+
+  /* ── Floating TOC ── */
+  .toc-container { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
+  .toc-btn {
+    background: #1F3864; color: #ffffff; border: none; border-radius: 4px;
+    padding: 10px 16px; font-size: 13px; font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif; cursor: pointer;
+    display: block; width: 100%; text-align: left;
+  }
+  .toc-btn:hover { background: #2c54a0; }
+  .toc-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .toc-menu {
+    display: none; background: #1F3864; border-radius: 4px 4px 0 0;
+    padding: 8px 0; margin-bottom: 4px; max-height: 60vh;
+    overflow-y: auto; min-width: 220px;
+  }
+  .toc-menu.open { display: block; }
+  .toc-menu a { display: block; padding: 8px 16px; color: #ffffff; text-decoration: none; font-size: 13px; }
+  .toc-menu a:hover { background: #2c54a0; color: #ffffff; }
+  .toc-menu a:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Print ── */
+  @media print {
+    .toc-container { display: none; }
+    .section-body { display: block !important; }
+    body { color: #1c1c1e; }
+    a { color: #1c1c1e; }
+    .flashcard-front { border: 1px solid #cccccc; }
+    .flashcard-back { background: #f2f2f2; }
+    .fc-verse, .fc-def { color: #1c1c1e; }
+    print-color-adjust: exact;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     SECTION 1: TITLE AND SERIES POSITION
+════════════════════════════════════════ -->
+<a class="back-link" href="btf-p1-home.html">&#8592; Back to all lessons</a>
+
+<div class="title-block">
+  <p class="series-name">Bible Truth Foundations</p>
+  <p class="series-part">Part 1 of 3: New Life in Christ</p>
+</div>
+<hr class="title-rule">
+<div class="title-block" style="padding-top:0;">
+  <h1>The Nature of God</h1>
+  <p class="lesson-meta">Lesson 5 of 16 &nbsp;|&nbsp; Section B: Knowing God</p>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 2: OPENING QUESTION
+════════════════════════════════════════ -->
+<section id="opening-question">
+  <h2>Opening Question</h2>
+  <div class="opening-box">
+    <p>Please begin by answering this question honestly in your own words.</p>
+    <p class="question-text">When you read the Old Testament, does God seem the same to you as the God you see in Jesus? If there seems to be a difference, where do you think it comes from?</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 3: KEY SCRIPTURE
+════════════════════════════════════════ -->
+<section id="key-scripture">
+  <h2>Key Scripture</h2>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">John 14:9 (NKJV)</p>
+    <p class="scripture-text">Jesus said to him, "Have I been with you so long, and yet you have not known Me, Philip? He who has seen Me has seen the Father; so how can you say, 'Show us the Father'?"</p>
+  </div>
+
+  <p class="scripture-note"><em>Jesus is not describing a resemblance. He is making an identity claim. Hold that thought as you read the teaching.</em></p>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 4: CORE TRUTH
+════════════════════════════════════════ -->
+<section id="core-truth">
+  <h2>Core Truth</h2>
+  <div class="core-truth-box">
+    <p class="core-truth-label">The central idea of this lesson</p>
+    <p class="core-truth-statement">Jesus is the clearest and fullest picture of who God is. If you want to know God's nature, look at how Jesus treated people. That is not a departure from the Father's character; it is its most precise expression.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 5: BIBLE TEACHING (collapsible)
+════════════════════════════════════════ -->
+<section id="bible-teaching">
+  <button class="section-toggle" aria-expanded="false" aria-controls="bible-teaching-body" id="bible-teaching-btn">
+    Bible Teaching <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="bible-teaching-body">
+
+  <div class="progression-link">
+    <strong>Building on Lesson 04.</strong> The previous lesson established that God's heart has always been to draw people close, not keep them at a distance, and that His love preceded any human response. This lesson goes further by asking: if God's nature is love, why does Scripture sometimes appear to show Him in a very different light? And how do we know, with confidence, what God is actually like?
+  </div>
+
+  <h3>Why Scripture appears to show two different Gods</h3>
+
+  <p>Many people come to the Bible and encounter what feels like a jarring contrast. In parts of the Old Testament, God appears severe, demanding and at times ferocious in His response to human sin. In the New Testament, particularly in Jesus, He appears gentle, restorative and slow to condemn. The temptation is to conclude that God changed, or that the two Testaments describe different deities. Neither is true. The character of God has never changed. What changed was the method of relating to humanity at a particular stage of history, and understanding why requires understanding the purpose of the Old Testament law.</p>
+
+  <div class="callout note">
+    <p class="callout-label">Note</p>
+    <p>Think of how parents raise small children. With a very young child, you cannot explain the reasons behind a rule: why it is dangerous to run into traffic, why they cannot eat whatever they want, why they must treat others with kindness. The child is not yet capable of processing the reasoning. So you give simple rules and enforce them with clear consequences. That does not mean you love the child less or that harshness is your fundamental nature; it means you are meeting the child where they are developmentally. This is the framework the source material behind this lesson uses to explain why the Old Testament often looks the way it does. God was not being harsh for its own sake; He was meeting humanity at a particular stage of its capacity.</p>
+  </div>
+
+  <h3>The law's actual purpose: a mirror, not a ladder</h3>
+
+  <p>The Old Testament law is often misread as the thing God wanted people to keep in order to earn His acceptance. That is not its stated purpose. The New Testament is explicit about what the law was for:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">Romans 7:7 (NKJV)</p>
+    <p class="scripture-text">What shall we say then? Is the law sin? Certainly not! On the contrary, I would not have known sin except through the law. For I would not have known covetousness unless the law had said, "You shall not covet."</p>
+  </div>
+
+  <p>The law was not a ladder to climb toward God's acceptance; it was a mirror that showed humanity what it was actually like. When you look in a mirror and see a dirty face, the mirror has done its job. You do not wash the mirror; you wash your face. The law diagnosed the problem with precision so that the remedy, when it came in Christ, would be understood as necessary.</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">Galatians 3:24 (NKJV)</p>
+    <p class="scripture-text">Therefore the law was our tutor to bring us to Christ, that we might be justified by faith.</p>
+  </div>
+
+  <p>Paul calls the law a "tutor" or schoolmaster: a temporary guardian whose role was to bring a person to the point of readiness for something greater. Once you reach the teacher, the tutor steps back. The law pointed to Christ; it was never the destination itself.</p>
+
+  <div class="callout depth">
+    <p class="callout-label">Going Deeper</p>
+    <p>Romans 5:13 (NKJV) contains a striking statement about the period before the law was given: <em>"For until the law sin was in the world, but sin is not imputed when there is no law."</em> The word "imputed" is a bookkeeping term: to charge something to someone's account. Before the Ten Commandments were given through Moses, sin existed but was not being formally charged against people's accounts in the same way. This does not mean sin was harmless; it means God's response to it was operating differently. He was not maintaining distance from sinful humanity; He was continuing to pursue relationship with it. Genesis 4 records God speaking directly to Cain and Abel after the fall of their parents, conducting conversations in an audible voice that neither of them found alarming. They were accustomed to it. God had not withdrawn.</p>
+  </div>
+
+  <h3>God was still present after the fall</h3>
+
+  <p>The common assumption is that once sin entered through Adam and Eve, God retreated from humanity behind a barrier of holiness that could not be crossed until Christ. Genesis 4 challenges that assumption directly. After the events of Genesis 3, God is still in active conversation with Adam's children:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">Genesis 4:6&ndash;7 (NKJV)</p>
+    <p class="scripture-text">So the LORD said to Cain, "Why are you angry? And why has your countenance fallen? If you do well, will you not be accepted? And if you do not do well, sin lies at the door. And its desire is for you, but you should rule over it."</p>
+  </div>
+
+  <p>This exchange happened before any formal covenant or law had been given, and it shows God reasoning with a man, warning him, caring about what he was about to do. When Cain then killed his brother and God asked "Where is Abel your brother?" (Genesis 4:9, NKJV), Cain's response was the lie of someone so accustomed to God's voice that he had lost proper reverence for it. He was not cowering in terror at an approach from a distant, inaccessible deity. He was talking back. That familiarity only makes sense if God had been present and approachable in the ordinary course of life.</p>
+
+  <div class="callout caution">
+    <p class="callout-label">Caution</p>
+    <p>It is important not to swing from one error to another here. Saying that God continued to fellowship with humanity after sin does not mean He condoned sin or treated it as harmless. The consequences that followed disobedience in the Old Testament were real and sometimes severe. The point is that severity of consequence is not the same as withdrawal of relationship. A parent who disciplines a child they love is not demonstrating that love has ended; they are demonstrating that they care about what the child becomes. The disciplinary framework of the Old Testament was an expression of God's care, not a contradiction of it.</p>
+  </div>
+
+  <h3>Jesus: the precise image of the Father's nature</h3>
+
+  <p>The definitive answer to the question "what is God actually like?" is given in the person of Jesus Christ. John's Gospel establishes this from its opening verses. By the time John 3:34 is reached, the point is already clear:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">John 3:34 (NKJV)</p>
+    <p class="scripture-text">For He whom God has sent speaks the words of God, for God does not give the Spirit by measure.</p>
+  </div>
+
+  <p>The Spirit being given without measure to Jesus means His expression of God's character was not partial, filtered or incomplete. He was not showing one aspect of God while other aspects remained hidden. What you see in Jesus is the full thing. That is why His answer to Philip in John 14:9 is so decisive: "He who has seen Me has seen the Father." This is not modesty about the question; it is the answer. If you want to know what God is like toward someone who has failed, look at how Jesus treated the woman in John 8. If you want to know what God is like toward someone who is sick, look at how Jesus healed. If you want to know whether God is interested in ordinary people, look at whose dinner table Jesus chose to sit at.</p>
+
+  <div class="callout depth">
+    <p class="callout-label">Going Deeper</p>
+    <p>Colossians 1:15 (NKJV) states: <em>"He is the image of the invisible God, the firstborn over all creation."</em> The word translated "image" is the Greek <em>eikon</em>, from which we get the English word "icon." An icon is not a rough approximation; it is an exact visible representation of something. Paul is saying that in Jesus, the invisible God has become precisely visible. Hebrews 1:3 (NKJV) adds: <em>"who being the brightness of His glory and the express image of His person."</em> The phrase "express image" translates <em>charakt&#275;r</em>, the Greek word for an engraving tool or the exact impression it stamps: the image that perfectly matches the die that produced it. The New Testament writers are not using vague language about resemblance. They are making the strongest possible claim: in Jesus, what God is like became exactly and completely visible.</p>
+  </div>
+
+  <h3>What this means for relating to God now</h3>
+
+  <p>Because Jesus is the fullest expression of God's character, reading the Gospels is not merely a historical exercise. It is a direct window into the nature of the God you are in relationship with today. Every time Jesus reached toward someone the religious establishment had written off, that is God's disposition toward the overlooked. Every time Jesus restored a person others expected to be condemned, that is God's instinct toward failure. The nature you observe in the Gospels is not a temporary display put on for the purpose of the Incarnation; it is the eternal character of God made visible in time.</p>
+
+  <div class="callout tip">
+    <p class="callout-label">Practical Tip</p>
+    <p>Choose one of the healing or restoration accounts in the Gospels this week: perhaps the ten lepers in Luke 17:11-19, or blind Bartimaeus in Mark 10:46-52, or the paralysed man at the pool in John 5:1-9. Read it slowly and ask two questions: first, who initiated the encounter; second, what did Jesus require of the person before He helped them. Bring your findings to your group. The pattern you find across these accounts is not incidental; it is a portrait of God's character in action.</p>
+  </div>
+
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 6: KEY DISCOVERY QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="discovery-questions">
+  <button class="section-toggle" aria-expanded="false" aria-controls="discovery-questions-body" id="discovery-questions-btn">
+    Key Discovery Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="discovery-questions-body">
+  <p>Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.</p>
+
+  <div class="answers-toolbar">
+    <button id="download-btn">&#8595; Download my answers</button>
+    <button class="clear-btn" id="clear-btn">Clear all answers</button>
+  </div>
+  <p class="answers-note">Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:38%;">Question</th>
+          <th style="width:31%;">My Answer</th>
+          <th style="width:31%;">Group Discussion Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Read Romans 7:7. Paul says "I would not have known sin except through the law." What does this tell you about the law's purpose? Was the law meant to be the way to earn God's acceptance?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q1-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q1-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read Galatians 3:24. Paul calls the law a "tutor." What is the difference between a tutor and a destination? How does this reframe the relationship between the Old Testament and the New?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q2-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q2-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read Genesis 4:6-9. God was still talking with Cain after the fall of Adam and Eve. What does this tell you about whether sin caused God to withdraw from humanity?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q3-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q3-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read John 14:9. Jesus says "He who has seen Me has seen the Father." In your own words, what is He claiming? What does that mean for how we understand God's character?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q4-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q4-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Think of one account in the Gospels where Jesus healed or restored someone. Who initiated the encounter? What did Jesus require before He helped them? What does that tell you about God's nature?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q5-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l05-q5-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 7: GROUP DISCUSSION QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="group-discussion">
+  <button class="section-toggle" aria-expanded="false" aria-controls="group-discussion-body" id="group-discussion-btn">
+    Group Discussion Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="group-discussion-body">
+  <p>These questions are designed for open conversation at any level of experience. There are no trick questions and no single correct answer.</p>
+
+  <ol>
+    <li style="margin-bottom:16px;">The lesson uses the image of a parent with a young child to explain why the Old Testament law was enforced with such severity. Does that analogy help you, or does it raise further questions? What questions does it leave unanswered for you?</li>
+    <li style="margin-bottom:16px;">Romans 7:7 says the law was designed to reveal sin, not to be a means of earning acceptance. If that is true, how do you explain the way so many religious people throughout history have used law-keeping as the basis for their relationship with God?</li>
+    <li style="margin-bottom:16px;">Genesis 4:6-7 shows God reasoning gently with Cain before he committed the first murder: warning him, encouraging him to make a different choice. Does that picture of God before the law surprise you? How does it fit with how you previously imagined God in those early chapters of Genesis?</li>
+    <li style="margin-bottom:16px;">Jesus said "He who has seen Me has seen the Father" (John 14:9). If that is the standard for understanding God's character, which specific thing Jesus did or said do you find most revealing about what God is actually like?</li>
+    <li style="margin-bottom:16px;">Colossians 1:15 calls Jesus "the image of the invisible God." If someone who had never read a Bible asked you to describe what God was like, and you could only use Jesus as your source, what would you say?</li>
+  </ol>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 8: APPLICATION (collapsible)
+════════════════════════════════════════ -->
+<section id="application">
+  <button class="section-toggle" aria-expanded="false" aria-controls="application-body" id="application-btn">
+    Application <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="application-body">
+  <p>Understanding God's nature is not a purely intellectual exercise. How you see God shapes how you pray, how you treat others and how you respond when life is hard. Consider where these truths need to take root.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22%;">Context</th>
+          <th>How I Apply This</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-cell">Reading the Old Testament</td>
+          <td>When you encounter a difficult passage in the Old Testament where God's response seems severe, hold it alongside John 14:9 and ask: what is the purpose of this, given what I know God's character to be from Jesus? The law was a tutor pointing toward Christ; the severity was proportional to the stage of the journey, not an expression of God's ultimate nature. Let Jesus be the interpretive key for every other part of Scripture.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">In how you pray</td>
+          <td>Before you pray this week, spend a moment recalling a specific account of Jesus healing or restoring someone in the Gospels. Bring that picture into your mind as you begin. You are not approaching a judge who requires a carefully worded case. You are approaching the God whose character was expressed in that account. Let the image shape the posture of your prayer.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">In conversations about God</td>
+          <td>When someone expresses a view of God as harsh, distant or impossible to please, ask them which picture of God they are working from. Many people's view of God was formed by religious experience, cultural assumption or selective reading of the Old Testament rather than by looking at Jesus directly. Pointing to John 14:9 and asking "what does Jesus show you about the Father's character?" is often more productive than a theological argument.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 9: REVISION CARDS (collapsible)
+════════════════════════════════════════ -->
+<section id="revision-cards">
+  <button class="section-toggle" aria-expanded="false" aria-controls="revision-cards-body" id="revision-cards-btn">
+    Revision Cards <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="revision-cards-body">
+  <p class="flashcard-hint">Tap each card to reveal the answer.</p>
+
+  <div class="flashcard-grid">
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: John 14:9">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What did Jesus say to Philip about seeing the Father?</p>
+          <p class="fc-ref">John 14:9</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"He who has seen Me has seen the Father; so how can you say, 'Show us the Father'?"</p>
+          <p class="fc-ref-back">John 14:9 (NKJV). Jesus is not a resemblance of the Father; He is His precise expression.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: Purpose of the law">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What was the purpose of the Old Testament law?</p>
+          <p class="fc-ref">Romans 7:7; Galatians 3:24</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">To reveal sin (Romans 7:7) and act as a tutor to bring people to Christ (Galatians 3:24). A mirror, not a ladder. It diagnosed the problem; it was never the remedy itself.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What does imputed mean in Romans 5:13?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What does "sin is not imputed" mean in Romans 5:13?</p>
+          <p class="fc-ref">Romans 5:13</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"For until the law sin was in the world, but sin is not imputed when there is no law."</p>
+          <p class="fc-ref-back">Imputed means charged to your account. Before the law, sin was not being formally charged; God was still in relationship with humanity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: Colossians 1:15">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">How does Colossians 1:15 describe Jesus in relation to God?</p>
+          <p class="fc-ref">Colossians 1:15</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"He is the image of the invisible God, the firstborn over all creation."</p>
+          <p class="fc-ref-back">Colossians 1:15 (NKJV). Not a partial image; the invisible God made exactly and completely visible.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: Did God withdraw after the fall?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">Did God withdraw from humanity after the fall of Adam and Eve?</p>
+          <p class="fc-ref">Genesis 4:6&ndash;9</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">No. Genesis 4 shows God still in direct conversation with Cain and Abel, reasoning, warning, and engaging. The withdrawal after sin was on the human side; God continued to pursue.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: Galatians 3:24 - tutor">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What word does Paul use for the law's role in Galatians 3:24, and what does it mean?</p>
+          <p class="fc-ref">Galatians 3:24</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"Therefore the law was our tutor to bring us to Christ, that we might be justified by faith."</p>
+          <p class="fc-ref-back">Galatians 3:24 (NKJV). Tutor: a temporary guardian pointing toward the destination, not the destination itself.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end flashcard-grid -->
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<div class="page-footer">
+  <p>Bible Truth Foundations &middot; Part 1 of 3: New Life in Christ &middot; Lesson 05: The Nature of God<br>
+  The Well Shrewsbury &middot; <a href="btf-p1-home.html">Back to all lessons</a></p>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     FLOATING TOC
+════════════════════════════════════════ -->
+<nav class="toc-container" role="navigation" aria-label="Jump to section">
+  <div class="toc-menu" id="toc-menu">
+    <a href="#opening-question">Opening Question</a>
+    <a href="#key-scripture">Key Scripture</a>
+    <a href="#core-truth">Core Truth</a>
+    <a href="#bible-teaching">Bible Teaching</a>
+    <a href="#discovery-questions">Key Discovery Questions</a>
+    <a href="#group-discussion">Group Discussion</a>
+    <a href="#application">Application</a>
+    <a href="#revision-cards">Revision Cards</a>
+  </div>
+  <button class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">
+    &#9776; Jump to section
+  </button>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // ── Collapsible sections ──
+    ['bible-teaching', 'discovery-questions', 'group-discussion', 'application', 'revision-cards'].forEach(function (id) {
+      var btn  = document.getElementById(id + '-btn');
+      var body = document.getElementById(id + '-body');
+      if (!btn || !body) { return; }
+      btn.addEventListener('click', function () {
+        var open = body.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+
+    // ── Floating TOC ──
+    var tocBtn  = document.getElementById('toc-btn');
+    var tocMenu = document.getElementById('toc-menu');
+    tocBtn.addEventListener('click', function () {
+      var open = tocMenu.classList.toggle('open');
+      tocBtn.setAttribute('aria-expanded', String(open));
+    });
+    tocMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        tocMenu.classList.remove('open');
+        tocBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── Revision card flip ──
+    document.querySelectorAll('.flashcard').forEach(function (card) {
+      function flip() { card.classList.toggle('flipped'); }
+      card.addEventListener('click', flip);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+      });
+    });
+
+    // ── Fillable answers: localStorage save and restore ──
+    var storageAvailable = false;
+    try {
+      localStorage.setItem('_btf_test', '1');
+      localStorage.removeItem('_btf_test');
+      storageAvailable = true;
+    } catch (e) { storageAvailable = false; }
+
+    var fillables = document.querySelectorAll('.fillable[data-key]');
+
+    fillables.forEach(function (el) {
+      if (storageAvailable) {
+        var saved = localStorage.getItem(el.getAttribute('data-key'));
+        if (saved) { el.innerHTML = saved; }
+      }
+    });
+
+    fillables.forEach(function (el) {
+      el.addEventListener('input', function () {
+        if (storageAvailable) {
+          localStorage.setItem(el.getAttribute('data-key'), el.innerHTML);
+        }
+      });
+    });
+
+    // ── Download answers ──
+    document.getElementById('download-btn').addEventListener('click', function () {
+      var questions = document.querySelectorAll('#discovery-questions tbody tr');
+      var lines = ['Bible Truth Foundations: Part 1 of 3', 'Lesson 05: The Nature of God', 'Key Discovery Questions', ''];
+      questions.forEach(function (row, i) {
+        var cells    = row.querySelectorAll('td');
+        var question = cells[0] ? cells[0].innerText.trim() : '';
+        var answer   = cells[1] ? cells[1].querySelector('.fillable').innerText.trim() : '';
+        var notes    = cells[2] ? cells[2].querySelector('.fillable').innerText.trim() : '';
+        lines.push('Q' + (i + 1) + ': ' + question);
+        lines.push('My Answer: ' + (answer || '(no answer entered)'));
+        lines.push('Group Notes: ' + (notes || '(no notes entered)'));
+        lines.push('');
+      });
+      var blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+      var url  = URL.createObjectURL(blob);
+      var a    = document.createElement('a');
+      a.href = url; a.download = 'btf-p1-l05-my-answers.txt';
+      document.body.appendChild(a); a.click();
+      document.body.removeChild(a); URL.revokeObjectURL(url);
+    });
+
+    // ── Clear answers ──
+    document.getElementById('clear-btn').addEventListener('click', function () {
+      if (!confirm('Clear all your answers for this lesson? This cannot be undone.')) { return; }
+      fillables.forEach(function (el) {
+        el.innerHTML = '';
+        if (storageAvailable) { localStorage.removeItem(el.getAttribute('data-key')); }
+      });
+    });
+
+  });
+</script>
+
+</body>
+</html>

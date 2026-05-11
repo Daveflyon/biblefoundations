@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 07: Commitment – Bible Truth Foundations Part 1</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #1c1c1e;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) { body { padding: 0 32px; } }
+  @media (min-width: 900px) { body { max-width: 900px; margin: 0 auto; } }
+
+  .title-block { text-align: center; padding: 40px 0 0; }
+  .series-name {
+    font-size: 28px; font-weight: 700; letter-spacing: 0.06em;
+    color: #1F3864; text-transform: uppercase; margin: 0 0 6px; line-height: 1.2;
+  }
+  .series-part { font-size: 17px; font-style: italic; color: #1c1c1e; margin: 0 0 10px; }
+  .title-rule { border: none; border-top: 2px solid #1F3864; margin: 12px auto 20px; width: 100%; }
+  h1 { font-size: 22px; font-weight: 700; color: #1F3864; margin: 0 0 4px; line-height: 1.3; }
+  .lesson-meta { font-size: 13px; color: #555; margin: 0 0 24px; }
+
+  h2 {
+    font-size: 22px; font-weight: 700; color: #1F3864;
+    text-transform: uppercase; letter-spacing: 0.07em; margin-top: 40px; margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 18px; font-weight: 700; color: #1F3864;
+    margin-top: 28px; margin-bottom: 8px;
+    border-bottom: 1px solid #cccccc; padding-bottom: 4px;
+  }
+  p { margin-bottom: 16px; }
+  a { color: #1F3864; text-decoration: underline; }
+  a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  .opening-box {
+    border: 2px solid #1F3864; border-radius: 4px;
+    padding: 20px 24px; background: #f2f2f2; margin: 16px 0 24px;
+  }
+  .opening-box p:last-child { margin-bottom: 0; }
+  .question-text { font-size: 17px; font-weight: 700; color: #1F3864; margin: 12px 0 0; }
+
+  .core-truth-box {
+    background: #1F3864; border-radius: 4px;
+    padding: 24px 28px; margin: 24px 0; text-align: center;
+  }
+  .core-truth-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #f0b429; margin: 0 0 12px;
+  }
+  .core-truth-statement {
+    font-size: 19px; font-weight: 700; color: #ffffff; line-height: 1.45; margin: 0;
+  }
+
+  .scripture-block {
+    border-left: 4px solid #1F3864; background: #f2f2f2;
+    padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0;
+  }
+  .scripture-ref {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+    color: #1F3864; text-transform: uppercase; margin: 0 0 8px;
+  }
+  .scripture-text { font-size: 15px; line-height: 1.7; color: #1c1c1e; margin: 0; font-style: italic; }
+  .scripture-note { font-size: 13px; color: #555; margin-top: -12px; margin-bottom: 24px; }
+
+  .callout { padding: 14px 18px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+  .callout-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 8px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.note    { border-left: 4px solid #d97706; background: #fffbf0; }
+  .callout.note    .callout-label { color: #d97706; }
+  .callout.depth   { border-left: 4px solid #1F3864; background: #eef2f8; }
+  .callout.depth   .callout-label { color: #1F3864; }
+  .callout.tip     { border-left: 4px solid #276221; background: #f0f7f0; }
+  .callout.tip     .callout-label { color: #276221; }
+  .callout.caution { border-left: 4px solid #8b0000; background: #fce8e8; }
+  .callout.caution .callout-label { color: #8b0000; }
+
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #1F3864; color: #ffffff; }
+  thead th {
+    padding: 10px 14px; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.04em; border: 1px solid #cccccc; text-align: left;
+  }
+  tbody td { padding: 10px 14px; border: 1px solid #cccccc; vertical-align: top; }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+  tbody tr:nth-child(even) { background: #f2f2f2; }
+  td.label-cell { background: #f2f2f2; font-weight: 700; white-space: nowrap; width: 160px; }
+
+  .fillable {
+    min-height: 60px; outline: none; background: #fffbf0; border-radius: 2px;
+    padding: 4px 6px; font-family: Arial, Helvetica, sans-serif; font-size: 14px;
+    line-height: 1.5; color: #1c1c1e; display: block; width: 100%;
+    box-sizing: border-box; transition: background 0.15s;
+  }
+  .fillable:focus { background: #fff8e1; outline: 2px solid #d97706; outline-offset: 0; }
+  .fillable:empty::before { content: attr(data-placeholder); color: #aaa; pointer-events: none; }
+  .answers-toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 12px 0 4px; }
+  .answers-toolbar button {
+    background: #1F3864; color: #ffffff; border: none; border-radius: 4px;
+    padding: 7px 14px; font-size: 13px; font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif; cursor: pointer;
+  }
+  .answers-toolbar button:hover { background: #2c54a0; }
+  .answers-toolbar button:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .answers-toolbar button.clear-btn { background: #ffffff; color: #8b0000; border: 1px solid #8b0000; }
+  .answers-toolbar button.clear-btn:hover { background: #fce8e8; }
+  .answers-note { font-size: 12px; color: #777; margin: 0 0 16px; }
+
+  .section-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; background: none; border: none;
+    border-bottom: 2px solid #1F3864; padding: 8px 0; cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif; font-size: 22px; font-weight: 700;
+    color: #1F3864; text-transform: uppercase; letter-spacing: 0.07em;
+    margin-top: 40px; text-align: left;
+  }
+  .section-toggle:hover { color: #2c54a0; border-bottom-color: #2c54a0; }
+  .section-toggle:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .section-chevron {
+    font-size: 15px; transition: transform 0.25s ease;
+    flex-shrink: 0; margin-left: 12px; font-weight: 400;
+  }
+  .section-toggle[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
+  .section-body { display: none; }
+  .section-body.open { display: block; }
+
+  .flashcard-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px; margin: 16px 0 24px;
+  }
+  .flashcard { height: 180px; perspective: 1000px; cursor: pointer; }
+  .flashcard-inner {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d; transition: transform 0.45s ease; border-radius: 6px;
+  }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-front, .flashcard-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border-radius: 6px; padding: 18px; display: flex;
+    flex-direction: column; justify-content: center;
+  }
+  .flashcard-front { background: #ffffff; border: 2px solid #1F3864; }
+  .flashcard-back  { background: #1F3864; transform: rotateY(180deg); }
+  .fc-prompt   { font-size: 14px; font-weight: 700; color: #1F3864; margin: 0 0 8px; line-height: 1.4; }
+  .fc-ref      { font-size: 12px; color: #60a5fa; font-weight: 700; margin: 0; letter-spacing: 0.05em; }
+  .fc-verse    { font-size: 13px; color: #e8e4dc; font-style: italic; margin: 0 0 8px; line-height: 1.5; }
+  .fc-ref-back { font-size: 12px; color: #f0b429; font-weight: 700; margin: 0; letter-spacing: 0.04em; }
+  .fc-def      { font-size: 13px; color: #e8e4dc; margin: 0; line-height: 1.5; }
+  .flashcard-hint { font-size: 12px; color: #888; text-align: center; margin-bottom: 8px; }
+
+  .progression-link {
+    border-left: 4px solid #cccccc; background: #f9f9f9;
+    padding: 12px 16px; margin: 0 0 24px; border-radius: 0 4px 4px 0;
+    font-size: 14px; color: #555;
+  }
+  .progression-link strong { color: #1F3864; }
+
+  .back-link { font-size: 13px; margin-bottom: 8px; display: block; padding-top: 24px; }
+  .page-footer {
+    font-size: 13px; color: #888; text-align: center;
+    border-top: 1px solid #cccccc; padding: 24px 0 40px; margin-top: 16px;
+  }
+
+  .toc-container { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
+  .toc-btn {
+    background: #1F3864; color: #ffffff; border: none; border-radius: 4px;
+    padding: 10px 16px; font-size: 13px; font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif; cursor: pointer;
+    display: block; width: 100%; text-align: left;
+  }
+  .toc-btn:hover { background: #2c54a0; }
+  .toc-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .toc-menu {
+    display: none; background: #1F3864; border-radius: 4px 4px 0 0;
+    padding: 8px 0; margin-bottom: 4px; max-height: 60vh;
+    overflow-y: auto; min-width: 220px;
+  }
+  .toc-menu.open { display: block; }
+  .toc-menu a { display: block; padding: 8px 16px; color: #ffffff; text-decoration: none; font-size: 13px; }
+  .toc-menu a:hover { background: #2c54a0; color: #ffffff; }
+  .toc-menu a:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  @media print {
+    .toc-container { display: none; }
+    .section-body { display: block !important; }
+    body { color: #1c1c1e; }
+    a { color: #1c1c1e; }
+    .flashcard-front { border: 1px solid #cccccc; }
+    .flashcard-back { background: #f2f2f2; }
+    .fc-verse, .fc-def { color: #1c1c1e; }
+    print-color-adjust: exact;
+  }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="btf-p1-home.html">&#8592; Back to all lessons</a>
+
+<div class="title-block">
+  <p class="series-name">Bible Truth Foundations</p>
+  <p class="series-part">Part 1 of 3: New Life in Christ</p>
+</div>
+<hr class="title-rule">
+<div class="title-block" style="padding-top:0;">
+  <h1>Commitment</h1>
+  <p class="lesson-meta">Lesson 7 of 16 &nbsp;|&nbsp; Section C: Response and Commitment</p>
+</div>
+
+
+<section id="opening-question">
+  <h2>Opening Question</h2>
+  <div class="opening-box">
+    <p>Please begin by answering this question honestly in your own words.</p>
+    <p class="question-text">Think of the deepest commitment you have made in your life. What made you willing to make it, and what has it cost you?</p>
+  </div>
+</section>
+
+
+<section id="key-scripture">
+  <h2>Key Scripture</h2>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">1 Corinthians 6:19&ndash;20 (NKJV)</p>
+    <p class="scripture-text">Or do you not know that your body is the temple of the Holy Spirit who is in you, whom you have from God, and you are not your own? For you were bought at a price; therefore glorify God in your body and in your spirit, which are God's.</p>
+  </div>
+
+  <p class="scripture-note"><em>The call to commitment in this lesson is rooted in something that has already happened. Read these verses again and notice whose initiative is described first.</em></p>
+</section>
+
+
+<section id="core-truth">
+  <h2>Core Truth</h2>
+  <div class="core-truth-box">
+    <p class="core-truth-label">The central idea of this lesson</p>
+    <p class="core-truth-statement">Jesus does not ask for partial allegiance alongside your existing priorities. He asks to be first. That is not a demand made by a tyrant; it is an invitation made by the one who already gave everything for you.</p>
+  </div>
+</section>
+
+
+<section id="bible-teaching">
+  <button class="section-toggle" aria-expanded="false" aria-controls="bible-teaching-body" id="bible-teaching-btn">
+    Bible Teaching <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="bible-teaching-body">
+
+  <div class="progression-link">
+    <strong>Building on Lesson 06.</strong> Repentance established the direction: turning toward God. This lesson addresses what that turning costs and what it looks like to sustain it. Jesus was not interested in gathering a crowd of casual followers. This lesson examines what He actually asked for and why.
+  </div>
+
+  <h3>Jesus deliberately thinned the crowd</h3>
+
+  <p>At a point in His ministry when vast numbers were following Him, Jesus turned and said something that stopped many of them in their tracks:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">Luke 14:25&ndash;26 (NKJV)</p>
+    <p class="scripture-text">Now great multitudes went with Him. And He turned and said to them, "If anyone comes to Me and does not hate his father and mother, wife and children, brothers and sisters, yes, and his own life also, he cannot be My disciple."</p>
+  </div>
+
+  <p>This was not an accident. Jesus was not being careless with His words. He used the strongest term available in the language to say something that required a decision: the crowd would need to thin itself. Those who were following out of curiosity, or to receive benefits, or simply because everyone else was going the same direction, would have to reconsider. Those who were genuinely willing to follow at any cost were being identified.</p>
+
+  <div class="callout note">
+    <p class="callout-label">Note</p>
+    <p>"Hate" in Luke 14:26 is a word of comparison, not a command to feel hatred toward your family. In Hebrew thought, this kind of language expresses a priority ranking: to love one thing less in comparison to something else. The same usage appears in Genesis 29:31 where Leah is described as "hated" in comparison to Rachel, meaning loved less. Jesus is saying: your relationship with Me must rank above every other relationship, including your relationship with yourself. If those relationships are placed above your relationship with Me, genuine discipleship is not yet in place. This is not a licence to neglect or be unkind to family; it is a statement about the ordering of ultimate loyalty.</p>
+  </div>
+
+  <h3>Three conversations about the cost</h3>
+
+  <p>Luke 9 records three brief encounters that together paint a realistic picture of what commitment to Jesus costs. In each one, an obstacle stands between a person and following:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">Luke 9:57&ndash;62 (NKJV)</p>
+    <p class="scripture-text">Now it happened as they journeyed on the road, that someone said to Him, "Lord, I will follow You wherever You go." And Jesus said to him, "Foxes have holes and birds of the air have nests, but the Son of Man has nowhere to lay His head." Then He said to another, "Follow Me." But he said, "Lord, let me first go and bury my father." Jesus said to him, "Let the dead bury their own dead, but you go and preach the kingdom of God." And another also said, "Lord, I will follow You, but let me first go and bid them farewell who are at my house." But Jesus said to him, "No one, having put his hand to the plow, and looking back, is fit for the kingdom of God."</p>
+  </div>
+
+  <p>The first person offered enthusiastic commitment without counting the cost: no settled home, no guaranteed security. Jesus named the reality. The second and third both said they would follow, but with a prior condition: "let me first." Jesus treated both conditions as incompatible with the commitment being offered. The phrase "no one, having put his hand to the plow, and looking back" captures the problem precisely: ploughing a straight furrow requires your eyes fixed forward. A divided mind produces a crooked line.</p>
+
+  <div class="callout note">
+    <p class="callout-label">Note</p>
+    <p>"Let me first go and bury my father" likely did not mean the father had just died. It was a common idiom meaning "let me stay and care for my father until he dies and I have inherited from him." The commitment was conditional on first receiving what the person expected from the existing arrangement. Jesus' response was not callous; it was a recognition that this particular "first" would always find a reason to remain first. Conditions attached to the commitment reveal that something else still holds the primary position.</p>
+  </div>
+
+  <h3>Count the cost honestly</h3>
+
+  <p>Jesus was not trying to recruit people under false pretences. Immediately after the hard saying about family relationships, He gave an illustration that makes this explicit:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">Luke 14:28&ndash;30 (NKJV)</p>
+    <p class="scripture-text">"For which of you, intending to build a tower, does not sit down first and count the cost, whether he has enough to finish it — lest, after he has laid the foundation, and is not able to finish, all who see it begin to mock him, saying, 'This man began to build and was not able to finish'?"</p>
+  </div>
+
+  <p>This is not a warning to stay away from following Jesus. It is an invitation to engage honestly before committing. Jesus is saying: do not follow Me casually; do not follow Me on a wave of enthusiasm that does not survive the first difficulty. Sit down and think about what you are actually agreeing to. Understand the cost. Then choose. The person who begins the tower and cannot finish is not praised for having started; they become an object of contempt. Half-commitment is worse than honesty about not being ready.</p>
+
+  <div class="callout depth">
+    <p class="callout-label">Going Deeper</p>
+    <p>Luke 8:13-14 (NKJV) identifies two patterns that look like commitment but are not: <em>"But the ones on the rock are those who, when they hear, receive the word with joy; and these have no root, who believe for a while and in time of temptation fall away. Now the ones that fell among thorns are those who, when they have heard, go out and are choked with cares, riches, and pleasures of life, and bring no fruit to maturity."</em> The first group has excitement without root; the second has root without fruit because competing priorities crowd it out. Both are forms of incomplete commitment. The first fails under pressure; the second fails under prosperity. A fully committed disciple must be sustainable under both conditions.</p>
+  </div>
+
+  <h3>The foundation of commitment: you were already bought</h3>
+
+  <p>Here is the theological ground beneath everything else in this lesson. The call to commitment does not arise from nowhere. It arises from what has already happened:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">1 Corinthians 6:19&ndash;20 (NKJV)</p>
+    <p class="scripture-text">Or do you not know that your body is the temple of the Holy Spirit who is in you, whom you have from God, and you are not your own? For you were bought at a price; therefore glorify God in your body and in your spirit, which are God's.</p>
+  </div>
+
+  <p>You are not your own. That is not a threat; it is a statement of what has already taken place. A price was paid. The cross was that price. The commitment being asked of you is a response to a commitment that God made first and already fulfilled. God did not wait to see how committed you would be before He sent Christ. He committed fully, at infinite cost, while you were still a sinner and an enemy. The call to wholehearted commitment is an invitation to live in alignment with a reality that is already true.</p>
+
+  <div class="callout depth">
+    <p class="callout-label">Going Deeper</p>
+    <p>Ezekiel 16:8 (NKJV) uses the language of marriage covenant to describe God's commitment to His people: <em>"When I passed by you again and looked upon you, indeed your time was the time of love; so I spread My wing over you and covered your nakedness. Yes, I swore an oath to you and entered into a covenant with you, and you became Mine."</em> The covenant metaphor runs throughout Scripture. God did not merely invite relationship; He bound Himself in covenant. James 4:4-5 (NKJV) uses the same framework from the other side: <em>"Do you not know that friendship with the world is enmity with God? Whoever therefore wants to be a friend of the world makes himself an enemy of God. Or do you think that the Scripture says in vain, 'The Spirit who dwells in us yearns jealously'?"</em> The Spirit yearns jealously because the relationship is covenantal, not casual. Divided allegiance in a covenant is a form of betrayal, not merely a preference.</p>
+  </div>
+
+  <h3>What Jesus is not looking for</h3>
+
+  <p>John 2:23-25 records a moment worth examining carefully:</p>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">John 2:23&ndash;25 (NKJV)</p>
+    <p class="scripture-text">Now when He was in Jerusalem at the Passover, during the feast, many believed in His name when they saw the signs which He did. But Jesus did not commit Himself to them, because He knew all men, and had no need that anyone should testify of man, for He knew what was in man.</p>
+  </div>
+
+  <p>Many believed in His name because of the signs. Jesus did not commit Himself to them. The Greek word translated "commit" here is the same word used for "believe"; it is as if John is deliberately drawing a contrast: they believed in Him, but He did not believe in them, because He could see that their belief was conditional on the signs continuing. Sign-based commitment is not genuine commitment; it is a transaction. Jesus is looking for people who will follow Him regardless of whether circumstances remain favourable. That kind of following is the product of a decision made at depth, not an emotional response to impressive events.</p>
+
+  <div class="callout caution">
+    <p class="callout-label">Caution</p>
+    <p>This lesson must be held alongside what Sections A and B established. Commitment is not how you earn salvation; salvation is already yours through grace by faith. Commitment is your response to what grace has already done. A person who tries to earn God's acceptance through the fervour of their commitment has misunderstood the Gospel. Equally, a person who treats grace as a reason to make no commitment at all has misunderstood what it means to receive it. Romans 6:1-2 (NKJV) addresses that second error directly: <em>"What shall we say then? Shall we continue in sin that grace may abound? Certainly not!"</em> Grace and commitment belong together; they simply belong in the right order. Grace comes first; commitment is its fruit.</p>
+  </div>
+
+  <div class="callout tip">
+    <p class="callout-label">Practical Tip</p>
+    <p>Luke 14:28 says to sit down and count the cost before building. This week, do that exercise honestly. Write down two or three areas of your life where Jesus is not currently first: where another relationship, another priority or your own comfort consistently takes the lead. Do not treat this as a reason for guilt; treat it as useful information. Bring each of those areas to God specifically and ask what wholehearted commitment looks like there in practice. Commitment becomes real in the specifics, not in the general intention.</p>
+  </div>
+
+  </div><!-- end section-body -->
+</section>
+
+
+<section id="discovery-questions">
+  <button class="section-toggle" aria-expanded="false" aria-controls="discovery-questions-body" id="discovery-questions-btn">
+    Key Discovery Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="discovery-questions-body">
+  <p>Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.</p>
+
+  <div class="answers-toolbar">
+    <button id="download-btn">&#8595; Download my answers</button>
+    <button class="clear-btn" id="clear-btn">Clear all answers</button>
+  </div>
+  <p class="answers-note">Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:38%;">Question</th>
+          <th style="width:31%;">My Answer</th>
+          <th style="width:31%;">Group Discussion Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Read Luke 14:25-26. Jesus said these words to a large crowd of followers. What effect do you think His words were intended to have on that crowd? What was He separating out?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q1-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q1-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read Luke 9:57-62. In each of the three encounters, what was the obstacle that stood between the person and wholehearted following? How would you name the underlying issue in each case?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q2-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q2-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read Luke 14:28-30. Jesus is not warning people away from following Him; He is inviting them to count the cost honestly. What is the difference between those two things?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q3-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q3-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read 1 Corinthians 6:19-20. Paul says "you are not your own; you were bought at a price." How does understanding that this has already happened change the nature of the commitment being asked for?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q4-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q4-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Read John 2:23-25. Many people believed because of the signs, but Jesus did not commit Himself to them. What kind of belief was Jesus not satisfied with, and what do you think He was looking for instead?</td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q5-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="l07-q5-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<section id="group-discussion">
+  <button class="section-toggle" aria-expanded="false" aria-controls="group-discussion-body" id="group-discussion-btn">
+    Group Discussion Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="group-discussion-body">
+  <p>These questions are designed for open conversation at any level of experience. There are no trick questions and no single correct answer.</p>
+
+  <ol>
+    <li style="margin-bottom:16px;">Jesus said that unless you hate your own life you cannot be His disciple (Luke 14:26). In practice, what do you think it means to place your relationship with Jesus above your relationship with yourself? What would that actually look like in your daily decisions?</li>
+    <li style="margin-bottom:16px;">The three encounters in Luke 9:57-62 each involve someone who was willing to follow, but with a condition attached. What conditions do people most commonly attach to following Jesus today? Are any of those conditions ones you recognise in your own life?</li>
+    <li style="margin-bottom:16px;">Luke 8:13-14 describes two kinds of incomplete commitment: one that collapses under pressure, and one that gets crowded out by prosperity and comfort. Which of these do you think is the more common failure in church communities today, and why?</li>
+    <li style="margin-bottom:16px;">First Corinthians 6:19-20 says you were bought at a price. When you sit with that idea seriously, how does it change what you think you are entitled to do with your time, your money and your choices?</li>
+    <li style="margin-bottom:16px;">The Caution box in this lesson distinguishes between commitment as the basis of salvation and commitment as the fruit of grace. In your experience, which of those two errors do you think Christians more commonly fall into: trying to earn God's approval through commitment, or using grace as a reason to avoid making any?</li>
+  </ol>
+  </div><!-- end section-body -->
+</section>
+
+
+<section id="application">
+  <button class="section-toggle" aria-expanded="false" aria-controls="application-body" id="application-btn">
+    Application <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="application-body">
+  <p>Commitment is tested in the specifics, not in the general intention. These applications press into three areas where undivided allegiance is most commonly negotiated away.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22%;">Context</th>
+          <th>How I Apply This</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-cell">In your priorities</td>
+          <td>Luke 14:28 invites you to sit down and count the cost. Do that exercise this week in writing: list the top five things that currently claim the most significant portion of your time and energy. Where does your relationship with God rank on that list, not in theory but in practice? If it is not first, that is not a reason for guilt; it is the beginning of an honest conversation with God about what reordering would look like.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">When following becomes costly</td>
+          <td>The person who puts their hand to the plow and looks back is not fit for the kingdom (Luke 9:62). When following Jesus costs you something concrete, whether that is a relationship, an opportunity or a reputation, that is the moment where commitment is real or is revealed as conditional. Decide before the cost arrives what your response will be. Commitment made in advance of the crisis is more reliable than commitment made in the middle of it.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">In belonging to the church</td>
+          <td>First Corinthians 6:19-20 is addressed to a community, not just an individual. "You" in that passage is plural. You are bought at a price alongside others who have been bought at the same price. Commitment to Jesus includes commitment to His body. If your relationship with a local church community is currently characterised by the same conditional, "let me first" posture that Jesus challenged in Luke 9, bring that honestly into view and consider what wholehearted belonging would look like.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<section id="revision-cards">
+  <button class="section-toggle" aria-expanded="false" aria-controls="revision-cards-body" id="revision-cards-btn">
+    Revision Cards <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="revision-cards-body">
+  <p class="flashcard-hint">Tap each card to reveal the answer.</p>
+
+  <div class="flashcard-grid">
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What does hate mean in Luke 14:26?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What does "hate" mean in Luke 14:26?</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">A word of comparison expressing priority ranking, not literal hatred. To love one thing less in comparison to another. Jesus is saying: your relationship with Him must rank above every other relationship, including your own life.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: Luke 9:62 - looking back">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What does Jesus say about the person who looks back after putting their hand to the plow?</p>
+          <p class="fc-ref">Luke 9:62</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"No one, having put his hand to the plow, and looking back, is fit for the kingdom of God."</p>
+          <p class="fc-ref-back">Luke 9:62 (NKJV). Discipleship requires eyes fixed forward, not backward.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: 1 Corinthians 6:19-20">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What does Paul say about ownership and price in 1 Corinthians 6:19-20?</p>
+          <p class="fc-ref">1 Corinthians 6:19&ndash;20</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"You are not your own. For you were bought at a price; therefore glorify God in your body and in your spirit, which are God's."</p>
+          <p class="fc-ref-back">1 Corinthians 6:20 (NKJV). Commitment responds to a purchase already made.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: Why count the cost?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">Why does Jesus say to count the cost before committing?</p>
+          <p class="fc-ref">Luke 14:28&ndash;30</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">So that a person commits fully and finishes rather than starting and stopping. A builder who cannot finish is mocked; half-commitment is worse than honest hesitation. Jesus invites a deliberate, informed choice.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What causes people to fall away?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What causes people to fall away from faith, according to Luke 8:13-14?</p>
+          <p class="fc-ref">Luke 8:13&ndash;14</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">No root: belief collapses under temptation or pressure. Competing priorities: cares, riches and pleasures of life crowd out fruitfulness. Both are forms of incomplete commitment: one fails under pressure, one under prosperity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: John 2:24 - Jesus did not commit">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">Why did Jesus not commit Himself to those who believed because of signs in John 2:24?</p>
+          <p class="fc-ref">John 2:23&ndash;25</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">Because He knew what was in them. Their belief was conditional on signs continuing. Jesus was looking for commitment that would hold when circumstances were not favourable, not a transaction dependent on results.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end flashcard-grid -->
+  </div><!-- end section-body -->
+</section>
+
+
+<div class="page-footer">
+  <p>Bible Truth Foundations &middot; Part 1 of 3: New Life in Christ &middot; Lesson 07: Commitment<br>
+  The Well Shrewsbury &middot; <a href="btf-p1-home.html">Back to all lessons</a></p>
+</div>
+
+
+<nav class="toc-container" role="navigation" aria-label="Jump to section">
+  <div class="toc-menu" id="toc-menu">
+    <a href="#opening-question">Opening Question</a>
+    <a href="#key-scripture">Key Scripture</a>
+    <a href="#core-truth">Core Truth</a>
+    <a href="#bible-teaching">Bible Teaching</a>
+    <a href="#discovery-questions">Key Discovery Questions</a>
+    <a href="#group-discussion">Group Discussion</a>
+    <a href="#application">Application</a>
+    <a href="#revision-cards">Revision Cards</a>
+  </div>
+  <button class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">
+    &#9776; Jump to section
+  </button>
+</nav>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    ['bible-teaching', 'discovery-questions', 'group-discussion', 'application', 'revision-cards'].forEach(function (id) {
+      var btn  = document.getElementById(id + '-btn');
+      var body = document.getElementById(id + '-body');
+      if (!btn || !body) { return; }
+      btn.addEventListener('click', function () {
+        var open = body.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+
+    var tocBtn  = document.getElementById('toc-btn');
+    var tocMenu = document.getElementById('toc-menu');
+    tocBtn.addEventListener('click', function () {
+      var open = tocMenu.classList.toggle('open');
+      tocBtn.setAttribute('aria-expanded', String(open));
+    });
+    tocMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        tocMenu.classList.remove('open');
+        tocBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.querySelectorAll('.flashcard').forEach(function (card) {
+      function flip() { card.classList.toggle('flipped'); }
+      card.addEventListener('click', flip);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+      });
+    });
+
+    var storageAvailable = false;
+    try {
+      localStorage.setItem('_btf_test', '1');
+      localStorage.removeItem('_btf_test');
+      storageAvailable = true;
+    } catch (e) { storageAvailable = false; }
+
+    var fillables = document.querySelectorAll('.fillable[data-key]');
+
+    fillables.forEach(function (el) {
+      if (storageAvailable) {
+        var saved = localStorage.getItem(el.getAttribute('data-key'));
+        if (saved) { el.innerHTML = saved; }
+      }
+    });
+
+    fillables.forEach(function (el) {
+      el.addEventListener('input', function () {
+        if (storageAvailable) {
+          localStorage.setItem(el.getAttribute('data-key'), el.innerHTML);
+        }
+      });
+    });
+
+    document.getElementById('download-btn').addEventListener('click', function () {
+      var questions = document.querySelectorAll('#discovery-questions tbody tr');
+      var lines = ['Bible Truth Foundations: Part 1 of 3', 'Lesson 07: Commitment', 'Key Discovery Questions', ''];
+      questions.forEach(function (row, i) {
+        var cells    = row.querySelectorAll('td');
+        var question = cells[0] ? cells[0].innerText.trim() : '';
+        var answer   = cells[1] ? cells[1].querySelector('.fillable').innerText.trim() : '';
+        var notes    = cells[2] ? cells[2].querySelector('.fillable').innerText.trim() : '';
+        lines.push('Q' + (i + 1) + ': ' + question);
+        lines.push('My Answer: ' + (answer || '(no answer entered)'));
+        lines.push('Group Notes: ' + (notes || '(no notes entered)'));
+        lines.push('');
+      });
+      var blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+      var url  = URL.createObjectURL(blob);
+      var a    = document.createElement('a');
+      a.href = url; a.download = 'btf-p1-l07-my-answers.txt';
+      document.body.appendChild(a); a.click();
+      document.body.removeChild(a); URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('clear-btn').addEventListener('click', function () {
+      if (!confirm('Clear all your answers for this lesson? This cannot be undone.')) { return; }
+      fillables.forEach(function (el) {
+        el.innerHTML = '';
+        if (storageAvailable) { localStorage.removeItem(el.getAttribute('data-key')); }
+      });
+    });
+
+  });
+</script>
+
+</body>
+</html>

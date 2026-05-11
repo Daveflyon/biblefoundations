@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bible Truth Foundations – Part 1 of 3: New Life in Christ</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #1c1c1e;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) {
+    body { padding: 0 32px; }
+  }
+
+  @media (min-width: 900px) {
+    body { max-width: 900px; margin: 0 auto; }
+  }
+
+  /* ── Title block ── */
+  .title-block {
+    text-align: center;
+    padding: 40px 0 0;
+  }
+
+  .series-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 6px;
+    line-height: 1.25;
+  }
+
+  .part-label {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1c1c1e;
+    margin: 0 0 20px;
+    font-style: italic;
+  }
+
+  .title-rule {
+    border: none;
+    border-top: 2px solid #1F3864;
+    margin: 0 auto 32px;
+    width: 100%;
+  }
+
+  /* ── Body typography ── */
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F3864;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 4px;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1c1c1e;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  p { margin-bottom: 16px; }
+
+  a {
+    color: #1F3864;
+    text-decoration: underline;
+  }
+
+  a:hover, a:focus {
+    color: #2c54a0;
+    outline: 2px solid #2c54a0;
+    outline-offset: 2px;
+  }
+
+  /* ── How to use accordion ── */
+  .accordion-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    padding: 14px 18px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: left;
+    margin-top: 8px;
+  }
+
+  .accordion-btn:hover {
+    background: #2c54a0;
+  }
+
+  .accordion-btn:focus {
+    outline: 2px solid #2c54a0;
+    outline-offset: 2px;
+  }
+
+  .accordion-icon {
+    font-size: 18px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  .accordion-btn[aria-expanded="true"] .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-body {
+    display: none;
+    border: 1px solid #cccccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    padding: 20px 20px 16px;
+    background: #f2f2f2;
+  }
+
+  .accordion-body.open { display: block; }
+
+  .accordion-body ul {
+    margin: 8px 0 16px 0;
+    padding-left: 22px;
+  }
+
+  .accordion-body ul li { margin-bottom: 8px; }
+
+  .attribution-note {
+    font-size: 13px;
+    color: #555;
+    border-top: 1px solid #cccccc;
+    padding-top: 12px;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  /* ── Intro strip ── */
+  .intro-note {
+    border-left: 4px solid #d97706;
+    background: #fffbf0;
+    padding: 12px 16px;
+    margin: 24px 0;
+  }
+
+  /* ── Section cards ── */
+  .section-card {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+
+  .section-header {
+    background: #1F3864;
+    color: #ffffff;
+    padding: 14px 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.15);
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .section-title-text {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .section-descriptor {
+    font-size: 13px;
+    color: #555;
+    padding: 10px 18px 0;
+    margin: 0;
+  }
+
+  /* ── Lesson list ── */
+  .lesson-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .lesson-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 18px;
+    border-top: 1px solid #cccccc;
+    font-size: 14px;
+    transition: background 0.15s;
+  }
+
+  .lesson-item:nth-child(even) { background: #f2f2f2; }
+  .lesson-item:nth-child(odd)  { background: #ffffff; }
+
+  .lesson-item:hover { background: #e8eef8; }
+
+  .lesson-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #1F3864;
+    border-radius: 3px;
+    padding: 2px 7px;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+
+  .lesson-link {
+    color: #1F3864;
+    font-weight: 700;
+    text-decoration: underline;
+    flex: 1;
+  }
+
+  .lesson-link:hover, .lesson-link:focus {
+    color: #2c54a0;
+    outline: 2px solid #2c54a0;
+    outline-offset: 2px;
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid #cccccc;
+    padding: 24px 0 40px;
+    margin-top: 48px;
+  }
+
+  /* ── Print ── */
+  @media print {
+    .accordion-body { display: block !important; }
+    .accordion-btn { background: #1F3864; }
+    .page-footer { color: #1c1c1e; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     TITLE BLOCK
+════════════════════════════════════════════ -->
+<div class="title-block">
+  <p class="series-label">The Well Shrewsbury</p>
+  <h1>Bible Truth Foundations</h1>
+  <p class="part-label">Part 1 of 3: New Life in Christ</p>
+</div>
+<hr class="title-rule">
+
+<!-- ═══════════════════════════════════════════
+     INTRO NOTE
+════════════════════════════════════════════ -->
+<div class="intro-note">
+  <p style="margin:0;">This guide works through foundational Christian truths one lesson at a time. Each lesson goes deep on a single topic so that the truth has time to take root. Use the sections below to navigate to any lesson.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HOW TO USE THIS GUIDE
+════════════════════════════════════════════ -->
+<button class="accordion-btn" aria-expanded="false" aria-controls="how-to-use" id="how-to-btn">
+  <span>👋 How to use this guide</span>
+  <span class="accordion-icon" aria-hidden="true">▼</span>
+</button>
+<div class="accordion-body" id="how-to-use" role="region" aria-labelledby="how-to-btn">
+
+  <p>This Bible study guide has been created for the congregation of The Well Shrewsbury Church. It is designed for new believers seeking solid biblical grounding and equally serves as a structured revision resource for those already established in faith.</p>
+
+  <p>The guide works through foundational Christian truths one lesson at a time. Rather than covering everything quickly, each lesson goes deep on a single topic so that the truth has time to take root.</p>
+
+  <p><strong>Each lesson is structured as follows:</strong></p>
+
+  <ul>
+    <li><strong>Opening Question</strong> — Start here before reading anything else. Answer honestly from your own experience. There is no right or wrong answer.</li>
+    <li><strong>Key Scripture</strong> — The anchor verse for the lesson, displayed in full. Read it slowly before moving on.</li>
+    <li><strong>Core Truth</strong> — The central idea of the lesson in one bold statement. Read it after the scripture and return to it at the end.</li>
+    <li><strong>Bible Teaching</strong> — The biblical truth unpacked clearly, with every key point rooted in scripture.</li>
+    <li><strong>Callout Boxes</strong> — Look out for four types: <em>Note</em> (foundational explanation), <em>Depth</em> (going further), <em>Tip</em> (practical application) and <em>Caution</em> (common misunderstanding to avoid).</li>
+    <li><strong>Key Discovery Questions</strong> — Work through these individually before the group session.</li>
+    <li><strong>Group Discussion Questions</strong> — Designed for open conversation at any level of experience.</li>
+    <li><strong>Application</strong> — Practical ways to live out what the lesson teaches.</li>
+    <li><strong>Revision Cards</strong> — Tap each card to test your recall of the key terms and scriptures from the lesson.</li>
+  </ul>
+
+  <div class="attribution-note">
+    This study is Part 1 of 3 in the Bible Truth Foundations series, based on the Discipleship Evangelism Programme by Andrew Wommack and Don W. Krow. Courtesy of delessons.org. Used with permission for discipleship purposes, free of charge.
+  </div>
+
+  <hr style="border:none; border-top:1px solid #cccccc; margin: 20px 0 16px;">
+  <h4 style="margin-top:0; color:#1F3864;">Who this guide is not for</h4>
+  <p style="font-size:14px; margin-bottom:0;">This series is not designed for someone in an immediate pastoral or personal crisis who needs one-to-one care before engaging with group study. It is not a replacement for pastoral support or professional care. The approach throughout is accessible and pastoral rather than academically scholarly. Those seeking critical engagement with the original languages or the history of biblical interpretation should treat these lessons as a starting point and pursue further study from there.</p>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION A: THE GOSPEL FOUNDATION
+════════════════════════════════════════════ -->
+<h2>Lessons</h2>
+
+<div class="section-card">
+  <div class="section-header">
+    <span class="section-tag">Section A</span>
+    <span class="section-title-text">The Gospel Foundation</span>
+  </div>
+  <p class="section-descriptor">Lessons 1–3. What the Gospel actually is, how God saves us and what it means to stand righteous before Him.</p>
+  <ul class="lesson-list">
+    <li class="lesson-item">
+      <span class="lesson-num">L01</span>
+      <a class="lesson-link" href="btf-p1-l01-eternal-life.html">Eternal Life</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L02</span>
+      <a class="lesson-link" href="btf-p1-l02-salvation-by-grace.html">Salvation by Grace</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L03</span>
+      <a class="lesson-link" href="btf-p1-l03-righteousness-by-grace.html">Righteousness by Grace</a>
+    </li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION B: KNOWING GOD
+════════════════════════════════════════════ -->
+<div class="section-card">
+  <div class="section-header">
+    <span class="section-tag">Section B</span>
+    <span class="section-title-text">Knowing God</span>
+  </div>
+  <p class="section-descriptor">Lessons 4–5. What it means to be in relationship with God and the true character of the God we are relating to.</p>
+  <ul class="lesson-list">
+    <li class="lesson-item">
+      <span class="lesson-num">L04</span>
+      <a class="lesson-link" href="btf-p1-l04-relationship-with-god.html">Relationship with God</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L05</span>
+      <a class="lesson-link" href="btf-p1-l05-the-nature-of-god.html">The Nature of God</a>
+    </li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION C: RESPONSE AND COMMITMENT
+════════════════════════════════════════════ -->
+<div class="section-card">
+  <div class="section-header">
+    <span class="section-tag">Section C</span>
+    <span class="section-title-text">Response and Commitment</span>
+  </div>
+  <p class="section-descriptor">Lessons 6–8. How we respond to what God has done: through repentance, wholehearted commitment and water baptism.</p>
+  <ul class="lesson-list">
+    <li class="lesson-item">
+      <span class="lesson-num">L06</span>
+      <a class="lesson-link" href="btf-p1-l06-repentance.html">Repentance</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L07</span>
+      <a class="lesson-link" href="btf-p1-l07-commitment.html">Commitment</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L08</span>
+      <a class="lesson-link" href="btf-p1-l08-water-baptism.html">Water Baptism</a>
+    </li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION D: LIFE IN CHRIST
+════════════════════════════════════════════ -->
+<div class="section-card">
+  <div class="section-header">
+    <span class="section-tag">Section D</span>
+    <span class="section-title-text">Life in Christ</span>
+  </div>
+  <p class="section-descriptor">Lessons 9–16. Who you now are in Christ, how to handle sin, the trustworthiness of God's Word and living in the power of the Holy Spirit.</p>
+  <ul class="lesson-list">
+    <li class="lesson-item">
+      <span class="lesson-num">L09</span>
+      <a class="lesson-link" href="btf-p1-l09-identity-in-christ-part-1.html">Identity in Christ (Part 1)</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L10</span>
+      <a class="lesson-link" href="btf-p1-l10-identity-in-christ-part-2.html">Identity in Christ (Part 2)</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L11</span>
+      <a class="lesson-link" href="btf-p1-l11-what-happens-when-a-christian-sins.html">What Happens When a Christian Sins?</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L12</span>
+      <a class="lesson-link" href="btf-p1-l12-integrity-of-gods-word.html">Integrity of God's Word</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L13</span>
+      <a class="lesson-link" href="btf-p1-l13-gods-not-guilty.html">God's Not Guilty</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L14</span>
+      <a class="lesson-link" href="btf-p1-l14-the-power-of-a-spirit-filled-life.html">The Power of a Spirit-Filled Life</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L15</span>
+      <a class="lesson-link" href="btf-p1-l15-how-to-receive-the-holy-spirit.html">How to Receive the Holy Spirit</a>
+    </li>
+    <li class="lesson-item">
+      <span class="lesson-num">L16</span>
+      <a class="lesson-link" href="btf-p1-l16-the-benefits-of-speaking-in-tongues.html">The Benefits of Speaking in Tongues</a>
+    </li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<div class="page-footer">
+  <p>Bible Truth Foundations. Part 1 of 3: New Life in Christ.<br>
+  The Well Shrewsbury.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ACCORDION SCRIPT
+════════════════════════════════════════════ -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn  = document.getElementById('how-to-btn');
+    var body = document.getElementById('how-to-use');
+
+    btn.addEventListener('click', function () {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      body.classList.toggle('open', !expanded);
+    });
+  });
+</script>
+
+</body>
+</html>

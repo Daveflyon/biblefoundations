@@ -82,7 +82,12 @@
   function isInSectionHeading(node, root) {
     var el = node.parentElement;
     while (el && el !== root) {
-      if (el.matches && (el.matches('h2') || el.matches('.section-toggle'))) return true;
+      if (el.matches && (
+        el.matches('h2') ||
+        el.matches('.section-toggle') ||
+        el.matches('.part-btn') ||
+        el.matches('.how-to-btn')
+      )) return true;
       el = el.parentElement;
     }
     return false;
@@ -490,10 +495,15 @@
     scope.querySelectorAll('.btf-play-section-btn').forEach(function (el) { el.remove(); });
   }
 
+  function sectionScrollEl(sec) {
+    return (sec && sec.scrollEl) ? sec.scrollEl : sec.el;
+  }
+
   function createAudioEngine(opts) {
     var synth = window.speechSynthesis;
     var sections = opts.sections;
     var mainLabel = opts.mainLabel;
+    var progressLabel = opts.progressLabel || (opts.wholeLesson ? 'Lesson' : null);
     var wholeLessonMode = !!opts.wholeLesson;
     var currentRate = 1;
     var currentSec = null;
@@ -545,7 +555,7 @@
         if (!active) {
           progressEl.textContent = '';
         } else if (wholeLessonMode && playAllActive) {
-          progressEl.textContent = (isPaused ? 'Paused: ' : 'Playing: ') + 'Lesson';
+          progressEl.textContent = (isPaused ? 'Paused: ' : 'Playing: ') + (progressLabel || 'Lesson');
         } else {
           var idx = sections.indexOf(currentSec);
           var loc = playAllActive && idx >= 0
@@ -601,7 +611,7 @@
         spotlightCurrent.close();
       }
       if (sec.open) sec.open();
-      if (sec.el) scrollToView(sec.el);
+      scrollToView(sectionScrollEl(sec));
       spotlightCurrent = sec;
     }
 
@@ -761,7 +771,7 @@
 
     function beforePlay(sec) {
       if (sec.open) sec.open();
-      if (sec.el) scrollToView(sec.el);
+      scrollToView(sectionScrollEl(sec));
     }
 
     function playSection(sec, onDone) {
@@ -1054,23 +1064,34 @@
     if (intro) {
       sections.push({
         el: intro,
+        scrollEl: intro,
         title: 'Welcome',
         playBtn: null,
         open: function () {
-          intro.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
+          scrollToView(intro);
         },
+        close: function () {},
+        isOpen: function () { return true; },
         getText: function () { return extractSectionText(intro); }
       });
     }
 
     if (howToWrap && howToBody) {
       sections.push({
-        el: howToWrap,
+        el: howToBody,
+        scrollEl: howToWrap,
         title: 'How to use this guide',
         playBtn: null,
         open: function () {
           howToBody.classList.add('open');
           howToBtn.setAttribute('aria-expanded', 'true');
+        },
+        close: function () {
+          howToBody.classList.remove('open');
+          howToBtn.setAttribute('aria-expanded', 'false');
+        },
+        isOpen: function () {
+          return howToBody.classList.contains('open');
         },
         getText: function () { return extractSectionText(howToBody); }
       });
@@ -1082,7 +1103,8 @@
       var partBtn = $('.part-btn', part);
       var partBody = $('.part-body', part);
       sections.push({
-        el: part,
+        el: partBody || part,
+        scrollEl: part,
         title: title,
         playBtn: null,
         open: function () {
@@ -1090,7 +1112,16 @@
             partBody.classList.add('open');
             partBtn.setAttribute('aria-expanded', 'true');
           }
-          part.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
+          scrollToView(part);
+        },
+        close: function () {
+          if (partBtn && partBody) {
+            partBody.classList.remove('open');
+            partBtn.setAttribute('aria-expanded', 'false');
+          }
+        },
+        isOpen: function () {
+          return !!(partBody && partBody.classList.contains('open'));
         },
         getText: function () {
           return extractSectionText(partBody || part);
@@ -1098,7 +1129,12 @@
       });
     });
 
-    createAudioEngine({ sections: sections, mainLabel: 'Play Overview' });
+    createAudioEngine({
+      sections: sections,
+      mainLabel: 'Play Overview',
+      wholeLesson: true,
+      progressLabel: 'Overview'
+    });
   }
 
   function initToc() {

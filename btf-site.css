@@ -476,6 +476,84 @@ body[data-btf-page="lesson"] {
   }
 }
 
+/* Lesson content: progression links and callouts */
+.progression-link {
+  border-left: 4px solid #cccccc;
+  background: #f9f9f9;
+  padding: 12px 16px;
+  margin: 0 0 24px;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.progression-link strong {
+  color: #1F3864;
+}
+
+.callout {
+  padding: 14px 18px;
+  margin: 20px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.callout-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.note {
+  border-left: 4px solid #d97706;
+  background: #fffbf0;
+}
+
+.callout.note .callout-label {
+  color: #d97706;
+}
+
+.callout.depth {
+  border-left: 4px solid #1F3864;
+  background: #eef2f8;
+}
+
+.callout.depth .callout-label {
+  color: #1F3864;
+}
+
+.callout.tip {
+  border-left: 4px solid #276221;
+  background: #f0f7f0;
+}
+
+.callout.tip .callout-label {
+  color: #276221;
+}
+
+.callout.caution {
+  border-left: 4px solid #8b0000;
+  background: #fce8e8;
+}
+
+.callout.caution .callout-label {
+  color: #8b0000;
+}
+
+.callout.confidence {
+  border-left: 4px solid #5b21b6;
+  background: #f5f3ff;
+}
+
+.callout.confidence .callout-label {
+  color: #5b21b6;
+}
+
 @media print {
   .btf-audio-panel,
   .btf-minimise-btn,

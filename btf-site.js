@@ -286,12 +286,7 @@
     var bodyWrap = buildFlatSpeakTextForSection(sec.el);
     var bodyFlat = bodyWrap.flat;
     var contentRoot = bodyWrap.root;
-    var titleLen = 0;
-    if (bodyFlat.text && fullText.indexOf(bodyFlat.text) >= 0) {
-      titleLen = fullText.indexOf(bodyFlat.text);
-    } else if (sec.title) {
-      titleLen = cleanText(sec.title + '. ').length;
-    }
+    var titleLen = sec.title ? cleanText(sec.title + '. ').length : 0;
     var targets = [];
 
     sentences.forEach(function (sent, i) {
@@ -383,9 +378,7 @@
         }
       }
     }
-    if (scrollEl && scrollEl.scrollIntoView) {
-      scrollEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
+    if (scrollEl) scrollToView(scrollEl);
   }
 
   function bindInteractive(btn, handler) {
@@ -394,6 +387,19 @@
       e.stopPropagation();
       handler(e);
     });
+  }
+
+  function prefersReducedMotion() {
+    try {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function scrollToView(el) {
+    if (!el || !el.scrollIntoView) return;
+    el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
   }
 
   function formatSpeedLabel(rate) {
@@ -595,9 +601,7 @@
         spotlightCurrent.close();
       }
       if (sec.open) sec.open();
-      if (sec.el && sec.el.scrollIntoView) {
-        sec.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+      if (sec.el) scrollToView(sec.el);
       spotlightCurrent = sec;
     }
 
@@ -636,7 +640,7 @@
     }
 
     function speakSentenceAtIndex(sec, sentenceIdx) {
-      if (!sec || isPaused) return;
+      if (!sec || isPaused || !synth) return;
       var sentences = sec._btfSentences;
       if (!sentences) return;
       if (sentenceIdx >= sentences.length) {
@@ -653,10 +657,12 @@
       gen++;
       var myGen = gen;
       isPaused = false;
-      try {
-        if (synth.paused) synth.resume();
-      } catch (e) {}
-      synth.cancel();
+      if (synth) {
+        try {
+          if (synth.paused) synth.resume();
+        } catch (e) {}
+        synth.cancel();
+      }
 
       var u = new SpeechSynthesisUtterance(sent.text);
       u.lang = 'en-GB';
@@ -692,10 +698,12 @@
       if (isPaused || (!currentSec && !activeSpeakSec)) return;
       isPaused = true;
       gen++;
-      try {
-        if (synth.paused) synth.resume();
-      } catch (e) {}
-      synth.cancel();
+      if (synth) {
+        try {
+          if (synth.paused) synth.resume();
+        } catch (e) {}
+        synth.cancel();
+      }
       updateUI();
     }
 
@@ -736,33 +744,13 @@
       currentSec = null;
       playAllIndex = 0;
       gen++;
-      try {
-        if (synth.paused) synth.resume();
-      } catch (e) {}
-      synth.cancel();
+      if (synth) {
+        try {
+          if (synth.paused) synth.resume();
+        } catch (e) {}
+        synth.cancel();
+      }
       updateUI();
-    }
-
-    function speakText(text, onEnd) {
-      gen++;
-      var myGen = gen;
-      isPaused = false;
-      try {
-        if (synth.paused) synth.resume();
-      } catch (e) {}
-      synth.cancel();
-      var u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-GB';
-      u.rate = currentRate;
-      u.onend = function () {
-        if (myGen !== gen) return;
-        if (onEnd) onEnd();
-      };
-      u.onerror = function (e) {
-        if (myGen !== gen || e.error === 'interrupted') return;
-        if (onEnd) onEnd();
-      };
-      synth.speak(u);
     }
 
     function pauseResume() {
@@ -773,9 +761,7 @@
 
     function beforePlay(sec) {
       if (sec.open) sec.open();
-      if (sec.el && sec.el.scrollIntoView) {
-        sec.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+      if (sec.el) scrollToView(sec.el);
     }
 
     function playSection(sec, onDone) {
@@ -835,12 +821,7 @@
           else pauseResume();
         } else if (playAllActive && isPaused) {
           if (wholeLessonMode) resumeWholeLesson();
-          else {
-            pauseResume();
-            setTimeout(function () {
-              if (playAllActive && !isPaused && !synth.speaking) playNext();
-            }, 200);
-          }
+          else resumeSpeaking();
         } else {
           stopAll();
           setTimeout(function () {
@@ -856,22 +837,49 @@
     if (stopBtn) stopBtn.addEventListener('click', stopAll);
 
     initSpeedDropdown(function (rate) {
+      var wasPlaying = activeSpeakSec && !isPaused && synth && synth.speaking;
+      var sec = activeSpeakSec;
+      var idx = wholeLessonSentenceIdx;
       currentRate = rate;
+      if (wasPlaying && sec && synth) {
+        gen++;
+        synth.cancel();
+        speakSentenceAtIndex(sec, idx);
+      }
     });
 
     if (!synth) {
-      var inner = $('.btf-audio-inner');
-      if (inner) {
-        var note = document.createElement('p');
-        note.style.cssText = 'font-size:12px;color:#8b0000;margin:0 0 0 auto;';
-        note.textContent = 'Audio not supported in this browser. Try Chrome or Edge.';
-        inner.appendChild(note);
-      }
-      return { stopAll: stopAll };
+      disableAudioControls(mainBtn, stopBtn, sections);
+      return { stopAll: function () {} };
     }
 
     updateUI();
     return { stopAll: stopAll };
+  }
+
+  function disableAudioControls(mainBtn, stopBtn, sections) {
+    if (mainBtn) {
+      mainBtn.disabled = true;
+      mainBtn.setAttribute('aria-disabled', 'true');
+    }
+    if (stopBtn) {
+      stopBtn.disabled = true;
+      stopBtn.setAttribute('aria-disabled', 'true');
+    }
+    sections.forEach(function (sec) {
+      if (sec.playBtn) {
+        sec.playBtn.disabled = true;
+        sec.playBtn.setAttribute('aria-disabled', 'true');
+      }
+    });
+    var inner = $('.btf-audio-inner');
+    if (inner && !inner.querySelector('.btf-audio-unsupported')) {
+      var note = document.createElement('p');
+      note.className = 'btf-audio-unsupported';
+      note.style.cssText = 'font-size:12px;color:#8b0000;margin:0 0 0 auto;';
+      note.textContent = 'Audio not supported in this browser. Try Chrome or Edge.';
+      inner.appendChild(note);
+    }
   }
 
   function openCollapsible(toggle, body) {
@@ -915,7 +923,7 @@
           section._btfPlayBtn = addPlayBar(body, true);
           addMinimiseButton(body, function () {
             closeCollapsible(toggle, body);
-            section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            scrollToView(section);
           });
         }
       } else {
@@ -940,7 +948,7 @@
         collapsible.forEach(function (item) {
           closeCollapsible(item.toggle, item.body);
         });
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
       });
     }
 
@@ -1018,7 +1026,7 @@
       addMinimiseButton(howToBody, function () {
         howToBody.classList.remove('open');
         howToBtn.setAttribute('aria-expanded', 'false');
-        howToWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        howToWrap.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
       });
     }
 
@@ -1036,7 +1044,7 @@
         getIndexCollapsibles().forEach(function (item) {
           setIndexCollapsible(item.btn, item.body, false);
         });
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
       });
     }
 
@@ -1049,7 +1057,7 @@
         title: 'Welcome',
         playBtn: null,
         open: function () {
-          intro.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          intro.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
         },
         getText: function () { return extractSectionText(intro); }
       });
@@ -1082,7 +1090,7 @@
             partBody.classList.add('open');
             partBtn.setAttribute('aria-expanded', 'true');
           }
-          part.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          part.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'nearest' });
         },
         getText: function () {
           return extractSectionText(partBody || part);
@@ -1123,7 +1131,7 @@
       link.addEventListener('click', function (e) {
         if (link.getAttribute('href') === '#') {
           e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
         }
         tocMenu.classList.remove('open');
         tocBtn.setAttribute('aria-expanded', 'false');

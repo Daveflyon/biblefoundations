@@ -16,7 +16,7 @@
   max-width: 900px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   gap: 6px;
   overflow: visible;
@@ -357,9 +357,13 @@ mark.btf-read-sentence.btf-read-active,
 
 .toc-container {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  right: calc(24px + env(safe-area-inset-right, 0px));
   z-index: 1000;
+}
+
+body[data-btf-page="lesson"] {
+  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
 }
 
 .toc-btn {
@@ -480,5 +484,17 @@ mark.btf-read-sentence.btf-read-active,
   .btf-play-bar,
   .toc-container {
     display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flashcard-inner,
+  .section-chevron,
+  .btf-speed-chevron,
+  .how-to-chevron,
+  .part-chevron,
+  mark.btf-read-sentence.btf-read-active,
+  .btf-reading-active {
+    transition: none !important;
   }
 }

@@ -45,8 +45,7 @@
     clone.querySelectorAll(
       'button, select, input, textarea, .answers-toolbar, .answers-note, .flashcard-hint, .flashcard-back, .btf-minimise-btn, .btf-play-bar, .btf-play-section-btn, .toc-container, script, style'
     ).forEach(function (el) { el.remove(); });
-    var txt = cleanText(clone.textContent || '');
-    return txt.length > 6000 ? txt.substring(0, 6000) + '.' : txt;
+    return cleanText(clone.textContent || '');
   }
 
   var SPEAK_SKIP_SEL = 'button, select, input, textarea, .answers-toolbar, .answers-note, .flashcard-hint, .flashcard-back, .btf-minimise-btn, .btf-play-bar, .btf-play-section-btn, .toc-container, script, style';
@@ -121,7 +120,6 @@
       raw += n.textContent;
     });
     var text = cleanText(raw);
-    if (text.length > 6000) text = text.substring(0, 6000) + '.';
 
     var normToRaw = [];
     var ni = 0;
@@ -505,6 +503,8 @@
     var wholeLessonPauseChar = 0;
     var wholeLessonSentenceIdx = 0;
     var wholeLessonPrevSec = null;
+    var activeSpeakSec = null;
+    var sectionSpeakDone = null;
 
     var mainBtn = $('#btf-btn-play-main');
     var stopBtn = $('#btf-btn-stop');
@@ -601,13 +601,47 @@
       spotlightCurrent = sec;
     }
 
+    function finishSectionSpeech(sec) {
+      deactivateReadHighlight(sec);
+      clearSectionHighlights(sec);
+      var done = sectionSpeakDone;
+      sectionSpeakDone = null;
+      activeSpeakSec = null;
+      if (!playAllActive) {
+        currentSec = null;
+        updateUI();
+      }
+      if (done) done();
+    }
+
+    function startSectionSpeech(sec, fromChar, reuseMap) {
+      if (!sec || isPaused) return false;
+      activeSpeakSec = sec;
+      wholeLessonCurrentSec = sec;
+      wholeLessonFullText = sectionText(sec);
+      if (!reuseMap || !sec._btfHighlightTargets) {
+        prepareSectionHighlights(sec, wholeLessonFullText);
+      }
+      wholeLessonSpeakOffset = fromChar > 0 ? fromChar : 0;
+      wholeLessonSentenceIdx = 0;
+      if (wholeLessonSpeakOffset > 0) {
+        var snap = snapToSentenceStart(wholeLessonFullText, wholeLessonSpeakOffset);
+        var sents = sec._btfSentences || [];
+        for (var i = 0; i < sents.length; i++) {
+          if (snap >= sents[i].start) wholeLessonSentenceIdx = i;
+        }
+      }
+      speakSentenceAtIndex(sec, wholeLessonSentenceIdx);
+      return true;
+    }
+
     function speakSentenceAtIndex(sec, sentenceIdx) {
-      if (!sec || !playAllActive || isPaused) return;
+      if (!sec || isPaused) return;
       var sentences = sec._btfSentences;
       if (!sentences) return;
       if (sentenceIdx >= sentences.length) {
-        deactivateReadHighlight(sec);
         if (playAllActive && !isPaused) playNext();
+        else finishSectionSpeech(sec);
         return;
       }
 
@@ -630,41 +664,32 @@
       u.onend = function () {
         if (myGen !== gen) return;
         deactivateReadHighlight(sec);
-        if (playAllActive && !isPaused) speakSentenceAtIndex(sec, sentenceIdx + 1);
+        if (!isPaused) speakSentenceAtIndex(sec, sentenceIdx + 1);
       };
       u.onerror = function (e) {
         if (myGen !== gen || e.error === 'interrupted') return;
         deactivateReadHighlight(sec);
-        if (playAllActive && !isPaused) speakSentenceAtIndex(sec, sentenceIdx + 1);
+        if (!isPaused) speakSentenceAtIndex(sec, sentenceIdx + 1);
       };
       synth.speak(u);
     }
 
     function speakWholeLessonSection(sec, fromChar, reuseMap) {
       if (!sec || !playAllActive || isPaused) return;
-      wholeLessonFullText = sectionText(sec);
-      if (!reuseMap || !sec._btfHighlightTargets) {
-        prepareSectionHighlights(sec, wholeLessonFullText);
-      }
-      wholeLessonSpeakOffset = fromChar > 0 ? fromChar : 0;
-      wholeLessonSentenceIdx = 0;
-      if (wholeLessonSpeakOffset > 0) {
-        var snap = snapToSentenceStart(wholeLessonFullText, wholeLessonSpeakOffset);
-        var sents = sec._btfSentences || [];
-        for (var i = 0; i < sents.length; i++) {
-          if (snap >= sents[i].start) wholeLessonSentenceIdx = i;
-        }
-      }
-      speakSentenceAtIndex(sec, wholeLessonSentenceIdx);
+      startSectionSpeech(sec, fromChar, reuseMap);
     }
 
     function restartWholeLessonCurrentSection() {
-      if (!wholeLessonCurrentSec || !playAllActive || isPaused) return;
-      speakWholeLessonSection(wholeLessonCurrentSec, wholeLessonPauseChar, true);
+      if (!wholeLessonCurrentSec || isPaused) return;
+      if (playAllActive) {
+        startSectionSpeech(wholeLessonCurrentSec, wholeLessonPauseChar, true);
+      } else if (activeSpeakSec) {
+        startSectionSpeech(activeSpeakSec, wholeLessonPauseChar, true);
+      }
     }
 
-    function pauseWholeLesson() {
-      if (!playAllActive || isPaused) return;
+    function pauseSpeaking() {
+      if (isPaused || (!currentSec && !activeSpeakSec)) return;
       isPaused = true;
       gen++;
       try {
@@ -674,11 +699,21 @@
       updateUI();
     }
 
-    function resumeWholeLesson() {
-      if (!playAllActive || !isPaused || !wholeLessonCurrentSec) return;
+    function resumeSpeaking() {
+      if (!isPaused || !activeSpeakSec) return;
       isPaused = false;
       updateUI();
       restartWholeLessonCurrentSection();
+    }
+
+    function pauseWholeLesson() {
+      if (!playAllActive || isPaused) return;
+      pauseSpeaking();
+    }
+
+    function resumeWholeLesson() {
+      if (!playAllActive || !isPaused || !wholeLessonCurrentSec) return;
+      resumeSpeaking();
     }
 
     function stopAll() {
@@ -687,8 +722,11 @@
       if (wholeLessonCurrentSec && wholeLessonCurrentSec !== wholeLessonPrevSec) {
         clearSectionHighlights(wholeLessonCurrentSec);
       }
+      if (activeSpeakSec) clearSectionHighlights(activeSpeakSec);
       wholeLessonCurrentSec = null;
       wholeLessonPrevSec = null;
+      activeSpeakSec = null;
+      sectionSpeakDone = null;
       wholeLessonFullText = '';
       wholeLessonSpeakOffset = 0;
       wholeLessonPauseChar = 0;
@@ -729,14 +767,8 @@
 
     function pauseResume() {
       if (!currentSec) return;
-      if (isPaused) {
-        synth.resume();
-        isPaused = false;
-      } else {
-        synth.pause();
-        isPaused = true;
-      }
-      updateUI();
+      if (isPaused) resumeSpeaking();
+      else pauseSpeaking();
     }
 
     function beforePlay(sec) {
@@ -748,15 +780,10 @@
 
     function playSection(sec, onDone) {
       currentSec = sec;
+      sectionSpeakDone = onDone;
       beforePlay(sec);
       updateUI();
-      speakText(sectionText(sec), function () {
-        if (!playAllActive) {
-          currentSec = null;
-          updateUI();
-        }
-        if (onDone) onDone();
-      });
+      startSectionSpeech(sec, 0, false);
     }
 
     function playNext() {
@@ -795,7 +822,6 @@
         setTimeout(function () {
           playAllActive = false;
           playSection(sec, function () {
-            currentSec = null;
             updateUI();
           });
         }, 60);

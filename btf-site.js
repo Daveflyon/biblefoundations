@@ -262,17 +262,21 @@
       });
     }
 
-    function ensureWholeLessonResumed() {
-      if (!playAllActive || isPaused || !wholeLessonCurrentSec) return;
-      if (synth.speaking) return;
-      if (synth.paused) {
-        try { synth.resume(); } catch (e) {}
-        setTimeout(function () {
-          if (!playAllActive || isPaused || synth.speaking) return;
-          restartWholeLessonCurrentSection();
-        }, 150);
-        return;
-      }
+    function pauseWholeLesson() {
+      if (!playAllActive || isPaused) return;
+      isPaused = true;
+      gen++;
+      try {
+        if (synth.paused) synth.resume();
+      } catch (e) {}
+      synth.cancel();
+      updateUI();
+    }
+
+    function resumeWholeLesson() {
+      if (!playAllActive || !isPaused || !wholeLessonCurrentSec) return;
+      isPaused = false;
+      updateUI();
       restartWholeLessonCurrentSection();
     }
 
@@ -387,12 +391,12 @@
     if (mainBtn) {
       mainBtn.addEventListener('click', function () {
         if (playAllActive && !isPaused) {
-          pauseResume();
+          if (wholeLessonMode) pauseWholeLesson();
+          else pauseResume();
         } else if (playAllActive && isPaused) {
-          pauseResume();
-          if (wholeLessonMode) {
-            setTimeout(ensureWholeLessonResumed, 200);
-          } else {
+          if (wholeLessonMode) resumeWholeLesson();
+          else {
+            pauseResume();
             setTimeout(function () {
               if (playAllActive && !isPaused && !synth.speaking) playNext();
             }, 200);

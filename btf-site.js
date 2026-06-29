@@ -49,6 +49,189 @@
     return txt.length > 6000 ? txt.substring(0, 6000) + '.' : txt;
   }
 
+  var SPEAK_SKIP_SEL = 'button, select, input, textarea, .answers-toolbar, .answers-note, .flashcard-hint, .flashcard-back, .btf-minimise-btn, .btf-play-bar, .btf-play-section-btn, .toc-container, script, style';
+
+  function isSpeakSkipped(node) {
+    var el = node.nodeType === 1 ? node : node.parentElement;
+    while (el) {
+      if (el.nodeType === 1 && el.matches && el.matches(SPEAK_SKIP_SEL)) return true;
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  function splitSentences(text) {
+    var sentences = [];
+    if (!text) return sentences;
+    var re = /[^.!?]+(?:[.!?]+|$)/g;
+    var m;
+    while ((m = re.exec(text)) !== null) {
+      var chunk = m[0];
+      sentences.push({
+        start: m.index,
+        end: m.index + chunk.length,
+        text: cleanText(chunk)
+      });
+    }
+    if (!sentences.length) {
+      sentences.push({ start: 0, end: text.length, text: cleanText(text) });
+    }
+    return sentences;
+  }
+
+  function snapToSentenceStart(text, charIndex) {
+    if (!text || charIndex <= 0) return 0;
+    var sentences = splitSentences(text);
+    for (var i = sentences.length - 1; i >= 0; i--) {
+      if (charIndex >= sentences[i].start) return sentences[i].start;
+    }
+    return 0;
+  }
+
+  function unwrapReadMark(mark) {
+    if (!mark || !mark.parentNode) return;
+    var parent = mark.parentNode;
+    while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+    parent.removeChild(mark);
+    parent.normalize();
+  }
+
+  function clearSectionHighlights(sec) {
+    if (!sec || !sec.el) return;
+    if (sec._btfActiveMark) {
+      unwrapReadMark(sec._btfActiveMark);
+      sec._btfActiveMark = null;
+    }
+    sec.el.querySelectorAll('.btf-read-sentence').forEach(function (mark) {
+      unwrapReadMark(mark);
+    });
+    sec.el.querySelectorAll('.btf-reading-active').forEach(function (el) {
+      el.classList.remove('btf-reading-active');
+    });
+    sec._btfLastHighlightEl = null;
+    sec._btfActiveSentenceIdx = -1;
+    sec._btfSentences = null;
+  }
+
+  function findBlockForSentence(sectionEl, sentenceText) {
+    var needle = cleanText(sentenceText).substring(0, Math.min(48, sentenceText.length));
+    if (!needle) return null;
+    var blocks = sectionEl.querySelectorAll(
+      'h2, h3, h4, p, li, .scripture-text, .core-truth-statement, td, .callout, .opening-box'
+    );
+    for (var i = 0; i < blocks.length; i++) {
+      if (isSpeakSkipped(blocks[i])) continue;
+      if (cleanText(blocks[i].textContent).indexOf(needle) >= 0) return blocks[i];
+    }
+    return null;
+  }
+
+  function nodeAtTextOffset(nodeList, offset) {
+    for (var i = nodeList.length - 1; i >= 0; i--) {
+      if (offset >= nodeList[i].start) {
+        return { n: nodeList[i].n, offset: offset - nodeList[i].start };
+      }
+    }
+    return nodeList.length ? { n: nodeList[0].n, offset: 0 } : null;
+  }
+
+  function wrapSentenceInRoot(root, sentenceText) {
+    var needle = cleanText(sentenceText);
+    if (!needle || needle.length < 3) return null;
+
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        return isSpeakSkipped(node) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    var nodeList = [];
+    var buf = '';
+    var node;
+    while ((node = walker.nextNode())) {
+      nodeList.push({ n: node, start: buf.length });
+      buf += node.textContent;
+    }
+
+    var rawIdx = buf.indexOf(needle);
+    if (rawIdx < 0) {
+      var probe = needle.split(/\s+/).slice(0, 5).join(' ');
+      rawIdx = buf.indexOf(probe);
+      if (rawIdx < 0) return null;
+    }
+
+    var startInfo = nodeAtTextOffset(nodeList, rawIdx);
+    var endInfo = nodeAtTextOffset(nodeList, rawIdx + needle.length);
+    if (!startInfo || !endInfo) return null;
+
+    try {
+      var range = document.createRange();
+      range.setStart(startInfo.n, startInfo.offset);
+      range.setEnd(endInfo.n, endInfo.offset);
+      var mark = document.createElement('mark');
+      mark.className = 'btf-read-sentence';
+      range.surroundContents(mark);
+      return mark;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function clearActiveReadHighlight(sec) {
+    if (!sec) return;
+    if (sec._btfActiveMark) {
+      unwrapReadMark(sec._btfActiveMark);
+      sec._btfActiveMark = null;
+    }
+    if (sec._btfLastHighlightEl) {
+      sec._btfLastHighlightEl.classList.remove('btf-reading-active');
+      sec._btfLastHighlightEl = null;
+    }
+    sec._btfActiveSentenceIdx = -1;
+  }
+
+  function updateReadHighlight(sec, fullText, charIndex) {
+    if (!sec || !sec.el) return;
+    var sentences = sec._btfSentences || splitSentences(fullText);
+    sec._btfSentences = sentences;
+
+    var activeIdx = -1;
+    for (var i = 0; i < sentences.length; i++) {
+      if (charIndex >= sentences[i].start && charIndex < sentences[i].end) {
+        activeIdx = i;
+        break;
+      }
+    }
+    if (activeIdx < 0) {
+      if (charIndex >= fullText.length && sentences.length) activeIdx = sentences.length - 1;
+      else return;
+    }
+    if (sec._btfActiveSentenceIdx === activeIdx) return;
+
+    clearActiveReadHighlight(sec);
+    sec._btfActiveSentenceIdx = activeIdx;
+
+    var sent = sentences[activeIdx];
+    var contentRoot = $('.section-body', sec.el) || sec.el;
+    var mark = wrapSentenceInRoot(contentRoot, sent.text);
+    var target = null;
+    if (mark) {
+      mark.classList.add('btf-read-active');
+      sec._btfActiveMark = mark;
+      target = mark;
+    } else {
+      var block = findBlockForSentence(sec.el, sent.text);
+      if (block) {
+        block.classList.add('btf-reading-active');
+        sec._btfLastHighlightEl = block;
+        target = block;
+      }
+    }
+    if (target && target.scrollIntoView) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
   function bindInteractive(btn, handler) {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
@@ -159,6 +342,11 @@
     var spotlightSaved = null;
     var spotlightCurrent = null;
     var wholeLessonCurrentSec = null;
+    var wholeLessonFullText = '';
+    var wholeLessonSpeakOffset = 0;
+    var wholeLessonPauseChar = 0;
+    var wholeLessonSentenceIdx = 0;
+    var wholeLessonPrevSec = null;
 
     var mainBtn = $('#btf-btn-play-main');
     var stopBtn = $('#btf-btn-stop');
@@ -255,11 +443,63 @@
       spotlightCurrent = sec;
     }
 
+    function speakSentenceAtIndex(sec, sentenceIdx) {
+      if (!sec || !playAllActive || isPaused) return;
+      var sentences = sec._btfSentences || splitSentences(wholeLessonFullText);
+      sec._btfSentences = sentences;
+      if (sentenceIdx >= sentences.length) {
+        clearActiveReadHighlight(sec);
+        if (playAllActive && !isPaused) playNext();
+        return;
+      }
+
+      wholeLessonSentenceIdx = sentenceIdx;
+      var sent = sentences[sentenceIdx];
+      wholeLessonPauseChar = sent.start;
+      updateReadHighlight(sec, wholeLessonFullText, sent.start);
+
+      gen++;
+      var myGen = gen;
+      isPaused = false;
+      try {
+        if (synth.paused) synth.resume();
+      } catch (e) {}
+      synth.cancel();
+
+      var u = new SpeechSynthesisUtterance(sent.text);
+      u.lang = 'en-GB';
+      u.rate = currentRate;
+      u.onend = function () {
+        if (myGen !== gen) return;
+        clearActiveReadHighlight(sec);
+        if (playAllActive && !isPaused) speakSentenceAtIndex(sec, sentenceIdx + 1);
+      };
+      u.onerror = function (e) {
+        if (myGen !== gen || e.error === 'interrupted') return;
+        clearActiveReadHighlight(sec);
+        if (playAllActive && !isPaused) speakSentenceAtIndex(sec, sentenceIdx + 1);
+      };
+      synth.speak(u);
+    }
+
+    function speakWholeLessonSection(sec, fromChar) {
+      if (!sec || !playAllActive || isPaused) return;
+      wholeLessonFullText = sectionText(sec);
+      sec._btfSentences = splitSentences(wholeLessonFullText);
+      wholeLessonSpeakOffset = fromChar > 0 ? fromChar : 0;
+      wholeLessonSentenceIdx = 0;
+      if (wholeLessonSpeakOffset > 0) {
+        var snap = snapToSentenceStart(wholeLessonFullText, wholeLessonSpeakOffset);
+        for (var i = 0; i < sec._btfSentences.length; i++) {
+          if (snap >= sec._btfSentences[i].start) wholeLessonSentenceIdx = i;
+        }
+      }
+      speakSentenceAtIndex(sec, wholeLessonSentenceIdx);
+    }
+
     function restartWholeLessonCurrentSection() {
       if (!wholeLessonCurrentSec || !playAllActive || isPaused) return;
-      speakText(sectionText(wholeLessonCurrentSec), function () {
-        if (playAllActive && !isPaused) playNext();
-      });
+      speakWholeLessonSection(wholeLessonCurrentSec, wholeLessonPauseChar);
     }
 
     function pauseWholeLesson() {
@@ -282,7 +522,16 @@
 
     function stopAll() {
       restoreSpotlightStates();
+      if (wholeLessonPrevSec) clearSectionHighlights(wholeLessonPrevSec);
+      if (wholeLessonCurrentSec && wholeLessonCurrentSec !== wholeLessonPrevSec) {
+        clearSectionHighlights(wholeLessonCurrentSec);
+      }
       wholeLessonCurrentSec = null;
+      wholeLessonPrevSec = null;
+      wholeLessonFullText = '';
+      wholeLessonSpeakOffset = 0;
+      wholeLessonPauseChar = 0;
+      wholeLessonSentenceIdx = 0;
       playAllActive = false;
       isPaused = false;
       currentSec = null;
@@ -356,13 +605,17 @@
       }
       var sec = sections[playAllIndex++];
       if (wholeLessonMode) {
+        if (wholeLessonPrevSec && wholeLessonPrevSec !== sec) {
+          clearSectionHighlights(wholeLessonPrevSec);
+        }
+        wholeLessonPrevSec = sec;
         wholeLessonCurrentSec = sec;
+        wholeLessonPauseChar = 0;
+        wholeLessonSpeakOffset = 0;
         currentSec = { title: 'Lesson', playBtn: null, el: null };
         spotlightSection(sec);
         updateUI();
-        speakText(sectionText(sec), function () {
-          if (playAllActive && !isPaused) playNext();
-        });
+        speakWholeLessonSection(sec, 0);
         return;
       }
       playSection(sec, function () {

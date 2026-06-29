@@ -335,6 +335,21 @@ section.btf-section-playing,
   border-radius: 4px;
 }
 
+mark.btf-read-sentence {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+mark.btf-read-sentence.btf-read-active,
+.btf-reading-active {
+  background: #ffe08a;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-radius: 2px;
+  transition: background 0.15s ease;
+}
+
 .toc-menu .toc-back-top {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-weight: 700;

@@ -80,10 +80,30 @@
     return sentences;
   }
 
-  function collectSpeakTextNodes(root) {
+  function isInSectionHeading(node, root) {
+    var el = node.parentElement;
+    while (el && el !== root) {
+      if (el.matches && (el.matches('h2') || el.matches('.section-toggle'))) return true;
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  function extractSectionBodyText(section) {
+    var body = $('.section-body', section);
+    if (body) return extractSectionText(body);
+    var clone = section.cloneNode(true);
+    var heading = $('h2', clone) || $('.section-toggle', clone);
+    if (heading) heading.remove();
+    return extractSectionText(clone);
+  }
+
+  function collectSpeakTextNodes(root, skipHeading) {
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: function (node) {
-        return isSpeakSkipped(node) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+        if (isSpeakSkipped(node)) return NodeFilter.FILTER_REJECT;
+        if (skipHeading && isInSectionHeading(node, root)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
       }
     });
     var nodes = [];
@@ -92,8 +112,8 @@
     return nodes;
   }
 
-  function buildFlatSpeakText(root) {
-    var textNodes = collectSpeakTextNodes(root);
+  function buildFlatSpeakText(root, skipHeading) {
+    var textNodes = collectSpeakTextNodes(root, !!skipHeading);
     var raw = '';
     var nodeStarts = [];
     textNodes.forEach(function (n) {
@@ -143,14 +163,39 @@
     return { text: text, indexToNode: indexToNode };
   }
 
+  function buildFlatSpeakTextForSection(section) {
+    var body = $('.section-body', section);
+    if (body) return { flat: buildFlatSpeakText(body, false), root: body };
+    return { flat: buildFlatSpeakText(section, true), root: section };
+  }
+
+  function blocksForNormRange(flat, contentRoot, start, end) {
+    var blocks = [];
+    var points = [start];
+    if (end > start + 1) {
+      points.push(end - 1);
+      points.push(Math.floor((start + end) / 2));
+    }
+    points.forEach(function (pos) {
+      var b = blockAtNormIndex(flat, contentRoot, pos);
+      if (b && blocks.indexOf(b) < 0) blocks.push(b);
+    });
+    return blocks;
+  }
+
   function blockAtNormIndex(flat, contentRoot, normIdx) {
     var info = flat.indexToNode(normIdx);
     if (!info) return null;
     var el = info.n.parentElement;
     while (el && el !== contentRoot) {
       if (el.matches && el.matches(
-        'h2, h3, h4, p, li, .scripture-text, .core-truth-statement, td, .callout, .opening-box, blockquote, th'
+        'h3, h4, p, li, .scripture-text, .scripture-ref, .core-truth-statement, .core-truth-label, .question-text, td, .callout, blockquote, th'
       )) return el;
+      el = el.parentElement;
+    }
+    el = info.n.parentElement;
+    while (el && el !== contentRoot) {
+      if (el.matches && el.matches('.opening-box, .scripture-block, .core-truth-box')) return el;
       el = el.parentElement;
     }
     return info.n.parentElement;
@@ -219,6 +264,12 @@
       sec._btfActiveMark.classList.remove('btf-read-active');
       sec._btfActiveMark = null;
     }
+    if (sec._btfActiveBlocks) {
+      sec._btfActiveBlocks.forEach(function (b) {
+        b.classList.remove('btf-reading-active');
+      });
+      sec._btfActiveBlocks = null;
+    }
     if (sec._btfLastHighlightEl) {
       sec._btfLastHighlightEl.classList.remove('btf-reading-active');
       sec._btfLastHighlightEl = null;
@@ -233,24 +284,29 @@
     var sentences = splitSentences(fullText);
     sec._btfSentences = sentences;
 
-    var titlePart = sec.title ? cleanText(sec.title) + '. ' : '';
-    var titleLen = titlePart.length;
-    var contentRoot = $('.section-body', sec.el) || sec.el;
     var headingEl = $('h2', sec.el) || $('.section-toggle', sec.el);
-    var bodyFlat = buildFlatSpeakText(contentRoot);
-    var bodyIdx = fullText.indexOf(bodyFlat.text);
-    if (bodyIdx >= 0) titleLen = bodyIdx;
+    var bodyWrap = buildFlatSpeakTextForSection(sec.el);
+    var bodyFlat = bodyWrap.flat;
+    var contentRoot = bodyWrap.root;
+    var titleLen = 0;
+    if (bodyFlat.text && fullText.indexOf(bodyFlat.text) >= 0) {
+      titleLen = fullText.indexOf(bodyFlat.text);
+    } else if (sec.title) {
+      titleLen = cleanText(sec.title + '. ').length;
+    }
     var targets = [];
 
     sentences.forEach(function (sent, i) {
-      var target = { mark: null, block: null };
+      var target = { mark: null, block: null, blocks: [] };
       if (sent.start < titleLen && headingEl) {
         target.block = headingEl;
+        target.blocks = [headingEl];
       } else {
         var bodyStart = sent.start - titleLen;
         var bodyEnd = sent.end - titleLen;
         if (bodyStart >= 0 && bodyEnd <= bodyFlat.text.length) {
-          target.block = blockAtNormIndex(bodyFlat, contentRoot, bodyStart);
+          target.blocks = blocksForNormRange(bodyFlat, contentRoot, bodyStart, bodyEnd);
+          target.block = target.blocks[0] || null;
         }
       }
       targets[i] = target;
@@ -298,6 +354,13 @@
       target.mark.classList.add('btf-read-active');
       sec._btfActiveMark = target.mark;
       scrollEl = target.mark;
+    } else if (target.blocks && target.blocks.length) {
+      sec._btfActiveBlocks = [];
+      target.blocks.forEach(function (b) {
+        b.classList.add('btf-reading-active');
+        sec._btfActiveBlocks.push(b);
+      });
+      scrollEl = target.blocks[0];
     } else if (target.block) {
       target.block.classList.add('btf-reading-active');
       sec._btfLastHighlightEl = target.block;
@@ -305,6 +368,15 @@
     } else {
       for (var k = activeIdx; k >= 0; k--) {
         var prev = sec._btfHighlightTargets[k];
+        if (prev && prev.blocks && prev.blocks.length) {
+          sec._btfActiveBlocks = [];
+          prev.blocks.forEach(function (b) {
+            b.classList.add('btf-reading-active');
+            sec._btfActiveBlocks.push(b);
+          });
+          scrollEl = prev.blocks[0];
+          break;
+        }
         if (prev && prev.block) {
           prev.block.classList.add('btf-reading-active');
           sec._btfLastHighlightEl = prev.block;
@@ -872,7 +944,7 @@
           return !!(body && body.classList.contains('open'));
         },
         getText: function () {
-          return extractSectionText(body || section);
+          return extractSectionBodyText(section);
         }
       };
     });

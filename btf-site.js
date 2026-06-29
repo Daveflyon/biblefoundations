@@ -149,6 +149,7 @@
     var synth = window.speechSynthesis;
     var sections = opts.sections;
     var mainLabel = opts.mainLabel;
+    var wholeLessonMode = !!opts.wholeLesson;
     var currentRate = 1;
     var currentSec = null;
     var playAllActive = false;
@@ -188,6 +189,8 @@
       if (progressEl) {
         if (!active) {
           progressEl.textContent = '';
+        } else if (wholeLessonMode && playAllActive) {
+          progressEl.textContent = (isPaused ? 'Paused: ' : 'Playing: ') + 'Lesson';
         } else {
           var idx = sections.indexOf(currentSec);
           var loc = playAllActive && idx >= 0
@@ -199,6 +202,12 @@
 
       sections.forEach(function (sec) {
         if (!sec.playBtn) return;
+        if (wholeLessonMode && playAllActive) {
+          sec.playBtn.innerHTML = I_PLAY + ' Play Section';
+          sec.playBtn.classList.remove('btf-btn-active');
+          if (sec.el) sec.el.classList.remove('btf-section-playing');
+          return;
+        }
         if (currentSec === sec) {
           sec.playBtn.innerHTML = (isPaused ? I_PLAY + ' Resume' : I_PAUSE + ' Pause');
           sec.playBtn.classList.add('btf-btn-active');
@@ -284,6 +293,14 @@
         return;
       }
       var sec = sections[playAllIndex++];
+      if (wholeLessonMode) {
+        currentSec = { title: 'Lesson', playBtn: null, el: null };
+        updateUI();
+        speakText(sectionText(sec), function () {
+          if (playAllActive && !isPaused) playNext();
+        });
+        return;
+      }
       playSection(sec, function () {
         if (playAllActive && !isPaused) playNext();
       });
@@ -313,9 +330,11 @@
           pauseResume();
         } else if (playAllActive && isPaused) {
           pauseResume();
-          setTimeout(function () {
-            if (playAllActive && !isPaused && !synth.speaking) playNext();
-          }, 200);
+          if (!wholeLessonMode) {
+            setTimeout(function () {
+              if (playAllActive && !isPaused && !synth.speaking) playNext();
+            }, 200);
+          }
         } else {
           stopAll();
           setTimeout(function () {
@@ -449,7 +468,7 @@
       }
     });
 
-    createAudioEngine({ sections: sections, mainLabel: 'Play Lesson' });
+    createAudioEngine({ sections: sections, mainLabel: 'Play Lesson', wholeLesson: true });
   }
 
   function initIndexPage() {

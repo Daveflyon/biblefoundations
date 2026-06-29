@@ -156,6 +156,9 @@
     var playAllIndex = 0;
     var isPaused = false;
     var gen = 0;
+    var spotlightSaved = null;
+    var spotlightCurrent = null;
+    var wholeLessonCurrentSec = null;
 
     var mainBtn = $('#btf-btn-play-main');
     var stopBtn = $('#btf-btn-stop');
@@ -220,7 +223,62 @@
       });
     }
 
+    function saveSpotlightStates() {
+      if (!wholeLessonMode) return;
+      spotlightSaved = sections.map(function (sec) {
+        return sec.isOpen ? sec.isOpen() : true;
+      });
+    }
+
+    function restoreSpotlightStates() {
+      if (!wholeLessonMode || !spotlightSaved) return;
+      sections.forEach(function (sec, i) {
+        if (spotlightSaved[i]) {
+          if (sec.open) sec.open();
+        } else if (sec.close) {
+          sec.close();
+        }
+      });
+      spotlightSaved = null;
+      spotlightCurrent = null;
+    }
+
+    function spotlightSection(sec) {
+      if (!wholeLessonMode || !playAllActive) return;
+      if (spotlightCurrent && spotlightCurrent !== sec && spotlightCurrent.close) {
+        spotlightCurrent.close();
+      }
+      if (sec.open) sec.open();
+      if (sec.el && sec.el.scrollIntoView) {
+        sec.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      spotlightCurrent = sec;
+    }
+
+    function restartWholeLessonCurrentSection() {
+      if (!wholeLessonCurrentSec || !playAllActive || isPaused) return;
+      speakText(sectionText(wholeLessonCurrentSec), function () {
+        if (playAllActive && !isPaused) playNext();
+      });
+    }
+
+    function ensureWholeLessonResumed() {
+      if (!playAllActive || isPaused || !wholeLessonCurrentSec) return;
+      if (synth.speaking) return;
+      if (synth.paused) {
+        try { synth.resume(); } catch (e) {}
+        setTimeout(function () {
+          if (!playAllActive || isPaused || synth.speaking) return;
+          restartWholeLessonCurrentSection();
+        }, 150);
+        return;
+      }
+      restartWholeLessonCurrentSection();
+    }
+
     function stopAll() {
+      restoreSpotlightStates();
+      wholeLessonCurrentSec = null;
       playAllActive = false;
       isPaused = false;
       currentSec = null;
@@ -294,7 +352,9 @@
       }
       var sec = sections[playAllIndex++];
       if (wholeLessonMode) {
+        wholeLessonCurrentSec = sec;
         currentSec = { title: 'Lesson', playBtn: null, el: null };
+        spotlightSection(sec);
         updateUI();
         speakText(sectionText(sec), function () {
           if (playAllActive && !isPaused) playNext();
@@ -330,7 +390,9 @@
           pauseResume();
         } else if (playAllActive && isPaused) {
           pauseResume();
-          if (!wholeLessonMode) {
+          if (wholeLessonMode) {
+            setTimeout(ensureWholeLessonResumed, 200);
+          } else {
             setTimeout(function () {
               if (playAllActive && !isPaused && !synth.speaking) playNext();
             }, 200);
@@ -338,6 +400,7 @@
         } else {
           stopAll();
           setTimeout(function () {
+            saveSpotlightStates();
             playAllActive = true;
             playAllIndex = 0;
             playNext();
@@ -455,6 +518,12 @@
         playBtn: collapsible ? (section._btfPlayBtn || null) : null,
         open: function () {
           if (toggle && body) openCollapsible(toggle, body);
+        },
+        close: function () {
+          if (toggle && body) closeCollapsible(toggle, body);
+        },
+        isOpen: function () {
+          return !!(body && body.classList.contains('open'));
         },
         getText: function () {
           return extractSectionText(body || section);

@@ -117,9 +117,10 @@
     print-color-adjust: exact;
   }
 </style>
+<link rel="stylesheet" href="btf-site.css">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
+<body data-btf-page="lesson">
 
 <a class="back-link" href="index.html">&#8592; Back to all lessons</a>
 
@@ -131,6 +132,23 @@
 <div class="title-block" style="padding-top:0;">
   <h1>God's Not Guilty</h1>
   <p class="lesson-meta">Lesson 13 of 16 &nbsp;|&nbsp; Section D: Life in Christ</p>
+</div>
+
+<div class="btf-audio-panel" role="region" aria-label="Audio controls">
+  <div class="btf-audio-inner">
+    <span class="btf-audio-label">Audio</span>
+    <button type="button" class="btf-audio-btn btf-btn-play-main" id="btf-btn-play-main" aria-label="Play Lesson">&#9654; Play Lesson</button>
+    <button type="button" class="btf-audio-btn btf-btn-stop" id="btf-btn-stop" disabled aria-label="Stop playback">&#9632; Stop</button>
+    <span class="btf-speed-label">Speed:</span>
+    <div class="btf-speed-group" role="group" aria-label="Playback speed">
+      <button type="button" class="btf-speed-btn active" data-rate="1" aria-label="Normal speed">1x</button>
+      <button type="button" class="btf-speed-btn" data-rate="1.25" aria-label="1.25x speed">1.25x</button>
+      <button type="button" class="btf-speed-btn" data-rate="1.5" aria-label="1.5x speed">1.5x</button>
+      <button type="button" class="btf-speed-btn" data-rate="1.75" aria-label="1.75x speed">1.75x</button>
+      <button type="button" class="btf-speed-btn" data-rate="2" aria-label="2x speed">2x</button>
+    </div>
+    <span class="btf-audio-progress" id="btf-audio-progress" aria-live="polite"></span>
+  </div>
 </div>
 
 
@@ -453,6 +471,13 @@
 </section>
 
 
+<div class="btf-section-controls">
+  <button type="button" class="btf-section-ctrl-btn" id="btf-expand-all">+ Expand All</button>
+  <button type="button" class="btf-section-ctrl-btn" id="btf-minimise-all">&minus; Minimise All</button>
+</div>
+
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
+
 <div class="page-footer">
   <p>Bible Truth Foundations &middot; Part 1 of 3: New Life in Christ &middot; Lesson 13: God's Not Guilty<br>
   The Well Shrewsbury &middot; <a href="index.html">Back to all lessons</a></p>
@@ -469,38 +494,17 @@
     <a href="#group-discussion">Group Discussion</a>
     <a href="#application">Application</a>
     <a href="#revision-cards">Revision Cards</a>
+    <a href="#" class="toc-back-top">&#8593; Back to top</a>
   </div>
-  <button class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">
+  <button type="button" class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">
     &#9776; Jump to section
   </button>
 </nav>
 
 
+<script src="btf-site.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-
-    ['bible-teaching', 'discovery-questions', 'group-discussion', 'application', 'revision-cards'].forEach(function (id) {
-      var btn  = document.getElementById(id + '-btn');
-      var body = document.getElementById(id + '-body');
-      if (!btn || !body) { return; }
-      btn.addEventListener('click', function () {
-        var open = body.classList.toggle('open');
-        btn.setAttribute('aria-expanded', String(open));
-      });
-    });
-
-    var tocBtn  = document.getElementById('toc-btn');
-    var tocMenu = document.getElementById('toc-menu');
-    tocBtn.addEventListener('click', function () {
-      var open = tocMenu.classList.toggle('open');
-      tocBtn.setAttribute('aria-expanded', String(open));
-    });
-    tocMenu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        tocMenu.classList.remove('open');
-        tocBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
 
     document.querySelectorAll('.flashcard').forEach(function (card) {
       function flip() { card.classList.toggle('flipped'); }

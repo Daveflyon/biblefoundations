@@ -66,17 +66,116 @@
     var re = /[^.!?]+(?:[.!?]+|$)/g;
     var m;
     while ((m = re.exec(text)) !== null) {
-      var chunk = m[0];
+      var start = m.index;
+      var end = m.index + m[0].length;
       sentences.push({
-        start: m.index,
-        end: m.index + chunk.length,
-        text: cleanText(chunk)
+        start: start,
+        end: end,
+        text: text.substring(start, end).replace(/\s+/g, ' ').trim()
       });
     }
     if (!sentences.length) {
       sentences.push({ start: 0, end: text.length, text: cleanText(text) });
     }
     return sentences;
+  }
+
+  function collectSpeakTextNodes(root) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        return isSpeakSkipped(node) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes = [];
+    var node;
+    while ((node = walker.nextNode())) nodes.push(node);
+    return nodes;
+  }
+
+  function buildFlatSpeakText(root) {
+    var textNodes = collectSpeakTextNodes(root);
+    var raw = '';
+    var nodeStarts = [];
+    textNodes.forEach(function (n) {
+      nodeStarts.push({ n: n, rawStart: raw.length });
+      raw += n.textContent;
+    });
+    var text = cleanText(raw);
+    if (text.length > 6000) text = text.substring(0, 6000) + '.';
+
+    var normToRaw = [];
+    var ni = 0;
+    var ri = 0;
+    while (ni < text.length) {
+      normToRaw[ni] = Math.min(ri, Math.max(0, raw.length - 1));
+      if (ri >= raw.length) {
+        ni++;
+        continue;
+      }
+      var nc = text.charAt(ni);
+      var rc = raw.charAt(ri);
+      if (nc === rc) {
+        ni++;
+        ri++;
+      } else if (/\s/.test(rc)) {
+        ri++;
+      } else {
+        ni++;
+        ri++;
+      }
+    }
+
+    function indexToNode(normIdx) {
+      if (normIdx < 0) return null;
+      if (normIdx >= normToRaw.length) normIdx = normToRaw.length - 1;
+      if (normIdx < 0) return null;
+      var rawIdx = normToRaw[normIdx];
+      for (var i = nodeStarts.length - 1; i >= 0; i--) {
+        if (rawIdx >= nodeStarts[i].rawStart) {
+          var node = nodeStarts[i].n;
+          var offset = rawIdx - nodeStarts[i].rawStart;
+          return { n: node, offset: Math.min(offset, node.textContent.length) };
+        }
+      }
+      return null;
+    }
+
+    return { text: text, indexToNode: indexToNode };
+  }
+
+  function blockAtNormIndex(flat, contentRoot, normIdx) {
+    var info = flat.indexToNode(normIdx);
+    if (!info) return null;
+    var el = info.n.parentElement;
+    while (el && el !== contentRoot) {
+      if (el.matches && el.matches(
+        'h2, h3, h4, p, li, .scripture-text, .core-truth-statement, td, .callout, .opening-box, blockquote, th'
+      )) return el;
+      el = el.parentElement;
+    }
+    return info.n.parentElement;
+  }
+
+  function wrapNormSpan(flat, start, end) {
+    if (start < 0 || end <= start || end > flat.text.length) return null;
+    var startInfo = flat.indexToNode(start);
+    var endInfo = flat.indexToNode(end - 1);
+    if (!startInfo || !endInfo) return null;
+    try {
+      var range = document.createRange();
+      range.setStart(startInfo.n, startInfo.offset);
+      var endOffset = endInfo.offset + 1;
+      if (endInfo.n.textContent && endOffset > endInfo.n.textContent.length) {
+        endOffset = endInfo.n.textContent.length;
+      }
+      range.setEnd(endInfo.n, endOffset);
+      var mark = document.createElement('mark');
+      mark.className = 'btf-read-sentence';
+      range.surroundContents(mark);
+      return mark;
+    } catch (e) {
+      return null;
+    }
   }
 
   function snapToSentenceStart(text, charIndex) {
@@ -111,76 +210,13 @@
     sec._btfLastHighlightEl = null;
     sec._btfActiveSentenceIdx = -1;
     sec._btfSentences = null;
+    sec._btfHighlightTargets = null;
   }
 
-  function findBlockForSentence(sectionEl, sentenceText) {
-    var needle = cleanText(sentenceText).substring(0, Math.min(48, sentenceText.length));
-    if (!needle) return null;
-    var blocks = sectionEl.querySelectorAll(
-      'h2, h3, h4, p, li, .scripture-text, .core-truth-statement, td, .callout, .opening-box'
-    );
-    for (var i = 0; i < blocks.length; i++) {
-      if (isSpeakSkipped(blocks[i])) continue;
-      if (cleanText(blocks[i].textContent).indexOf(needle) >= 0) return blocks[i];
-    }
-    return null;
-  }
-
-  function nodeAtTextOffset(nodeList, offset) {
-    for (var i = nodeList.length - 1; i >= 0; i--) {
-      if (offset >= nodeList[i].start) {
-        return { n: nodeList[i].n, offset: offset - nodeList[i].start };
-      }
-    }
-    return nodeList.length ? { n: nodeList[0].n, offset: 0 } : null;
-  }
-
-  function wrapSentenceInRoot(root, sentenceText) {
-    var needle = cleanText(sentenceText);
-    if (!needle || needle.length < 3) return null;
-
-    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-      acceptNode: function (node) {
-        return isSpeakSkipped(node) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
-      }
-    });
-
-    var nodeList = [];
-    var buf = '';
-    var node;
-    while ((node = walker.nextNode())) {
-      nodeList.push({ n: node, start: buf.length });
-      buf += node.textContent;
-    }
-
-    var rawIdx = buf.indexOf(needle);
-    if (rawIdx < 0) {
-      var probe = needle.split(/\s+/).slice(0, 5).join(' ');
-      rawIdx = buf.indexOf(probe);
-      if (rawIdx < 0) return null;
-    }
-
-    var startInfo = nodeAtTextOffset(nodeList, rawIdx);
-    var endInfo = nodeAtTextOffset(nodeList, rawIdx + needle.length);
-    if (!startInfo || !endInfo) return null;
-
-    try {
-      var range = document.createRange();
-      range.setStart(startInfo.n, startInfo.offset);
-      range.setEnd(endInfo.n, endInfo.offset);
-      var mark = document.createElement('mark');
-      mark.className = 'btf-read-sentence';
-      range.surroundContents(mark);
-      return mark;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function clearActiveReadHighlight(sec) {
+  function deactivateReadHighlight(sec) {
     if (!sec) return;
     if (sec._btfActiveMark) {
-      unwrapReadMark(sec._btfActiveMark);
+      sec._btfActiveMark.classList.remove('btf-read-active');
       sec._btfActiveMark = null;
     }
     if (sec._btfLastHighlightEl) {
@@ -190,10 +226,53 @@
     sec._btfActiveSentenceIdx = -1;
   }
 
+  function prepareSectionHighlights(sec, fullText) {
+    clearSectionHighlights(sec);
+    if (!sec || !sec.el || !fullText) return;
+
+    var sentences = splitSentences(fullText);
+    sec._btfSentences = sentences;
+
+    var titlePart = sec.title ? cleanText(sec.title) + '. ' : '';
+    var titleLen = titlePart.length;
+    var contentRoot = $('.section-body', sec.el) || sec.el;
+    var headingEl = $('h2', sec.el) || $('.section-toggle', sec.el);
+    var bodyFlat = buildFlatSpeakText(contentRoot);
+    var bodyIdx = fullText.indexOf(bodyFlat.text);
+    if (bodyIdx >= 0) titleLen = bodyIdx;
+    var targets = [];
+
+    sentences.forEach(function (sent, i) {
+      var target = { mark: null, block: null };
+      if (sent.start < titleLen && headingEl) {
+        target.block = headingEl;
+      } else {
+        var bodyStart = sent.start - titleLen;
+        var bodyEnd = sent.end - titleLen;
+        if (bodyStart >= 0 && bodyEnd <= bodyFlat.text.length) {
+          target.block = blockAtNormIndex(bodyFlat, contentRoot, bodyStart);
+        }
+      }
+      targets[i] = target;
+    });
+
+    for (var j = sentences.length - 1; j >= 0; j--) {
+      var sentJ = sentences[j];
+      if (sentJ.start < titleLen) continue;
+      var bStart = sentJ.start - titleLen;
+      var bEnd = sentJ.end - titleLen;
+      if (bStart < 0 || bEnd > bodyFlat.text.length) continue;
+      var mark = wrapNormSpan(bodyFlat, bStart, bEnd);
+      if (mark) targets[j].mark = mark;
+    }
+
+    sec._btfHighlightTargets = targets;
+  }
+
   function updateReadHighlight(sec, fullText, charIndex) {
     if (!sec || !sec.el) return;
-    var sentences = sec._btfSentences || splitSentences(fullText);
-    sec._btfSentences = sentences;
+    var sentences = sec._btfSentences;
+    if (!sentences || !sec._btfHighlightTargets) return;
 
     var activeIdx = -1;
     for (var i = 0; i < sentences.length; i++) {
@@ -208,27 +287,34 @@
     }
     if (sec._btfActiveSentenceIdx === activeIdx) return;
 
-    clearActiveReadHighlight(sec);
+    deactivateReadHighlight(sec);
     sec._btfActiveSentenceIdx = activeIdx;
 
-    var sent = sentences[activeIdx];
-    var contentRoot = $('.section-body', sec.el) || sec.el;
-    var mark = wrapSentenceInRoot(contentRoot, sent.text);
-    var target = null;
-    if (mark) {
-      mark.classList.add('btf-read-active');
-      sec._btfActiveMark = mark;
-      target = mark;
+    var target = sec._btfHighlightTargets[activeIdx];
+    if (!target) return;
+
+    var scrollEl = null;
+    if (target.mark) {
+      target.mark.classList.add('btf-read-active');
+      sec._btfActiveMark = target.mark;
+      scrollEl = target.mark;
+    } else if (target.block) {
+      target.block.classList.add('btf-reading-active');
+      sec._btfLastHighlightEl = target.block;
+      scrollEl = target.block;
     } else {
-      var block = findBlockForSentence(sec.el, sent.text);
-      if (block) {
-        block.classList.add('btf-reading-active');
-        sec._btfLastHighlightEl = block;
-        target = block;
+      for (var k = activeIdx; k >= 0; k--) {
+        var prev = sec._btfHighlightTargets[k];
+        if (prev && prev.block) {
+          prev.block.classList.add('btf-reading-active');
+          sec._btfLastHighlightEl = prev.block;
+          scrollEl = prev.block;
+          break;
+        }
       }
     }
-    if (target && target.scrollIntoView) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (scrollEl && scrollEl.scrollIntoView) {
+      scrollEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
 
@@ -445,10 +531,10 @@
 
     function speakSentenceAtIndex(sec, sentenceIdx) {
       if (!sec || !playAllActive || isPaused) return;
-      var sentences = sec._btfSentences || splitSentences(wholeLessonFullText);
-      sec._btfSentences = sentences;
+      var sentences = sec._btfSentences;
+      if (!sentences) return;
       if (sentenceIdx >= sentences.length) {
-        clearActiveReadHighlight(sec);
+        deactivateReadHighlight(sec);
         if (playAllActive && !isPaused) playNext();
         return;
       }
@@ -471,27 +557,30 @@
       u.rate = currentRate;
       u.onend = function () {
         if (myGen !== gen) return;
-        clearActiveReadHighlight(sec);
+        deactivateReadHighlight(sec);
         if (playAllActive && !isPaused) speakSentenceAtIndex(sec, sentenceIdx + 1);
       };
       u.onerror = function (e) {
         if (myGen !== gen || e.error === 'interrupted') return;
-        clearActiveReadHighlight(sec);
+        deactivateReadHighlight(sec);
         if (playAllActive && !isPaused) speakSentenceAtIndex(sec, sentenceIdx + 1);
       };
       synth.speak(u);
     }
 
-    function speakWholeLessonSection(sec, fromChar) {
+    function speakWholeLessonSection(sec, fromChar, reuseMap) {
       if (!sec || !playAllActive || isPaused) return;
       wholeLessonFullText = sectionText(sec);
-      sec._btfSentences = splitSentences(wholeLessonFullText);
+      if (!reuseMap || !sec._btfHighlightTargets) {
+        prepareSectionHighlights(sec, wholeLessonFullText);
+      }
       wholeLessonSpeakOffset = fromChar > 0 ? fromChar : 0;
       wholeLessonSentenceIdx = 0;
       if (wholeLessonSpeakOffset > 0) {
         var snap = snapToSentenceStart(wholeLessonFullText, wholeLessonSpeakOffset);
-        for (var i = 0; i < sec._btfSentences.length; i++) {
-          if (snap >= sec._btfSentences[i].start) wholeLessonSentenceIdx = i;
+        var sents = sec._btfSentences || [];
+        for (var i = 0; i < sents.length; i++) {
+          if (snap >= sents[i].start) wholeLessonSentenceIdx = i;
         }
       }
       speakSentenceAtIndex(sec, wholeLessonSentenceIdx);
@@ -499,7 +588,7 @@
 
     function restartWholeLessonCurrentSection() {
       if (!wholeLessonCurrentSec || !playAllActive || isPaused) return;
-      speakWholeLessonSection(wholeLessonCurrentSec, wholeLessonPauseChar);
+      speakWholeLessonSection(wholeLessonCurrentSec, wholeLessonPauseChar, true);
     }
 
     function pauseWholeLesson() {

@@ -57,19 +57,68 @@
     });
   }
 
-  function initSpeedButtons(setRate) {
+  function formatSpeedLabel(rate) {
+    if (rate === 1) return '1.0x';
+    if (rate === 2) return '2.0x';
+    return String(rate) + 'x';
+  }
+
+  function initSpeedDropdown(setRate) {
+    var dropdown = $('.btf-speed-dropdown');
+    var toggle = $('#btf-speed-toggle');
+    var menu = $('#btf-speed-menu');
+    var valueEl = $('.btf-speed-value');
+    var options = $$('.btf-speed-option');
+    if (!dropdown || !toggle || !menu) return;
+
     var rate = getStoredRate();
-    setRate(rate);
-    $$('.btf-speed-btn').forEach(function (btn) {
-      btn.classList.toggle('active', parseFloat(btn.dataset.rate) === rate);
-      btn.addEventListener('click', function () {
-        var chosen = parseFloat(btn.dataset.rate);
-        setStoredRate(chosen);
-        setRate(chosen);
-        $$('.btf-speed-btn').forEach(function (b) {
-          b.classList.toggle('active', parseFloat(b.dataset.rate) === chosen);
-        });
+
+    function applyRate(chosen) {
+      setStoredRate(chosen);
+      setRate(chosen);
+      if (valueEl) valueEl.textContent = formatSpeedLabel(chosen);
+      options.forEach(function (opt) {
+        var selected = parseFloat(opt.dataset.rate) === chosen;
+        opt.classList.toggle('active', selected);
+        opt.setAttribute('aria-selected', String(selected));
       });
+    }
+
+    function closeMenu() {
+      menu.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function openMenu() {
+      menu.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    applyRate(rate);
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (menu.hidden) openMenu();
+      else closeMenu();
+    });
+
+    options.forEach(function (opt) {
+      opt.addEventListener('click', function (e) {
+        e.stopPropagation();
+        applyRate(parseFloat(opt.dataset.rate));
+        closeMenu();
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dropdown.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !menu.hidden) {
+        closeMenu();
+        toggle.focus();
+      }
     });
   }
 
@@ -236,7 +285,7 @@
       }
       var sec = sections[playAllIndex++];
       playSection(sec, function () {
-        if (playAllActive && !isPaused) setTimeout(playNext, 700);
+        if (playAllActive && !isPaused) playNext();
       });
     }
 
@@ -280,7 +329,7 @@
 
     if (stopBtn) stopBtn.addEventListener('click', stopAll);
 
-    initSpeedButtons(function (rate) {
+    initSpeedDropdown(function (rate) {
       currentRate = rate;
     });
 

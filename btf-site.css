@@ -1,45 +1,41 @@
-/* BTF shared navigation + audio (matches biblerelationships.pages.dev) */
+/* BTF shared navigation + audio (standard study-site audio row) */
 
 .btf-audio-panel {
   background: #ffffff;
   border-bottom: 2px solid #1F3864;
-  padding: 10px 20px;
+  padding: 8px 12px;
   position: sticky;
   top: 0;
   z-index: 950;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
   margin: 0 0 20px;
+  overflow: visible;
 }
 
 .btf-audio-inner {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 8px 14px;
-}
-
-.btf-audio-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #1F3864;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  flex-shrink: 0;
+  gap: 6px;
+  overflow: visible;
 }
 
 .btf-audio-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 6px 14px;
+  padding: 8px 10px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 36px;
 }
 
 .btf-audio-btn:focus {
@@ -50,6 +46,8 @@
 .btf-btn-play-main {
   background: #1F3864;
   color: #ffffff;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .btf-btn-play-main:hover {
@@ -71,46 +69,146 @@
   cursor: default;
 }
 
-.btf-speed-group {
-  display: flex;
-  gap: 2px;
+.btf-speed-dropdown {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.btf-speed-toggle {
+  display: inline-flex;
   align-items: center;
-}
-
-.btf-speed-label {
-  font-size: 11px;
-  color: #777;
-  margin-right: 4px;
-}
-
-.btf-speed-btn {
+  gap: 3px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 700;
-  padding: 4px 8px;
+  padding: 8px 8px;
   border: 1px solid #cccccc;
   background: #f2f2f2;
   color: #555;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
+  white-space: nowrap;
+  min-height: 36px;
 }
 
-.btf-speed-btn.active {
-  background: #1F3864;
-  color: #ffffff;
-  border-color: #1F3864;
+.btf-speed-toggle:hover {
+  background: #e8e8e8;
 }
 
-.btf-speed-btn:focus {
+.btf-speed-toggle:focus {
   outline: 2px solid #d97706;
   outline-offset: 1px;
 }
 
-.btf-audio-progress {
+.btf-speed-toggle[aria-expanded="true"] .btf-speed-chevron {
+  transform: rotate(180deg);
+}
+
+.btf-speed-chevron {
+  font-size: 10px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.btf-speed-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  min-width: 100%;
+  z-index: 1001;
+}
+
+.btf-speed-menu[hidden] {
+  display: none;
+}
+
+.btf-speed-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: #1c1c1e;
+  cursor: pointer;
+}
+
+.btf-speed-option:hover,
+.btf-speed-option:focus {
+  background: #f2f2f2;
+  outline: none;
+}
+
+.btf-speed-option.active,
+.btf-speed-option[aria-selected="true"] {
+  background: #1F3864;
+  color: #ffffff;
+}
+
+.btf-speed-option.active:hover,
+.btf-speed-option.active:focus,
+.btf-speed-option[aria-selected="true"]:hover,
+.btf-speed-option[aria-selected="true"]:focus {
+  background: #2c54a0;
+}
+
+@media (max-width: 480px) {
+  .btf-speed-menu {
+    left: auto;
+    right: 0;
+    min-width: 7.5rem;
+  }
+}
+
+.btf-audio-progress {
+  font-size: 11px;
   color: #888;
   margin-left: auto;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.btf-audio-progress:empty {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .btf-audio-panel {
+    padding: 10px 20px;
+  }
+
+  .btf-audio-inner {
+    gap: 10px;
+  }
+
+  .btf-audio-btn {
+    font-size: 13px;
+    padding: 6px 14px;
+    gap: 6px;
+    min-height: 0;
+  }
+
+  .btf-speed-toggle {
+    padding: 6px 10px;
+    min-height: 0;
+  }
+
+  .btf-audio-progress {
+    font-size: 12px;
+  }
 }
 
 .btf-play-section-btn {

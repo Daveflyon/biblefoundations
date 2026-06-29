@@ -225,17 +225,18 @@
 
 <div class="btf-audio-panel" role="region" aria-label="Audio controls">
   <div class="btf-audio-inner">
-    <span class="btf-audio-label">Audio</span>
     <button type="button" class="btf-audio-btn btf-btn-play-main" id="btf-btn-play-main" aria-label="Play Lesson">&#9654; Play Lesson</button>
-    <button type="button" class="btf-audio-btn btf-btn-stop" id="btf-btn-stop" disabled aria-label="Stop playback">&#9632; Stop</button>
-    <span class="btf-speed-label">Speed:</span>
-    <div class="btf-speed-group" role="group" aria-label="Playback speed">
-      <button type="button" class="btf-speed-btn active" data-rate="1" aria-label="Normal speed">1x</button>
-      <button type="button" class="btf-speed-btn" data-rate="1.25" aria-label="1.25x speed">1.25x</button>
-      <button type="button" class="btf-speed-btn" data-rate="1.5" aria-label="1.5x speed">1.5x</button>
-      <button type="button" class="btf-speed-btn" data-rate="1.75" aria-label="1.75x speed">1.75x</button>
-      <button type="button" class="btf-speed-btn" data-rate="2" aria-label="2x speed">2x</button>
+    <div class="btf-speed-dropdown">
+      <button class="btf-speed-toggle" type="button" id="btf-speed-toggle" aria-expanded="false" aria-haspopup="listbox" aria-controls="btf-speed-menu" aria-label="Playback speed"><span class="btf-speed-value">1.0x</span><span class="btf-speed-chevron" aria-hidden="true">&#9660;</span></button>
+      <ul class="btf-speed-menu" id="btf-speed-menu" role="listbox" hidden>
+        <li role="presentation"><button type="button" class="btf-speed-option active" role="option" data-rate="1" aria-selected="true">1.0x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.25" aria-selected="false">1.25x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.5" aria-selected="false">1.5x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.75" aria-selected="false">1.75x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="2" aria-selected="false">2.0x</button></li>
+      </ul>
     </div>
+    <button type="button" class="btf-audio-btn btf-btn-stop" id="btf-btn-stop" disabled aria-label="Stop playback">&#9632; Stop</button>
     <span class="btf-audio-progress" id="btf-audio-progress" aria-live="polite"></span>
   </div>
 </div>

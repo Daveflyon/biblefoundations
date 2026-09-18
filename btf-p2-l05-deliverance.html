@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 05: Deliverance – Bible Truth Foundations Part 2</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #1c1c1e;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) { body { padding: 0 32px; } }
+  @media (min-width: 900px) { body { max-width: 900px; margin: 0 auto; } }
+
+  /* ── Title block ── */
+  .title-block {
+    text-align: center;
+    padding: 40px 0 0;
+  }
+  .series-name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    line-height: 1.2;
+  }
+  .series-part {
+    font-size: 17px;
+    font-style: italic;
+    color: #1c1c1e;
+    margin: 0 0 10px;
+  }
+  .title-rule {
+    border: none;
+    border-top: 2px solid #1F3864;
+    margin: 12px auto 20px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+  .lesson-meta {
+    font-size: 13px;
+    color: #555;
+    margin: 0 0 4px;
+  }
+  .lesson-author {
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+    margin: 0 0 24px;
+  }
+
+  /* ── Headings ── */
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F3864;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 4px;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1c1c1e;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  p { margin-bottom: 16px; }
+
+  a { color: #1F3864; text-decoration: underline; }
+  a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Core Truth ── */
+  .core-truth-box {
+    background: #1F3864;
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .core-truth-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f0b429;
+    margin: 0 0 12px;
+  }
+  .core-truth-statement {
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ── Opening question ── */
+  .opening-box {
+    border: 2px solid #1F3864;
+    border-radius: 4px;
+    padding: 20px 24px;
+    background: #f2f2f2;
+    margin: 16px 0 24px;
+  }
+  .opening-box p:last-child { margin-bottom: 0; }
+  .question-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 12px 0 0;
+  }
+
+  /* ── Scripture blocks ── */
+  .scripture-block {
+    border-left: 4px solid #1F3864;
+    background: #f2f2f2;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .scripture-ref {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .scripture-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1c1c1e;
+    margin: 0;
+    font-style: italic;
+  }
+  .scripture-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: -12px;
+    margin-bottom: 24px;
+  }
+
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead tr { background: #1F3864; color: #ffffff; }
+  thead th {
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: 1px solid #cccccc;
+    text-align: left;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border: 1px solid #cccccc;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+  tbody tr:nth-child(even) { background: #f2f2f2; }
+  td.label-cell {
+    background: #f2f2f2;
+    font-weight: 700;
+    width: 18%;
+    vertical-align: top;
+  }
+
+  /* ── Flashcards ── */
+  .flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+  .flashcard {
+    height: 180px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+    border-radius: 6px;
+  }
+  .flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+  .flashcard-front,
+  .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flashcard-front {
+    background: #ffffff;
+    border: 2px solid #1F3864;
+  }
+  .flashcard-back {
+    background: #1F3864;
+    transform: rotateY(180deg);
+  }
+  .fc-prompt {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 8px;
+    line-height: 1.4;
+  }
+  .fc-ref {
+    font-size: 12px;
+    color: #60a5fa;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+  .fc-verse {
+    font-size: 13px;
+    color: #e8e4dc;
+    font-style: italic;
+    margin: 0 0 8px;
+    line-height: 1.5;
+  }
+  .fc-ref-back {
+    font-size: 12px;
+    color: #f0b429;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+  .fc-def {
+    font-size: 13px;
+    color: #e8e4dc;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .flashcard-hint {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* ── Fillable answer cells ── */
+  .fillable {
+    min-height: 60px;
+    outline: none;
+    background: #fffbf0;
+    border-radius: 2px;
+    padding: 4px 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1c1c1e;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.15s;
+  }
+  .fillable:focus {
+    background: #fff8e1;
+    outline: 2px solid #d97706;
+    outline-offset: 0;
+  }
+  .fillable:empty::before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    pointer-events: none;
+  }
+  .answers-toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 12px 0 4px;
+  }
+  .answers-toolbar button {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+  }
+  .answers-toolbar button:hover { background: #2c54a0; }
+  .answers-toolbar button:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .answers-toolbar button.clear-btn {
+    background: #ffffff;
+    color: #8b0000;
+    border: 1px solid #8b0000;
+  }
+  .answers-toolbar button.clear-btn:hover { background: #fce8e8; }
+  .answers-note {
+    font-size: 12px;
+    color: #777;
+    margin: 0 0 16px;
+  }
+
+  /* ── Who This Is Not For ── */
+  .not-for-box {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 16px 20px;
+    background: #f2f2f2;
+    margin: 16px 0 40px;
+  }
+  .not-for-box p { margin: 0; font-size: 14px; color: #444; }
+
+  /* ── Back link ── */
+  .back-link {
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: block;
+    padding-top: 24px;
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid #cccccc;
+    padding: 24px 0 40px;
+    margin-top: 16px;
+  }
+
+  /* ── Floating TOC ── */
+  .toc-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+  }
+  .toc-btn {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .toc-btn:hover { background: #2c54a0; }
+  .toc-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .toc-menu {
+    display: none;
+    background: #1F3864;
+    border-radius: 4px 4px 0 0;
+    padding: 8px 0;
+    margin-bottom: 4px;
+    max-height: 60vh;
+    overflow-y: auto;
+    min-width: 220px;
+  }
+  .toc-menu.open { display: block; }
+  .toc-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .toc-menu a:hover { background: #2c54a0; color: #ffffff; }
+  .toc-menu a:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Collapsible sections ── */
+  .section-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #1F3864;
+    padding: 8px 0;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    text-align: left;
+  }
+  .section-toggle:hover { color: #2c54a0; border-bottom-color: #2c54a0; }
+  .section-toggle:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .section-chevron {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-weight: 400;
+  }
+  .section-toggle[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
+  .section-body { display: none; }
+  .section-body.open { display: block; }
+
+  /* ── Print ── */
+  @media print {
+    .toc-container { display: none; }
+    .section-body { display: block !important; }
+    body { color: #1c1c1e; }
+    a { color: #1c1c1e; }
+    .flashcard-front { border: 1px solid #cccccc; }
+    .flashcard-back { background: #f2f2f2; }
+    .fc-verse, .fc-def { color: #1c1c1e; }
+    print-color-adjust: exact;
+  }
+</style>
+<link rel="stylesheet" href="btf-site.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body data-btf-page="lesson">
+
+<!-- ════════════════════════════════════════
+     SECTION 1: TITLE AND SERIES POSITION
+════════════════════════════════════════ -->
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
+
+<div class="title-block">
+  <p class="series-name">Bible Truth Foundations</p>
+  <p class="series-part">Part 2 of 3: Growing in Christ</p>
+</div>
+<hr class="title-rule">
+<div class="title-block" style="padding-top:0;">
+  <h1>Deliverance</h1>
+  <p class="lesson-meta">Lesson 5 of 16 &nbsp;|&nbsp; Section B: Church and Authority</p>
+</div>
+
+<div class="btf-audio-panel" role="region" aria-label="Audio controls">
+  <div class="btf-audio-inner">
+    <button type="button" class="btf-audio-btn btf-btn-play-main" id="btf-btn-play-main" aria-label="Play Lesson">&#9654; Play Lesson</button>
+    <div class="btf-speed-dropdown">
+      <button class="btf-speed-toggle" type="button" id="btf-speed-toggle" aria-expanded="false" aria-haspopup="listbox" aria-controls="btf-speed-menu" aria-label="Playback speed"><span class="btf-speed-value">1.0x</span><span class="btf-speed-chevron" aria-hidden="true">&#9660;</span></button>
+      <ul class="btf-speed-menu" id="btf-speed-menu" role="listbox" hidden>
+        <li role="presentation"><button type="button" class="btf-speed-option active" role="option" data-rate="1" aria-selected="true">1.0x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.25" aria-selected="false">1.25x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.5" aria-selected="false">1.5x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.75" aria-selected="false">1.75x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="2" aria-selected="false">2.0x</button></li>
+      </ul>
+    </div>
+    <button type="button" class="btf-audio-btn btf-btn-stop" id="btf-btn-stop" disabled aria-label="Stop playback">&#9632; Stop</button>
+    <span class="btf-audio-progress" id="btf-audio-progress" aria-live="polite"></span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 2: OPENING QUESTION
+════════════════════════════════════════ -->
+<section id="opening-question">
+  <h2>Opening Question</h2>
+  <div class="opening-box">
+    <p>Please begin by answering this question honestly in your own words.</p>
+    <p class="question-text">Does the devil feel more real to you than the authority you have over him, or less? What has shaped that instinct?</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 3: KEY SCRIPTURE
+════════════════════════════════════════ -->
+<section id="key-scripture">
+  <h2>Key Scripture</h2>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">1 John 3:8</p>
+    <p class="scripture-text">He who sins is of the devil, for the devil has sinned from the beginning. For this purpose the Son of God was manifested, that He might destroy the works of the devil.</p>
+  </div>
+
+  <p class="scripture-note"><em>The verse states the purpose of the incarnation in one clause. Whatever the devil builds, the Son came to demolish.</em></p>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 4: CORE TRUTH
+════════════════════════════════════════ -->
+<section id="core-truth">
+  <h2>Core Truth</h2>
+  <div class="core-truth-box">
+    <p class="core-truth-label">The central idea of this lesson</p>
+    <p class="core-truth-statement">Jesus came to destroy the works of the devil, and He has armed His people with His Word and His name; the believer fights from victory, not for it.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 5: BIBLE TEACHING (collapsible)
+════════════════════════════════════════ -->
+<section id="bible-teaching">
+  <button class="section-toggle" aria-expanded="false" aria-controls="bible-teaching-body" id="bible-teaching-btn">
+    Bible Teaching <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="bible-teaching-body">
+
+  <p>Roughly a quarter of Jesus' recorded ministry involved setting people free from demonic oppression. Many believers quietly assume such things belong to other times or other places; Scripture, and the experience of anyone long in ministry, says otherwise. The good news is that this subject, rightly seen, produces confidence rather than fear.</p>
+  <h3>What Jesus came to do</h3>
+  <div class="scripture-block">
+    <p class="scripture-ref">Acts 10:38</p>
+    <p class="scripture-text">How God anointed Jesus of Nazareth with the Holy Spirit and with power, who went about doing good and healing all who were oppressed by the devil, for God was with Him.</p>
+  </div>
+  <p>Oppression is the devil's work; destroying it is Jesus' stated purpose (1 John 3:8). Every deliverance in the Gospels is a demonstration of a kingdom changing hands.</p>
+  <div class="scripture-block">
+    <p class="scripture-ref">Colossians 1:13</p>
+    <p class="scripture-text">He has delivered us from the power of darkness and conveyed us into the kingdom of the Son of His love.</p>
+  </div>
+  <div class="callout note">
+    <p class="callout-label">Note</p>
+    <p>The believer's deliverance is first of all positional: you have already been transferred out of darkness' jurisdiction into Christ's kingdom. The enemy's only remaining weapons against a transferred citizen are deception and intimidation, which is precisely why he fears the Word that exposes him.</p>
+  </div>
+  <h3>The sword of the Spirit</h3>
+  <div class="scripture-block">
+    <p class="scripture-ref">Ephesians 6:17</p>
+    <p class="scripture-text">And take the helmet of salvation, and the sword of the Spirit, which is the word of God.</p>
+  </div>
+  <p>Of the whole armour of God, one piece is offensive: the Word. When Jesus faced Satan in the wilderness He did not argue, reason or panic; three times He answered "It is written" (Matthew 4:10), and the tempter left. What worked for the Son of God in person is the weapon He hands His people. Spoken Scripture does what shouting never will.</p>
+  <div class="callout caution">
+    <p class="callout-label">Caution</p>
+    <p>This battle is real but it is not against people: "we do not wrestle against flesh and blood" (Ephesians 6:12). The moment spiritual warfare turns into suspicion or fear of human beings, it has left the biblical rails.</p>
+  </div>
+  <h3>Why the enemy resists the Word</h3>
+  <p>Ask anyone who has tried to establish a habit of Scripture and prayer: the interference is strangely specific. The enemy does not mind religious activity; he minds believers knowing God through His Word, because informed believers are dangerous to him. Resistance around Bible study is not a sign of failure but of significance.</p>
+  <div class="scripture-block">
+    <p class="scripture-ref">James 4:7</p>
+    <p class="scripture-text">Therefore submit to God. Resist the devil and he will flee from you.</p>
+  </div>
+  <p>The order matters: submit first, resist second. Authority over the enemy flows from being under authority; a life yielded to God can resist with confidence, and the promise is not that the devil might flee but that he will.</p>
+  <h3>Authority in Jesus' name</h3>
+  <div class="scripture-block">
+    <p class="scripture-ref">Luke 10:19</p>
+    <p class="scripture-text">Behold, I give you the authority to trample on serpents and scorpions, and over all the power of the enemy, and nothing shall by any means hurt you.</p>
+  </div>
+  <p>Jesus gave His disciples authority to cast out demons in His name (Matthew 10:8; Mark 16:17), and the seventy returned astonished that it worked. The name of Jesus is not a magic word; it is delegated authority, effective in the mouth of those who belong to Him and live under Him. The believer need never be bullied: greater is He who is in you.</p>
+  <div class="callout tip">
+    <p class="callout-label">Practical Tip</p>
+    <p>When oppression, fear or dark suggestion presses in, do what Jesus did: answer aloud with written Scripture. Keep Philippians 2:9&ndash;11 and James 4:7 ready. Speak them, submit afresh to God, and stand; fleeing is the enemy's job, not yours.</p>
+  </div>
+
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 6: KEY DISCOVERY QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="discovery-questions">
+  <button class="section-toggle" aria-expanded="false" aria-controls="discovery-questions-body" id="discovery-questions-btn">
+    Key Discovery Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="discovery-questions-body">
+  <p>Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.</p>
+
+  <div class="answers-toolbar">
+    <button id="download-btn">&#8595; Download my answers</button>
+    <button class="clear-btn" id="clear-btn">Clear all answers</button>
+  </div>
+  <p class="answers-note">Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:38%">Question</th>
+          <th style="width:31%">My Answer</th>
+          <th style="width:31%">Group Discussion Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 John 3:8 says the Son of God was manifested to destroy the devil's works. Which work of the enemy, fear, bondage, deception, oppression, most needs destroying in your world right now?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q1-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q1-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Colossians 1:13 says you have already been conveyed into the kingdom of the Son. How does living as a transferred citizen differ from living as contested territory?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q2-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q2-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Jesus answered temptation with "It is written" (Matthew 4:10). What are you currently facing that you have not yet answered with any written Scripture, and which verse fits it?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q3-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q3-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>James 4:7 puts submitting to God before resisting the devil. Is there an area where you are attempting the second without the first?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q4-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q4-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Luke 10:19 grants authority over all the power of the enemy. Where do you behave as though that verse were not true, and what would change if you believed it?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q5-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l05-q5-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 7: GROUP DISCUSSION QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="group-discussion">
+  <button class="section-toggle" aria-expanded="false" aria-controls="group-discussion-body" id="group-discussion-btn">
+    Group Discussion Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="group-discussion-body">
+  <p>These questions are designed for open conversation at any level of experience. There are no trick questions and no single correct answer.</p>
+
+  <ol>
+    <li style="margin-bottom:16px;">Why do you think the modern church swings between obsession with the demonic and total silence about it? Where is the biblical balance?</li>
+    <li style="margin-bottom:16px;">A quarter of Jesus' ministry involved deliverance. What should that fact do to our expectations today?</li>
+    <li style="margin-bottom:16px;">Why is the Word called the sword of the Spirit rather than our arguments, volume or willpower?</li>
+    <li style="margin-bottom:16px;">Have you experienced strange resistance when trying to establish prayer or Bible reading? What does that suggest?</li>
+    <li style="margin-bottom:16px;">What is the difference between healthy spiritual vigilance and fear? How do we help each other stay on the right side?</li>
+  </ol>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 8: APPLICATION (collapsible)
+════════════════════════════════════════ -->
+<section id="application">
+  <button class="section-toggle" aria-expanded="false" aria-controls="application-body" id="application-btn">
+    Application <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="application-body">
+  <p>Deliverance truths are lived quietly long before they are needed loudly. Consider these areas.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Context</th>
+          <th>How I Apply This</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-cell">Personal life</td>
+          <td>Memorise James 4:7 and keep it loaded: "Therefore submit to God. Resist the devil and he will flee from you." Practise the order daily, submission first, resistance second, and answer dark suggestions aloud with written Scripture rather than debating them in your head.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Church community</td>
+          <td>Pray regularly for those you are discipling, because resistance clusters around new growth. When a new believer suddenly faces chaos, recognise the pattern, name it soberly without drama, and stand with them in the Word.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Difficult seasons</td>
+          <td>Under sustained oppression, do not isolate and do not improvise: anchor to your position (Colossians 1:13), speak the Word aloud, and ask mature believers to pray with you. Nothing about the fight is meant to be fought alone.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 10: REVISION CARDS (collapsible)
+════════════════════════════════════════ -->
+<section id="revision-cards">
+  <button class="section-toggle" aria-expanded="false" aria-controls="revision-cards-body" id="revision-cards-btn">
+    Revision Cards <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="revision-cards-body">
+  <p class="flashcard-hint">Tap each card to reveal the answer.</p>
+
+  <div class="flashcard-grid">
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: Why was the Son of God manifested?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">Why was the Son of God manifested?</p>
+          <p class="fc-ref">1 John 3:8</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"For this purpose the Son of God was manifested, that He might destroy the works of the devil."</p>
+          <p class="fc-ref-back">1 John 3:8</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What did Jesus do for all who were oppressed by the devil?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What did Jesus do for all who were oppressed by the devil?</p>
+          <p class="fc-ref">Acts 10:38</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"God anointed Jesus of Nazareth with the Holy Spirit and with power, who went about doing good and healing all who were oppressed by the devil, for God was with Him."</p>
+          <p class="fc-ref-back">Acts 10:38</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What has already happened to every believer?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What has already happened to every believer?</p>
+          <p class="fc-ref">Colossians 1:13</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"He has delivered us from the power of darkness and conveyed us into the kingdom of the Son of His love."</p>
+          <p class="fc-ref-back">Colossians 1:13</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What is the one offensive weapon in the armour of God?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What is the one offensive weapon in the armour of God?</p>
+          <p class="fc-ref">Ephesians 6:17</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"And take the helmet of salvation, and the sword of the Spirit, which is the word of God."</p>
+          <p class="fc-ref-back">Ephesians 6:17</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What two steps make the devil flee?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What two steps make the devil flee?</p>
+          <p class="fc-ref">James 4:7</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"Therefore submit to God. Resist the devil and he will flee from you."</p>
+          <p class="fc-ref-back">James 4:7</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What authority has Jesus given His people?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What authority has Jesus given His people?</p>
+          <p class="fc-ref">Luke 10:19</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"Behold, I give you the authority to trample on serpents and scorpions, and over all the power of the enemy, and nothing shall by any means hurt you."</p>
+          <p class="fc-ref-back">Luke 10:19</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end flashcard-grid -->
+  </div><!-- end section-body -->
+</section>
+
+
+<div class="btf-section-controls">
+  <button type="button" class="btf-section-ctrl-btn" id="btf-expand-all">+ Expand All</button>
+  <button type="button" class="btf-section-ctrl-btn" id="btf-minimise-all">&minus; Minimise All</button>
+</div>
+
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<div class="page-footer">
+  <p>Bible Truth Foundations &middot; Part 2 of 3: Growing in Christ &middot; Lesson 05: Deliverance<br>
+  The Well Shrewsbury &middot; <a href="index.html">Back to all lessons</a></p>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     FLOATING TOC
+════════════════════════════════════════ -->
+<nav class="toc-container" role="navigation" aria-label="Jump to section">
+  <div class="toc-menu" id="toc-menu">
+    <a href="#opening-question">Opening Question</a>
+    <a href="#key-scripture">Key Scripture</a>
+    <a href="#core-truth">Core Truth</a>
+    <a href="#bible-teaching">Bible Teaching</a>
+    <a href="#discovery-questions">Key Discovery Questions</a>
+    <a href="#group-discussion">Group Discussion</a>
+    <a href="#application">Application</a>
+    <a href="#revision-cards">Revision Cards</a>
+    <a href="#" class="toc-back-top">&#8593; Back to top</a>
+  </div>
+  <button type="button" class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">
+    &#9776; Jump to section
+  </button>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script src="btf-site.js"></script>
+<script src="btf-lesson-page.js"></script>
+
+</body>
+</html>

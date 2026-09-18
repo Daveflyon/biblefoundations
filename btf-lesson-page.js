@@ -20,7 +20,7 @@
 
   function lessonSlug() {
     var path = window.location.pathname.split('/').pop() || '';
-    var m = path.match(/^(btf-p1-l\d+)/i);
+    var m = path.match(/^(btf-p\d+-l\d+)/i);
     return m ? m[1].toLowerCase() : 'btf-lesson';
   }
 

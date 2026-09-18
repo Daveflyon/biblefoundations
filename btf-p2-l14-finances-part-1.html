@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 14: Finances (Part 1) – Bible Truth Foundations Part 2</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #1c1c1e;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) { body { padding: 0 32px; } }
+  @media (min-width: 900px) { body { max-width: 900px; margin: 0 auto; } }
+
+  /* ── Title block ── */
+  .title-block {
+    text-align: center;
+    padding: 40px 0 0;
+  }
+  .series-name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    line-height: 1.2;
+  }
+  .series-part {
+    font-size: 17px;
+    font-style: italic;
+    color: #1c1c1e;
+    margin: 0 0 10px;
+  }
+  .title-rule {
+    border: none;
+    border-top: 2px solid #1F3864;
+    margin: 12px auto 20px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+  .lesson-meta {
+    font-size: 13px;
+    color: #555;
+    margin: 0 0 4px;
+  }
+  .lesson-author {
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+    margin: 0 0 24px;
+  }
+
+  /* ── Headings ── */
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F3864;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 4px;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1c1c1e;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  p { margin-bottom: 16px; }
+
+  a { color: #1F3864; text-decoration: underline; }
+  a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Core Truth ── */
+  .core-truth-box {
+    background: #1F3864;
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .core-truth-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f0b429;
+    margin: 0 0 12px;
+  }
+  .core-truth-statement {
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ── Opening question ── */
+  .opening-box {
+    border: 2px solid #1F3864;
+    border-radius: 4px;
+    padding: 20px 24px;
+    background: #f2f2f2;
+    margin: 16px 0 24px;
+  }
+  .opening-box p:last-child { margin-bottom: 0; }
+  .question-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 12px 0 0;
+  }
+
+  /* ── Scripture blocks ── */
+  .scripture-block {
+    border-left: 4px solid #1F3864;
+    background: #f2f2f2;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .scripture-ref {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .scripture-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1c1c1e;
+    margin: 0;
+    font-style: italic;
+  }
+  .scripture-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: -12px;
+    margin-bottom: 24px;
+  }
+
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead tr { background: #1F3864; color: #ffffff; }
+  thead th {
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: 1px solid #cccccc;
+    text-align: left;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border: 1px solid #cccccc;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+  tbody tr:nth-child(even) { background: #f2f2f2; }
+  td.label-cell {
+    background: #f2f2f2;
+    font-weight: 700;
+    width: 18%;
+    vertical-align: top;
+  }
+
+  /* ── Flashcards ── */
+  .flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+  .flashcard {
+    height: 180px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+    border-radius: 6px;
+  }
+  .flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+  .flashcard-front,
+  .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flashcard-front {
+    background: #ffffff;
+    border: 2px solid #1F3864;
+  }
+  .flashcard-back {
+    background: #1F3864;
+    transform: rotateY(180deg);
+  }
+  .fc-prompt {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 8px;
+    line-height: 1.4;
+  }
+  .fc-ref {
+    font-size: 12px;
+    color: #60a5fa;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+  .fc-verse {
+    font-size: 13px;
+    color: #e8e4dc;
+    font-style: italic;
+    margin: 0 0 8px;
+    line-height: 1.5;
+  }
+  .fc-ref-back {
+    font-size: 12px;
+    color: #f0b429;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+  .fc-def {
+    font-size: 13px;
+    color: #e8e4dc;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .flashcard-hint {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* ── Fillable answer cells ── */
+  .fillable {
+    min-height: 60px;
+    outline: none;
+    background: #fffbf0;
+    border-radius: 2px;
+    padding: 4px 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1c1c1e;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.15s;
+  }
+  .fillable:focus {
+    background: #fff8e1;
+    outline: 2px solid #d97706;
+    outline-offset: 0;
+  }
+  .fillable:empty::before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    pointer-events: none;
+  }
+  .answers-toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 12px 0 4px;
+  }
+  .answers-toolbar button {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+  }
+  .answers-toolbar button:hover { background: #2c54a0; }
+  .answers-toolbar button:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .answers-toolbar button.clear-btn {
+    background: #ffffff;
+    color: #8b0000;
+    border: 1px solid #8b0000;
+  }
+  .answers-toolbar button.clear-btn:hover { background: #fce8e8; }
+  .answers-note {
+    font-size: 12px;
+    color: #777;
+    margin: 0 0 16px;
+  }
+
+  /* ── Who This Is Not For ── */
+  .not-for-box {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 16px 20px;
+    background: #f2f2f2;
+    margin: 16px 0 40px;
+  }
+  .not-for-box p { margin: 0; font-size: 14px; color: #444; }
+
+  /* ── Back link ── */
+  .back-link {
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: block;
+    padding-top: 24px;
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid #cccccc;
+    padding: 24px 0 40px;
+    margin-top: 16px;
+  }
+
+  /* ── Floating TOC ── */
+  .toc-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+  }
+  .toc-btn {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .toc-btn:hover { background: #2c54a0; }
+  .toc-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .toc-menu {
+    display: none;
+    background: #1F3864;
+    border-radius: 4px 4px 0 0;
+    padding: 8px 0;
+    margin-bottom: 4px;
+    max-height: 60vh;
+    overflow-y: auto;
+    min-width: 220px;
+  }
+  .toc-menu.open { display: block; }
+  .toc-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .toc-menu a:hover { background: #2c54a0; color: #ffffff; }
+  .toc-menu a:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Collapsible sections ── */
+  .section-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #1F3864;
+    padding: 8px 0;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    text-align: left;
+  }
+  .section-toggle:hover { color: #2c54a0; border-bottom-color: #2c54a0; }
+  .section-toggle:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .section-chevron {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-weight: 400;
+  }
+  .section-toggle[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
+  .section-body { display: none; }
+  .section-body.open { display: block; }
+
+  /* ── Print ── */
+  @media print {
+    .toc-container { display: none; }
+    .section-body { display: block !important; }
+    body { color: #1c1c1e; }
+    a { color: #1c1c1e; }
+    .flashcard-front { border: 1px solid #cccccc; }
+    .flashcard-back { background: #f2f2f2; }
+    .fc-verse, .fc-def { color: #1c1c1e; }
+    print-color-adjust: exact;
+  }
+</style>
+<link rel="stylesheet" href="btf-site.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body data-btf-page="lesson">
+
+<!-- ════════════════════════════════════════
+     SECTION 1: TITLE AND SERIES POSITION
+════════════════════════════════════════ -->
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
+
+<div class="title-block">
+  <p class="series-name">Bible Truth Foundations</p>
+  <p class="series-part">Part 2 of 3: Growing in Christ</p>
+</div>
+<hr class="title-rule">
+<div class="title-block" style="padding-top:0;">
+  <h1>Finances (Part 1)</h1>
+  <p class="lesson-meta">Lesson 14 of 16 &nbsp;|&nbsp; Section D: Provision and Prayer</p>
+</div>
+
+<div class="btf-audio-panel" role="region" aria-label="Audio controls">
+  <div class="btf-audio-inner">
+    <button type="button" class="btf-audio-btn btf-btn-play-main" id="btf-btn-play-main" aria-label="Play Lesson">&#9654; Play Lesson</button>
+    <div class="btf-speed-dropdown">
+      <button class="btf-speed-toggle" type="button" id="btf-speed-toggle" aria-expanded="false" aria-haspopup="listbox" aria-controls="btf-speed-menu" aria-label="Playback speed"><span class="btf-speed-value">1.0x</span><span class="btf-speed-chevron" aria-hidden="true">&#9660;</span></button>
+      <ul class="btf-speed-menu" id="btf-speed-menu" role="listbox" hidden>
+        <li role="presentation"><button type="button" class="btf-speed-option active" role="option" data-rate="1" aria-selected="true">1.0x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.25" aria-selected="false">1.25x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.5" aria-selected="false">1.5x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.75" aria-selected="false">1.75x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="2" aria-selected="false">2.0x</button></li>
+      </ul>
+    </div>
+    <button type="button" class="btf-audio-btn btf-btn-stop" id="btf-btn-stop" disabled aria-label="Stop playback">&#9632; Stop</button>
+    <span class="btf-audio-progress" id="btf-audio-progress" aria-live="polite"></span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 2: OPENING QUESTION
+════════════════════════════════════════ -->
+<section id="opening-question">
+  <h2>Opening Question</h2>
+  <div class="opening-box">
+    <p>Please begin by answering this question honestly in your own words.</p>
+    <p class="question-text">Complete this sentence honestly: "Deep down, I believe God's attitude to me having money is&hellip;" Where did that belief come from?</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 3: KEY SCRIPTURE
+════════════════════════════════════════ -->
+<section id="key-scripture">
+  <h2>Key Scripture</h2>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">2 Corinthians 9:8</p>
+    <p class="scripture-text">And God is able to make all grace abound toward you, that you, always having all sufficiency in all things, may have an abundance for every good work.</p>
+  </div>
+
+  <p class="scripture-note"><em>Count the sweep of the verse: all grace, always, all sufficiency, all things, abundance, every good work. Then notice what the abundance is for.</em></p>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 4: CORE TRUTH
+════════════════════════════════════════ -->
+<section id="core-truth">
+  <h2>Core Truth</h2>
+  <div class="core-truth-box">
+    <p class="core-truth-label">The central idea of this lesson</p>
+    <p class="core-truth-statement">God cares about your provision, spirit, soul and body, and biblical prosperity is having all sufficiency plus an abundance, not to hoard but for every good work.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 5: BIBLE TEACHING (collapsible)
+════════════════════════════════════════ -->
+<section id="bible-teaching">
+  <button class="section-toggle" aria-expanded="false" aria-controls="bible-teaching-body" id="bible-teaching-btn">
+    Bible Teaching <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="bible-teaching-body">
+
+  <p>Money is one of the most discipled areas of life or one of the least, never neither. Religious tradition has often taught that poverty is next to godliness; Scripture teaches something more balanced and more demanding: God provides generously, and He does it for a purpose.</p>
+  <h3>God's attitude to your provision</h3>
+  <div class="scripture-block">
+    <p class="scripture-ref">3 John 2</p>
+    <p class="scripture-text">Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers.</p>
+  </div>
+  <p>John's prayer for a beloved believer covers prospering, health and soul in one breath; God's concern is the whole person. The Scriptures are full of God's people prospering in His service: Abraham was very rich (Genesis 13:2), and David gave from his own treasure a sum in gold and silver that would be measured in billions today for the building of the temple. Wealth in consecrated hands has always funded the purposes of God.</p>
+  <h3>The love of money, not money</h3>
+  <div class="scripture-block">
+    <p class="scripture-ref">1 Timothy 6:10</p>
+    <p class="scripture-text">For the love of money is a root of all kinds of evil, for which some have strayed from the faith in their greediness, and pierced themselves through with many sorrows.</p>
+  </div>
+  <p>Scripture's warning is precise: not money but the love of it, not possession but greed. The rich are commanded not to trust riches but to be "rich in good works, ready to give, willing to share" (1 Timothy 6:17&ndash;18). Money is a tool; it makes a superb servant and a murderous master.</p>
+  <div class="callout caution">
+    <p class="callout-label">Caution</p>
+    <p>Two ditches line this road. One says God wants everyone poor, and calls the lack "holiness". The other says God exists to make you rich, and calls the greed "faith". Scripture walks between them: provision with purpose, abundance aimed at good works.</p>
+  </div>
+  <h3>Why God prospers people</h3>
+  <div class="scripture-block">
+    <p class="scripture-ref">Deuteronomy 8:18</p>
+    <p class="scripture-text">And you shall remember the LORD your God, for it is He who gives you power to get wealth, that He may establish His covenant which He swore to your fathers, as it is this day.</p>
+  </div>
+  <div class="scripture-block">
+    <p class="scripture-ref">Genesis 12:2</p>
+    <p class="scripture-text">I will make you a great nation; I will bless you And make your name great; And you shall be a blessing.</p>
+  </div>
+  <p>The purpose clause matters in both verses: power to get wealth is given to establish God's covenant, and Abraham is blessed to be a blessing. The blessing cycle runs bless, then be a blessing; provision flows to you so it can flow through you. Ephesians 4:28 even gives work this aim: labour "that he may have something to give him who has need".</p>
+  <div class="callout note">
+    <p class="callout-label">Note</p>
+    <p>2 Corinthians 9:8 is the Bible's definition of prosperity: all sufficiency in all things, needs met, plus an abundance for every good work, surplus with an assignment. By that definition a believer on a modest income who gives freely is prosperous, and a millionaire who cannot release a pound is poor.</p>
+  </div>
+  <h3>Seek first the kingdom</h3>
+  <div class="scripture-block">
+    <p class="scripture-ref">Matthew 6:33</p>
+    <p class="scripture-text">But seek first the kingdom of God and His righteousness, and all these things shall be added to you.</p>
+  </div>
+  <p>The order is everything. Money makes a terrible god and a fine servant; seek the kingdom first and provision is added, seek provision first and both are lost. Motive is the watershed: asking for more to consume on self is greed dressed in prayer, asking for more to bless and build is covenant partnership.</p>
+  <div class="callout tip">
+    <p class="callout-label">Practical Tip</p>
+    <p>Write a "generosity wish list": the good works you would fund if you had abundance. Pray over it weekly. It aims your heart before God aims His supply, and it makes Matthew 6:33 measurable in your own diary.</p>
+  </div>
+
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 6: KEY DISCOVERY QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="discovery-questions">
+  <button class="section-toggle" aria-expanded="false" aria-controls="discovery-questions-body" id="discovery-questions-btn">
+    Key Discovery Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="discovery-questions-body">
+  <p>Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.</p>
+
+  <div class="answers-toolbar">
+    <button id="download-btn">&#8595; Download my answers</button>
+    <button class="clear-btn" id="clear-btn">Clear all answers</button>
+  </div>
+  <p class="answers-note">Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:38%">Question</th>
+          <th style="width:31%">My Answer</th>
+          <th style="width:31%">Group Discussion Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>What did your upbringing and church background teach you, in words or in silence, about God and money? Test it against 3 John 2.</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q1-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q1-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>1 Timothy 6:10 blames the love of money, not money. Which do you actually battle: the love of having it, or fear about lacking it? What is the difference?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q2-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q2-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Deuteronomy 8:18 says God gives power to get wealth to establish His covenant. How would your working life change if you saw your earning power that way?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q3-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q3-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>By 2 Corinthians 9:8's definition, sufficiency plus abundance for good works, are you currently prosperous? Explain your answer.</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q4-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q4-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Genesis 12:2 runs "blessed to be a blessing". Where has the flow stopped with you rather than through you?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q5-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p2-l14-q5-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 7: GROUP DISCUSSION QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="group-discussion">
+  <button class="section-toggle" aria-expanded="false" aria-controls="group-discussion-body" id="group-discussion-btn">
+    Group Discussion Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="group-discussion-body">
+  <p>These questions are designed for open conversation at any level of experience. There are no trick questions and no single correct answer.</p>
+
+  <ol>
+    <li style="margin-bottom:16px;">Why has the church so often swung between poverty-as-holiness and prosperity-as-entitlement? What does each get wrong?</li>
+    <li style="margin-bottom:16px;">Can a believer be wealthy and godly? Can a believer be poor and godly? What do Abraham, David and Jesus each contribute to the answer?</li>
+    <li style="margin-bottom:16px;">What does the love of money look like in someone who has very little?</li>
+    <li style="margin-bottom:16px;">How do we test our motives when praying about finances?</li>
+    <li style="margin-bottom:16px;">What good works in our community are waiting on someone's abundance? Could it be ours?</li>
+  </ol>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 8: APPLICATION (collapsible)
+════════════════════════════════════════ -->
+<section id="application">
+  <button class="section-toggle" aria-expanded="false" aria-controls="application-body" id="application-btn">
+    Application <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="application-body">
+  <p>Provision follows purpose. Consider how a blessed-to-be-a-blessing life looks in each area.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Context</th>
+          <th>How I Apply This</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-cell">Personal life</td>
+          <td>Draft your generosity wish list this week and pray over it. Then memorise Matthew 6:33 and let it audit one financial decision this month: kingdom first, addition second.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Church community</td>
+          <td>Practise 1 Timothy 6:18 corporately: be ready to give, willing to share. Find one practical need in the body, a bill, a repair, a shortfall, and meet it quietly with others.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Difficult seasons</td>
+          <td>In lack, refuse both panic and shame. Bring the need to the God of 2 Corinthians 9:8, keep sowing what you can from what you have, and remember that His record with His people in famine is remarkable reading.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 10: REVISION CARDS (collapsible)
+════════════════════════════════════════ -->
+<section id="revision-cards">
+  <button class="section-toggle" aria-expanded="false" aria-controls="revision-cards-body" id="revision-cards-btn">
+    Revision Cards <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="revision-cards-body">
+  <p class="flashcard-hint">Tap each card to reveal the answer.</p>
+
+  <div class="flashcard-grid">
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What is God able to make abound toward you?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What is God able to make abound toward you?</p>
+          <p class="fc-ref">2 Corinthians 9:8</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"And God is able to make all grace abound toward you, that you, always having all sufficiency in all things, may have an abundance for every good work."</p>
+          <p class="fc-ref-back">2 Corinthians 9:8</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What did John pray for the beloved?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What did John pray for the beloved?</p>
+          <p class="fc-ref">3 John 2</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"Beloved, I pray that you may prosper in all things and be in health, just as your soul prospers."</p>
+          <p class="fc-ref-back">3 John 2</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What is a root of all kinds of evil?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What is a root of all kinds of evil?</p>
+          <p class="fc-ref">1 Timothy 6:10</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"For the love of money is a root of all kinds of evil."</p>
+          <p class="fc-ref-back">1 Timothy 6:10</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: Why does God give power to get wealth?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">Why does God give power to get wealth?</p>
+          <p class="fc-ref">Deuteronomy 8:18</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"For it is He who gives you power to get wealth, that He may establish His covenant which He swore to your fathers."</p>
+          <p class="fc-ref-back">Deuteronomy 8:18</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What must be sought first?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What must be sought first?</p>
+          <p class="fc-ref">Matthew 6:33</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"But seek first the kingdom of God and His righteousness, and all these things shall be added to you."</p>
+          <p class="fc-ref-back">Matthew 6:33</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What is biblical prosperity?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What is biblical prosperity?</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">All sufficiency in all things plus an abundance for every good work (2 Corinthians 9:8): needs met and surplus with an assignment. Blessed in order to be a blessing.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end flashcard-grid -->
+  </div><!-- end section-body -->
+</section>
+
+
+<div class="btf-section-controls">
+  <button type="button" class="btf-section-ctrl-btn" id="btf-expand-all">+ Expand All</button>
+  <button type="button" class="btf-section-ctrl-btn" id="btf-minimise-all">&minus; Minimise All</button>
+</div>
+
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<div class="page-footer">
+  <p>Bible Truth Foundations &middot; Part 2 of 3: Growing in Christ &middot; Lesson 14: Finances (Part 1)<br>
+  The Well Shrewsbury &middot; <a href="index.html">Back to all lessons</a></p>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     FLOATING TOC
+════════════════════════════════════════ -->
+<nav class="toc-container" role="navigation" aria-label="Jump to section">
+  <div class="toc-menu" id="toc-menu">
+    <a href="#opening-question">Opening Question</a>
+    <a href="#key-scripture">Key Scripture</a>
+    <a href="#core-truth">Core Truth</a>
+    <a href="#bible-teaching">Bible Teaching</a>
+    <a href="#discovery-questions">Key Discovery Questions</a>
+    <a href="#group-discussion">Group Discussion</a>
+    <a href="#application">Application</a>
+    <a href="#revision-cards">Revision Cards</a>
+    <a href="#" class="toc-back-top">&#8593; Back to top</a>
+  </div>
+  <button type="button" class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">
+    &#9776; Jump to section
+  </button>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script src="btf-site.js"></script>
+<script src="btf-lesson-page.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 01: The Divine Flow – Bible Truth Foundations Part 3</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #1c1c1e;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) { body { padding: 0 32px; } }
+  @media (min-width: 900px) { body { max-width: 900px; margin: 0 auto; } }
+
+  /* ── Title block ── */
+  .title-block {
+    text-align: center;
+    padding: 40px 0 0;
+  }
+  .series-name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    line-height: 1.2;
+  }
+  .series-part {
+    font-size: 17px;
+    font-style: italic;
+    color: #1c1c1e;
+    margin: 0 0 10px;
+  }
+  .title-rule {
+    border: none;
+    border-top: 2px solid #1F3864;
+    margin: 12px auto 20px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+  .lesson-meta {
+    font-size: 13px;
+    color: #555;
+    margin: 0 0 4px;
+  }
+  .lesson-author {
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+    margin: 0 0 24px;
+  }
+
+  /* ── Headings ── */
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F3864;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 4px;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1c1c1e;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  p { margin-bottom: 16px; }
+
+  a { color: #1F3864; text-decoration: underline; }
+  a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Core Truth ── */
+  .core-truth-box {
+    background: #1F3864;
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .core-truth-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f0b429;
+    margin: 0 0 12px;
+  }
+  .core-truth-statement {
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ── Opening question ── */
+  .opening-box {
+    border: 2px solid #1F3864;
+    border-radius: 4px;
+    padding: 20px 24px;
+    background: #f2f2f2;
+    margin: 16px 0 24px;
+  }
+  .opening-box p:last-child { margin-bottom: 0; }
+  .question-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 12px 0 0;
+  }
+
+  /* ── Scripture blocks ── */
+  .scripture-block {
+    border-left: 4px solid #1F3864;
+    background: #f2f2f2;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .scripture-ref {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .scripture-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1c1c1e;
+    margin: 0;
+    font-style: italic;
+  }
+  .scripture-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: -12px;
+    margin-bottom: 24px;
+  }
+
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead tr { background: #1F3864; color: #ffffff; }
+  thead th {
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: 1px solid #cccccc;
+    text-align: left;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border: 1px solid #cccccc;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+  tbody tr:nth-child(even) { background: #f2f2f2; }
+  td.label-cell {
+    background: #f2f2f2;
+    font-weight: 700;
+    width: 18%;
+    vertical-align: top;
+  }
+
+  /* ── Flashcards ── */
+  .flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+  .flashcard {
+    height: 180px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+    border-radius: 6px;
+  }
+  .flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+  .flashcard-front,
+  .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flashcard-front {
+    background: #ffffff;
+    border: 2px solid #1F3864;
+  }
+  .flashcard-back {
+    background: #1F3864;
+    transform: rotateY(180deg);
+  }
+  .fc-prompt {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 8px;
+    line-height: 1.4;
+  }
+  .fc-ref {
+    font-size: 12px;
+    color: #60a5fa;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+  .fc-verse {
+    font-size: 13px;
+    color: #e8e4dc;
+    font-style: italic;
+    margin: 0 0 8px;
+    line-height: 1.5;
+  }
+  .fc-ref-back {
+    font-size: 12px;
+    color: #f0b429;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+  .fc-def {
+    font-size: 13px;
+    color: #e8e4dc;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .flashcard-hint {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* ── Fillable answer cells ── */
+  .fillable {
+    min-height: 60px;
+    outline: none;
+    background: #fffbf0;
+    border-radius: 2px;
+    padding: 4px 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1c1c1e;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.15s;
+  }
+  .fillable:focus {
+    background: #fff8e1;
+    outline: 2px solid #d97706;
+    outline-offset: 0;
+  }
+  .fillable:empty::before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    pointer-events: none;
+  }
+  .answers-toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 12px 0 4px;
+  }
+  .answers-toolbar button {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+  }
+  .answers-toolbar button:hover { background: #2c54a0; }
+  .answers-toolbar button:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .answers-toolbar button.clear-btn {
+    background: #ffffff;
+    color: #8b0000;
+    border: 1px solid #8b0000;
+  }
+  .answers-toolbar button.clear-btn:hover { background: #fce8e8; }
+  .answers-note {
+    font-size: 12px;
+    color: #777;
+    margin: 0 0 16px;
+  }
+
+  /* ── Who This Is Not For ── */
+  .not-for-box {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 16px 20px;
+    background: #f2f2f2;
+    margin: 16px 0 40px;
+  }
+  .not-for-box p { margin: 0; font-size: 14px; color: #444; }
+
+  /* ── Back link ── */
+  .back-link {
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: block;
+    padding-top: 24px;
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid #cccccc;
+    padding: 24px 0 40px;
+    margin-top: 16px;
+  }
+
+  /* ── Floating TOC ── */
+  .toc-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+  }
+  .toc-btn {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .toc-btn:hover { background: #2c54a0; }
+  .toc-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .toc-menu {
+    display: none;
+    background: #1F3864;
+    border-radius: 4px 4px 0 0;
+    padding: 8px 0;
+    margin-bottom: 4px;
+    max-height: 60vh;
+    overflow-y: auto;
+    min-width: 220px;
+  }
+  .toc-menu.open { display: block; }
+  .toc-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .toc-menu a:hover { background: #2c54a0; color: #ffffff; }
+  .toc-menu a:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Collapsible sections ── */
+  .section-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #1F3864;
+    padding: 8px 0;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    text-align: left;
+  }
+  .section-toggle:hover { color: #2c54a0; border-bottom-color: #2c54a0; }
+  .section-toggle:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .section-chevron {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-weight: 400;
+  }
+  .section-toggle[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
+  .section-body { display: none; }
+  .section-body.open { display: block; }
+
+  /* ── Print ── */
+  @media print {
+    .toc-container { display: none; }
+    .section-body { display: block !important; }
+    body { color: #1c1c1e; }
+    a { color: #1c1c1e; }
+    .flashcard-front { border: 1px solid #cccccc; }
+    .flashcard-back { background: #f2f2f2; }
+    .fc-verse, .fc-def { color: #1c1c1e; }
+    print-color-adjust: exact;
+  }
+</style>
+<link rel="stylesheet" href="btf-site.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body data-btf-page="lesson">
+
+<!-- ════════════════════════════════════════
+     SECTION 1: TITLE AND SERIES POSITION
+════════════════════════════════════════ -->
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
+
+<div class="title-block">
+  <p class="series-name">Bible Truth Foundations</p>
+  <p class="series-part">Part 3 of 3: Serving in Christ</p>
+</div>
+<hr class="title-rule">
+<div class="title-block" style="padding-top:0;">
+  <h1>The Divine Flow</h1>
+  <p class="lesson-meta">Lesson 1 of 16 &nbsp;|&nbsp; Section A: Living in the Spirit's Power</p>
+</div>
+
+<div class="btf-audio-panel" role="region" aria-label="Audio controls">
+  <div class="btf-audio-inner">
+    <button type="button" class="btf-audio-btn btf-btn-play-main" id="btf-btn-play-main" aria-label="Play Lesson">&#9654; Play Lesson</button>
+    <div class="btf-speed-dropdown">
+      <button class="btf-speed-toggle" type="button" id="btf-speed-toggle" aria-expanded="false" aria-haspopup="listbox" aria-controls="btf-speed-menu" aria-label="Playback speed"><span class="btf-speed-value">1.0x</span><span class="btf-speed-chevron" aria-hidden="true">&#9660;</span></button>
+      <ul class="btf-speed-menu" id="btf-speed-menu" role="listbox" hidden>
+        <li role="presentation"><button type="button" class="btf-speed-option active" role="option" data-rate="1" aria-selected="true">1.0x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.25" aria-selected="false">1.25x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.5" aria-selected="false">1.5x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.75" aria-selected="false">1.75x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="2" aria-selected="false">2.0x</button></li>
+      </ul>
+    </div>
+    <button type="button" class="btf-audio-btn btf-btn-stop" id="btf-btn-stop" disabled aria-label="Stop playback">&#9632; Stop</button>
+    <span class="btf-audio-progress" id="btf-audio-progress" aria-live="polite"></span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 2: OPENING QUESTION
+════════════════════════════════════════ -->
+<section id="opening-question">
+  <h2>Opening Question</h2>
+  <div class="opening-box">
+    <p>Please begin by answering this question honestly in your own words.</p>
+    <p class="question-text">Think of a time you felt a sudden, unexplained pull to help, comfort or speak to someone you barely knew. What did you do with that prompting, and what stopped you or moved you?</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 3: KEY SCRIPTURE
+════════════════════════════════════════ -->
+<section id="key-scripture">
+  <h2>Key Scripture</h2>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">Philemon 1:6</p>
+    <p class="scripture-text">That the sharing of your faith may become effective by the acknowledgment of every good thing which is in you in Christ Jesus.</p>
+  </div>
+
+  <p class="scripture-note"><em>Read this slowly before moving on. The flow this lesson describes starts here: with acknowledging what is already true, not with manufacturing something new.</em></p>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 4: CORE TRUTH
+════════════════════════════════════════ -->
+<section id="core-truth">
+  <h2>Core Truth</h2>
+  <div class="core-truth-box">
+    <p class="core-truth-label">The central idea of this lesson</p>
+    <p class="core-truth-statement">God’s love is not something you work up. It is something already placed in you by the Holy Spirit, waiting to be acknowledged and released.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 5: BIBLE TEACHING (collapsible)
+════════════════════════════════════════ -->
+<section id="bible-teaching">
+  <button class="section-toggle" aria-expanded="false" aria-controls="bible-teaching-body" id="bible-teaching-btn">
+    Bible Teaching <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="bible-teaching-body">
+
+  <h3>Something already there, not something to build</h3>
+  <p>Every believer already has "every good thing" in Christ Jesus placed within them. The starting point is not manufacturing love or compassion through willpower; it is recognising what the Holy Spirit has already deposited. Andrew Wommack describes this first step as being like "ringing a bell" rather than building something from nothing.</p>
+  <div class="scripture-block">
+    <p class="scripture-ref">1 John 4:7-8</p>
+    <p class="scripture-text">Beloved, let us love one another, for love is of God; and everyone who loves is born of God and knows God. He who does not love does not know God, for God is love.</p>
+  </div>
+  <p>God’s love, once poured into the heart, is meant to move outward, not stay contained. This is not a suggestion for especially spiritual believers; it is the ordinary nature of anyone born of God.</p>
+  <h3>Testing the source: 1 Corinthians 13</h3>
+  <p>Not every strong feeling toward another person is the divine flow. Supernatural compassion can be told apart from ordinary sentiment, sympathy, or self-interested attraction by testing it against the description of love in 1 Corinthians 13.</p>
+  <div class="scripture-block">
+    <p class="scripture-ref">1 Corinthians 13:4-5</p>
+    <p class="scripture-text">Love suffers long and is kind; love does not envy; love does not parade itself, is not puffed up; does not behave rudely, does not seek its own, is not provoked, thinks no evil.</p>
+  </div>
+  <div class="callout depth">
+    <p class="callout-label">Going Deeper</p>
+    <p>Wommack’s teaching draws a careful line between emotional sympathy and the divine flow. Sympathy can be self-focused; it often centres on how the situation makes you feel. The divine flow is always aimed outward, toward the other person’s genuine good, and it is tested by whether it actually looks like 1 Corinthians 13 in practice, not merely by its intensity.</p>
+  </div>
+  <h3>Christ’s pattern: compassion, then action</h3>
+  <p>Jesus modelled the divine flow constantly. Before He acted, He felt something first.</p>
+  <div class="scripture-block">
+    <p class="scripture-ref">Matthew 14:14</p>
+    <p class="scripture-text">And Jesus went out and saw a great multitude; and He was moved with compassion for them, and healed their sick.</p>
+  </div>
+  <p>Feeling compassion is the start of the flow, not its completion. The flow is not finished until it is released in a word, a touch, or an action, the way Jesus released His compassion in healing, and the way He released forgiveness itself from the cross.</p>
+  <div class="scripture-block">
+    <p class="scripture-ref">Luke 23:34</p>
+    <p class="scripture-text">Then Jesus said, "Father, forgive them, for they do not know what they do."</p>
+  </div>
+  <div class="callout note">
+    <p class="callout-label">Note</p>
+    <p>The flow is designed to reach the other person, not stop at recognition. Withholding the word or deed once prompted leaves the flow incomplete, whatever was genuinely felt in the moment.</p>
+  </div>
+
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 6: KEY DISCOVERY QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="discovery-questions">
+  <button class="section-toggle" aria-expanded="false" aria-controls="discovery-questions-body" id="discovery-questions-btn">
+    Key Discovery Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="discovery-questions-body">
+  <p>Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.</p>
+
+  <div class="answers-toolbar">
+    <button id="download-btn">&#8595; Download my answers</button>
+    <button class="clear-btn" id="clear-btn">Clear all answers</button>
+  </div>
+  <p class="answers-note">Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:38%">Question</th>
+          <th style="width:31%">My Answer</th>
+          <th style="width:31%">Group Discussion Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Describe a specific moment when you sensed a prompting to show love or compassion to someone. What did you do?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l01-q1-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l01-q1-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>How would you use 1 Corinthians 13:4-8 to test whether a feeling is the divine flow or something else?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l01-q2-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l01-q2-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Philemon 1:6 says "every good thing" is already in you in Christ. What does that change about how you approach showing love to others?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l01-q3-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l01-q3-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>What is one prompting you have felt recently but not yet acted on? What would completing that flow look like this week?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l01-q4-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l01-q4-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 7: GROUP DISCUSSION QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="group-discussion">
+  <button class="section-toggle" aria-expanded="false" aria-controls="group-discussion-body" id="group-discussion-btn">
+    Group Discussion Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="group-discussion-body">
+  <p>These questions are designed for open conversation at any level of experience. There are no trick questions and no single correct answer.</p>
+
+  <ol>
+    <li style="margin-bottom:16px;">Why do you think Wommack compares acknowledging what is already in you to "ringing a bell" rather than "building" something new?</li>
+    <li style="margin-bottom:16px;">Share a time someone’s compassion toward you clearly went beyond ordinary kindness. What made it feel supernatural?</li>
+    <li style="margin-bottom:16px;">What stops believers most often from completing the flow once they sense it: fear, self-doubt, timing, or something else?</li>
+    <li style="margin-bottom:16px;">How does knowing love is already in you change the pressure you might feel to "perform" ministry to others?</li>
+  </ol>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 8: APPLICATION (collapsible)
+════════════════════════════════════════ -->
+<section id="application">
+  <button class="section-toggle" aria-expanded="false" aria-controls="application-body" id="application-btn">
+    Application <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="application-body">
+  <p>The divine flow is not a truth to admire from a distance; it is meant to move through you into someone else’s life this week.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Context</th>
+          <th>How I Apply This</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-cell">Personal life</td>
+          <td>Before your next opportunity to help someone, pause and name what you are sensing: is this compassion that matches 1 Corinthians 13, or something else? Practise the discernment, not just the doing.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Church community</td>
+          <td>Choose one prompting you have been sitting on and follow it through in a word, a touch, or a practical act, however small, for someone in your church community this week.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Difficult seasons</td>
+          <td>When compassion feels hard to access in a difficult season of your own, read through one Gospel account of Jesus healing or helping someone and let His pattern, compassion first, then action, recalibrate your own.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Scripture to carry</td>
+          <td>Memorise Philemon 1:6: "That the sharing of your faith may become effective by the acknowledgment of every good thing which is in you in Christ Jesus." Carry it as the reminder that the flow starts with acknowledgment, not effort.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 10: REVISION CARDS (collapsible)
+════════════════════════════════════════ -->
+<section id="revision-cards">
+  <button class="section-toggle" aria-expanded="false" aria-controls="revision-cards-body" id="revision-cards-btn">
+    Revision Cards <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="revision-cards-body">
+  <p class="flashcard-hint">Tap each card to reveal the answer.</p>
+
+  <div class="flashcard-grid">
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What is the "divine flow"?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What is the "divine flow"?</p>
+          <p class="fc-ref">Philemon 1:6</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"That the sharing of your faith may become effective by the acknowledgment of every good thing which is in you in Christ Jesus."</p>
+          <p class="fc-ref-back">Philemon 1:6</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What is God’s own nature, according to 1 John?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What is God’s own nature, according to 1 John?</p>
+          <p class="fc-ref">1 John 4:8</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"He who does not love does not know God, for God is love."</p>
+          <p class="fc-ref-back">1 John 4:8</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What test distinguishes divine compassion from self-interest?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What test distinguishes divine compassion from self-interest?</p>
+          <p class="fc-ref">1 Corinthians 13:4</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"Love suffers long and is kind; love does not envy; love does not parade itself, is not puffed up."</p>
+          <p class="fc-ref-back">1 Corinthians 13:4</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What did Jesus feel before He healed the multitudes?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What did Jesus feel before He healed the multitudes?</p>
+          <p class="fc-ref">Matthew 14:14</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"And Jesus went out and saw a great multitude; and He was moved with compassion for them, and healed their sick."</p>
+          <p class="fc-ref-back">Matthew 14:14</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What did Jesus pray for those crucifying Him?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What did Jesus pray for those crucifying Him?</p>
+          <p class="fc-ref">Luke 23:34</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"Then Jesus said, ‘Father, forgive them, for they do not know what they do.’"</p>
+          <p class="fc-ref-back">Luke 23:34</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: Why do we love, according to John?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">Why do we love, according to John?</p>
+          <p class="fc-ref">1 John 4:19</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"We love Him because He first loved us."</p>
+          <p class="fc-ref-back">1 John 4:19</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end flashcard-grid -->
+  </div><!-- end section-body -->
+</section>
+
+
+<div class="btf-section-controls">
+  <button type="button" class="btf-section-ctrl-btn" id="btf-expand-all">+ Expand All</button>
+  <button type="button" class="btf-section-ctrl-btn" id="btf-minimise-all">&minus; Minimise All</button>
+</div>
+
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<div class="page-footer">
+  <p>Bible Truth Foundations &middot; Part 3 of 3: Serving in Christ &middot; Lesson 01: The Divine Flow<br>
+  The Well Shrewsbury &middot; <a href="index.html">Back to all lessons</a></p>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     FLOATING TOC
+════════════════════════════════════════ -->
+<nav class="toc-container" role="navigation" aria-label="Jump to section">
+  <div class="toc-menu" id="toc-menu">
+    <a href="#opening-question">Opening Question</a>
+    <a href="#key-scripture">Key Scripture</a>
+    <a href="#core-truth">Core Truth</a>
+    <a href="#bible-teaching">Bible Teaching</a>
+    <a href="#discovery-questions">Key Discovery Questions</a>
+    <a href="#group-discussion">Group Discussion</a>
+    <a href="#application">Application</a>
+    <a href="#revision-cards">Revision Cards</a>
+    <a href="#" class="toc-back-top">&#8593; Back to top</a>
+  </div>
+  <button type="button" class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">
+    &#9776; Jump to section
+  </button>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script src="btf-site.js"></script>
+<script src="btf-lesson-page.js"></script>
+
+</body>
+</html>

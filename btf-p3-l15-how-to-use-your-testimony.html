@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 15: How to Use Your Testimony – Bible Truth Foundations Part 3</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #1c1c1e;
+    background: #ffffff;
+  }
+
+  @media (min-width: 640px) { body { padding: 0 32px; } }
+  @media (min-width: 900px) { body { max-width: 900px; margin: 0 auto; } }
+
+  /* ── Title block ── */
+  .title-block {
+    text-align: center;
+    padding: 40px 0 0;
+  }
+  .series-name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    line-height: 1.2;
+  }
+  .series-part {
+    font-size: 17px;
+    font-style: italic;
+    color: #1c1c1e;
+    margin: 0 0 10px;
+  }
+  .title-rule {
+    border: none;
+    border-top: 2px solid #1F3864;
+    margin: 12px auto 20px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+  .lesson-meta {
+    font-size: 13px;
+    color: #555;
+    margin: 0 0 4px;
+  }
+  .lesson-author {
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+    margin: 0 0 24px;
+  }
+
+  /* ── Headings ── */
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F3864;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 4px;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1c1c1e;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  p { margin-bottom: 16px; }
+
+  a { color: #1F3864; text-decoration: underline; }
+  a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Core Truth ── */
+  .core-truth-box {
+    background: #1F3864;
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .core-truth-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f0b429;
+    margin: 0 0 12px;
+  }
+  .core-truth-statement {
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ── Opening question ── */
+  .opening-box {
+    border: 2px solid #1F3864;
+    border-radius: 4px;
+    padding: 20px 24px;
+    background: #f2f2f2;
+    margin: 16px 0 24px;
+  }
+  .opening-box p:last-child { margin-bottom: 0; }
+  .question-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 12px 0 0;
+  }
+
+  /* ── Scripture blocks ── */
+  .scripture-block {
+    border-left: 4px solid #1F3864;
+    background: #f2f2f2;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .scripture-ref {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #1F3864;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .scripture-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1c1c1e;
+    margin: 0;
+    font-style: italic;
+  }
+  .scripture-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: -12px;
+    margin-bottom: 24px;
+  }
+
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead tr { background: #1F3864; color: #ffffff; }
+  thead th {
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: 1px solid #cccccc;
+    text-align: left;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border: 1px solid #cccccc;
+    vertical-align: top;
+  }
+  tbody tr:nth-child(odd)  { background: #ffffff; }
+  tbody tr:nth-child(even) { background: #f2f2f2; }
+  td.label-cell {
+    background: #f2f2f2;
+    font-weight: 700;
+    width: 18%;
+    vertical-align: top;
+  }
+
+  /* ── Flashcards ── */
+  .flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+  .flashcard {
+    height: 180px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+    border-radius: 6px;
+  }
+  .flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+  .flashcard-front,
+  .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 6px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flashcard-front {
+    background: #ffffff;
+    border: 2px solid #1F3864;
+  }
+  .flashcard-back {
+    background: #1F3864;
+    transform: rotateY(180deg);
+  }
+  .fc-prompt {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1F3864;
+    margin: 0 0 8px;
+    line-height: 1.4;
+  }
+  .fc-ref {
+    font-size: 12px;
+    color: #60a5fa;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.05em;
+  }
+  .fc-verse {
+    font-size: 13px;
+    color: #e8e4dc;
+    font-style: italic;
+    margin: 0 0 8px;
+    line-height: 1.5;
+  }
+  .fc-ref-back {
+    font-size: 12px;
+    color: #f0b429;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.04em;
+  }
+  .fc-def {
+    font-size: 13px;
+    color: #e8e4dc;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .flashcard-hint {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* ── Fillable answer cells ── */
+  .fillable {
+    min-height: 60px;
+    outline: none;
+    background: #fffbf0;
+    border-radius: 2px;
+    padding: 4px 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1c1c1e;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.15s;
+  }
+  .fillable:focus {
+    background: #fff8e1;
+    outline: 2px solid #d97706;
+    outline-offset: 0;
+  }
+  .fillable:empty::before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    pointer-events: none;
+  }
+  .answers-toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 12px 0 4px;
+  }
+  .answers-toolbar button {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+  }
+  .answers-toolbar button:hover { background: #2c54a0; }
+  .answers-toolbar button:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .answers-toolbar button.clear-btn {
+    background: #ffffff;
+    color: #8b0000;
+    border: 1px solid #8b0000;
+  }
+  .answers-toolbar button.clear-btn:hover { background: #fce8e8; }
+  .answers-note {
+    font-size: 12px;
+    color: #777;
+    margin: 0 0 16px;
+  }
+
+  /* ── Who This Is Not For ── */
+  .not-for-box {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 16px 20px;
+    background: #f2f2f2;
+    margin: 16px 0 40px;
+  }
+  .not-for-box p { margin: 0; font-size: 14px; color: #444; }
+
+  /* ── Back link ── */
+  .back-link {
+    font-size: 13px;
+    margin-bottom: 8px;
+    display: block;
+    padding-top: 24px;
+  }
+
+  /* ── Footer ── */
+  .page-footer {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid #cccccc;
+    padding: 24px 0 40px;
+    margin-top: 16px;
+  }
+
+  /* ── Floating TOC ── */
+  .toc-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+  }
+  .toc-btn {
+    background: #1F3864;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .toc-btn:hover { background: #2c54a0; }
+  .toc-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .toc-menu {
+    display: none;
+    background: #1F3864;
+    border-radius: 4px 4px 0 0;
+    padding: 8px 0;
+    margin-bottom: 4px;
+    max-height: 60vh;
+    overflow-y: auto;
+    min-width: 220px;
+  }
+  .toc-menu.open { display: block; }
+  .toc-menu a {
+    display: block;
+    padding: 8px 16px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .toc-menu a:hover { background: #2c54a0; color: #ffffff; }
+  .toc-menu a:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+
+  /* ── Collapsible sections ── */
+  .section-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #1F3864;
+    padding: 8px 0;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F3864;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 40px;
+    text-align: left;
+  }
+  .section-toggle:hover { color: #2c54a0; border-bottom-color: #2c54a0; }
+  .section-toggle:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .section-chevron {
+    font-size: 15px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+    font-weight: 400;
+  }
+  .section-toggle[aria-expanded="true"] .section-chevron { transform: rotate(180deg); }
+  .section-body { display: none; }
+  .section-body.open { display: block; }
+
+  /* ── Print ── */
+  @media print {
+    .toc-container { display: none; }
+    .section-body { display: block !important; }
+    body { color: #1c1c1e; }
+    a { color: #1c1c1e; }
+    .flashcard-front { border: 1px solid #cccccc; }
+    .flashcard-back { background: #f2f2f2; }
+    .fc-verse, .fc-def { color: #1c1c1e; }
+    print-color-adjust: exact;
+  }
+</style>
+<link rel="stylesheet" href="btf-site.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body data-btf-page="lesson">
+
+<!-- ════════════════════════════════════════
+     SECTION 1: TITLE AND SERIES POSITION
+════════════════════════════════════════ -->
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
+
+<div class="title-block">
+  <p class="series-name">Bible Truth Foundations</p>
+  <p class="series-part">Part 3 of 3: Serving in Christ</p>
+</div>
+<hr class="title-rule">
+<div class="title-block" style="padding-top:0;">
+  <h1>How to Use Your Testimony</h1>
+  <p class="lesson-meta">Lesson 15 of 16 &nbsp;|&nbsp; Section D: Living as a Disciple</p>
+</div>
+
+<div class="btf-audio-panel" role="region" aria-label="Audio controls">
+  <div class="btf-audio-inner">
+    <button type="button" class="btf-audio-btn btf-btn-play-main" id="btf-btn-play-main" aria-label="Play Lesson">&#9654; Play Lesson</button>
+    <div class="btf-speed-dropdown">
+      <button class="btf-speed-toggle" type="button" id="btf-speed-toggle" aria-expanded="false" aria-haspopup="listbox" aria-controls="btf-speed-menu" aria-label="Playback speed"><span class="btf-speed-value">1.0x</span><span class="btf-speed-chevron" aria-hidden="true">&#9660;</span></button>
+      <ul class="btf-speed-menu" id="btf-speed-menu" role="listbox" hidden>
+        <li role="presentation"><button type="button" class="btf-speed-option active" role="option" data-rate="1" aria-selected="true">1.0x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.25" aria-selected="false">1.25x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.5" aria-selected="false">1.5x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="1.75" aria-selected="false">1.75x</button></li>
+        <li role="presentation"><button type="button" class="btf-speed-option" role="option" data-rate="2" aria-selected="false">2.0x</button></li>
+      </ul>
+    </div>
+    <button type="button" class="btf-audio-btn btf-btn-stop" id="btf-btn-stop" disabled aria-label="Stop playback">&#9632; Stop</button>
+    <span class="btf-audio-progress" id="btf-audio-progress" aria-live="polite"></span>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 2: OPENING QUESTION
+════════════════════════════════════════ -->
+<section id="opening-question">
+  <h2>Opening Question</h2>
+  <div class="opening-box">
+    <p>Please begin by answering this question honestly in your own words.</p>
+    <p class="question-text">If a stranger asked you, right now, "how did you become a Christian?", could you answer clearly in under two minutes?</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 3: KEY SCRIPTURE
+════════════════════════════════════════ -->
+<section id="key-scripture">
+  <h2>Key Scripture</h2>
+
+  <div class="scripture-block">
+    <p class="scripture-ref">Acts 26:16</p>
+    <p class="scripture-text">But rise and stand on your feet; for I have appeared to you for this purpose, to make you a minister and a witness both of the things which you have seen and of the things which I will yet reveal to you.</p>
+  </div>
+
+  <p class="scripture-note"><em>Read this slowly before moving on. Notice the role given here: witness, someone reporting what was seen.</em></p>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 4: CORE TRUTH
+════════════════════════════════════════ -->
+<section id="core-truth">
+  <h2>Core Truth</h2>
+  <div class="core-truth-box">
+    <p class="core-truth-label">The central idea of this lesson</p>
+    <p class="core-truth-statement">A personal testimony, told simply and honestly, is one of the most effective and accessible evangelism tools every believer already has.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 5: BIBLE TEACHING (collapsible)
+════════════════════════════════════════ -->
+<section id="bible-teaching">
+  <button class="section-toggle" aria-expanded="false" aria-controls="bible-teaching-body" id="bible-teaching-btn">
+    Bible Teaching <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="bible-teaching-body">
+
+  <h3>A story people can connect to</h3>
+  <p>Personal testimony makes the Gospel relatable in a way abstract argument often cannot; people connect to a real story before they connect to a doctrine.</p>
+  <div class="scripture-block">
+    <p class="scripture-ref">Acts 4:20</p>
+    <p class="scripture-text">For we cannot but speak the things which we have seen and heard.</p>
+  </div>
+  <h3>Paul’s own repeated pattern</h3>
+  <p>The apostle Paul modelled testimony-sharing directly, recounting his own conversion story multiple times in Acts: the event itself in Acts 9, and two further retellings before different audiences in Acts 22 and Acts 26.</p>
+  <h3>A low-pressure approach</h3>
+  <p>Visiting homes to offer prayer, then sharing a personal conversion story, is presented as an approachable, low-pressure way to begin gospel conversations.</p>
+  <div class="scripture-block">
+    <p class="scripture-ref">Acts 16:14</p>
+    <p class="scripture-text">Now a certain woman named Lydia heard us. She was a seller of purple from the city of Thyatira, who worshiped God. The Lord opened her heart to heed the things spoken by Paul.</p>
+  </div>
+  <h3>Every genuine story counts</h3>
+  <p>Even believers without a dramatic conversion story can testify effectively; the substance of a testimony is the reality of transformation, not the drama of the before-and-after.</p>
+  <div class="callout depth">
+    <p class="callout-label">Going Deeper</p>
+    <p>A believer raised in the faith from childhood, with no single crisis moment to point to, still has a genuine testimony of God’s ongoing work, and that story carries equal weight to a more dramatic one.</p>
+  </div>
+  <h3>Relationship over pressure</h3>
+  <p>Effective evangelism prioritises relationship-building and genuine dialogue over rushing someone toward an immediate decision in a single encounter.</p>
+  <div class="scripture-block">
+    <p class="scripture-ref">Romans 10:14-15</p>
+    <p class="scripture-text">How then shall they call on Him in whom they have not believed? And how shall they believe in Him of whom they have not heard? And how shall they hear without a preacher?</p>
+  </div>
+  <div class="callout caution">
+    <p class="callout-label">Caution</p>
+    <p>Pressuring an immediate decision can feel manipulative or rushed, and it can close a door that patient, relational conversation would have kept open.</p>
+  </div>
+
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 6: KEY DISCOVERY QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="discovery-questions">
+  <button class="section-toggle" aria-expanded="false" aria-controls="discovery-questions-body" id="discovery-questions-btn">
+    Key Discovery Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="discovery-questions-body">
+  <p>Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.</p>
+
+  <div class="answers-toolbar">
+    <button id="download-btn">&#8595; Download my answers</button>
+    <button class="clear-btn" id="clear-btn">Clear all answers</button>
+  </div>
+  <p class="answers-note">Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:38%">Question</th>
+          <th style="width:31%">My Answer</th>
+          <th style="width:31%">Group Discussion Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Could you currently share your own testimony clearly in under two minutes? What would you need to clarify or shorten?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l15-q1-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l15-q1-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>Why do you think Paul relied on retelling his personal testimony (Acts 9, 22, 26) rather than only theological argument?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l15-q2-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l15-q2-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>What is the difference between "prayer-walking" style evangelism and pressuring an immediate decision, and why does the lesson favour the former?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l15-q3-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l15-q3-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+        <tr>
+          <td>If you don’t have a dramatic conversion story, what genuine, ongoing work of God in your life could still form the substance of a testimony?</td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l15-q4-answer" data-placeholder="Type your answer here&hellip;"></div></td>
+          <td><div class="fillable" contenteditable="true" data-key="p3-l15-q4-notes" data-placeholder="Group notes&hellip;"></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 7: GROUP DISCUSSION QUESTIONS (collapsible)
+════════════════════════════════════════ -->
+<section id="group-discussion">
+  <button class="section-toggle" aria-expanded="false" aria-controls="group-discussion-body" id="group-discussion-btn">
+    Group Discussion Questions <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="group-discussion-body">
+  <p>These questions are designed for open conversation at any level of experience. There are no trick questions and no single correct answer.</p>
+
+  <ol>
+    <li style="margin-bottom:16px;">Why might a personal testimony reach someone that a theological argument alone would not?</li>
+    <li style="margin-bottom:16px;">Share (briefly) your own testimony with the group, as practice for sharing it outside this setting.</li>
+    <li style="margin-bottom:16px;">What makes pressuring an immediate decision less effective, or even counterproductive, compared to relational evangelism?</li>
+    <li style="margin-bottom:16px;">How can quieter, less dramatic testimonies be encouraged and valued as much as more dramatic ones in a church community?</li>
+  </ol>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 8: APPLICATION (collapsible)
+════════════════════════════════════════ -->
+<section id="application">
+  <button class="section-toggle" aria-expanded="false" aria-controls="application-body" id="application-btn">
+    Application <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="application-body">
+  <p>Your story is a tool you already have. Prepare it and use it this week.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:22%">Context</th>
+          <th>How I Apply This</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-cell">Personal life</td>
+          <td>Draft a two-minute version of your own testimony this week: before, turning point, after.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Church community</td>
+          <td>Share your testimony with one trusted person this week, purely for practice.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Difficult seasons</td>
+          <td>Look for one low-pressure opportunity this week, a conversation, a prayer offered, to open a door rather than push for an immediate decision.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Scripture to carry</td>
+          <td>Memorise Acts 26:16: "I have appeared to you for this purpose, to make you a minister and a witness both of the things which you have seen." Let it settle your role as witness, not persuader.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div><!-- end section-body -->
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SECTION 10: REVISION CARDS (collapsible)
+════════════════════════════════════════ -->
+<section id="revision-cards">
+  <button class="section-toggle" aria-expanded="false" aria-controls="revision-cards-body" id="revision-cards-btn">
+    Revision Cards <span class="section-chevron" aria-hidden="true">&#9660;</span>
+  </button>
+  <div class="section-body" id="revision-cards-body">
+  <p class="flashcard-hint">Tap each card to reveal the answer.</p>
+
+  <div class="flashcard-grid">
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What did Christ commission Paul to be, according to Acts 26:16?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What did Christ commission Paul to be, according to Acts 26:16?</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"A minister and a witness both of the things which you have seen and of the things which I will yet reveal to you."</p>
+          <p class="fc-ref-back">Acts 26:16</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What did Peter and John say they could not stop doing?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What did Peter and John say they could not stop doing?</p>
+          <p class="fc-ref">Acts 4:20</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"For we cannot but speak the things which we have seen and heard."</p>
+          <p class="fc-ref-back">Acts 4:20</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: How many times does Paul recount his conversion testimony in Acts?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">How many times does Paul recount his conversion testimony in Acts?</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">Three times: Acts 9 (the event itself), Acts 22, and Acts 26 (both retellings before different audiences).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What does Jesus tell the healed demoniac to do in Mark 5:19?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What does Jesus tell the healed demoniac to do in Mark 5:19?</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-verse">"Go home to your friends, and tell them what great things the Lord has done for you, and how He has had compassion on you."</p>
+          <p class="fc-ref-back">Mark 5:19</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: How does faith come, according to Romans 10:14-15?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">How does faith come, according to Romans 10:14-15?</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">By hearing, which requires "a preacher," someone sent to speak: "How shall they hear without a preacher? And how shall they preach unless they are sent?"</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flashcard" role="button" tabindex="0" aria-label="Revision card: What is the low-pressure approach this lesson favours?">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <p class="fc-prompt">What is the low-pressure approach this lesson favours?</p>
+        </div>
+        <div class="flashcard-back">
+          <p class="fc-def">Relational, dialogue-based evangelism, such as prayer offered in homes followed by a shared personal testimony, contrasted with pressuring an immediate decision in a single rushed encounter.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end flashcard-grid -->
+  </div><!-- end section-body -->
+</section>
+
+
+<div class="btf-section-controls">
+  <button type="button" class="btf-section-ctrl-btn" id="btf-expand-all">+ Expand All</button>
+  <button type="button" class="btf-section-ctrl-btn" id="btf-minimise-all">&minus; Minimise All</button>
+</div>
+
+<a class="back-link" href="index.html">&#8592; Back to all lessons</a>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<div class="page-footer">
+  <p>Bible Truth Foundations &middot; Part 3 of 3: Serving in Christ &middot; Lesson 15: How to Use Your Testimony<br>
+  The Well Shrewsbury &middot; <a href="index.html">Back to all lessons</a></p>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     FLOATING TOC
+════════════════════════════════════════ -->
+<nav class="toc-container" role="navigation" aria-label="Jump to section">
+  <div class="toc-menu" id="toc-menu">
+    <a href="#opening-question">Opening Question</a>
+    <a href="#key-scripture">Key Scripture</a>
+    <a href="#core-truth">Core Truth</a>
+    <a href="#bible-teaching">Bible Teaching</a>
+    <a href="#discovery-questions">Key Discovery Questions</a>
+    <a href="#group-discussion">Group Discussion</a>
+    <a href="#application">Application</a>
+    <a href="#revision-cards">Revision Cards</a>
+    <a href="#" class="toc-back-top">&#8593; Back to top</a>
+  </div>
+  <button type="button" class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">
+    &#9776; Jump to section
+  </button>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script src="btf-site.js"></script>
+<script src="btf-lesson-page.js"></script>
+
+</body>
+</html>

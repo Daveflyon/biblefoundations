@@ -19,20 +19,19 @@
   a { color: #1F3864; text-decoration: underline; }
   a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
   .intro-note { border-left: 4px solid #d97706; background: #fffbf0; padding: 12px 16px; margin: 24px 0; }
-  .how-to-btn, .part-btn {
+  .how-to-btn {
     display: flex; align-items: center; justify-content: space-between;
     width: 100%; background: #1F3864; color: #ffffff; border: none;
     border-radius: 4px; padding: 14px 20px; cursor: pointer;
     font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 700;
     text-align: left; margin-bottom: 0;
   }
-  .how-to-btn:hover, .part-btn:hover { background: #2c54a0; }
-  .how-to-btn:focus, .part-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
-  .how-to-chevron, .part-chevron { font-size: 14px; transition: transform 0.25s ease; flex-shrink: 0; margin-left: 12px; }
-  .how-to-btn[aria-expanded="true"] .how-to-chevron,
-  .part-btn[aria-expanded="true"] .part-chevron { transform: rotate(180deg); }
-  .how-to-body, .part-body { display: none; border: 2px solid #1F3864; border-top: none; border-radius: 0 0 4px 4px; padding: 20px 24px; margin-bottom: 0; }
-  .how-to-body.open, .part-body.open { display: block; }
+  .how-to-btn:hover { background: #2c54a0; }
+  .how-to-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .how-to-chevron { font-size: 14px; transition: transform 0.25s ease; flex-shrink: 0; margin-left: 12px; }
+  .how-to-btn[aria-expanded="true"] .how-to-chevron { transform: rotate(180deg); }
+  .how-to-body { display: none; border: 2px solid #1F3864; border-top: none; border-radius: 0 0 4px 4px; padding: 20px 24px; margin-bottom: 0; }
+  .how-to-body.open { display: block; }
   #how-to-use + .part-section { margin-top: 40px; }
   .how-to-body ul { padding-left: 20px; margin: 12px 0 16px; }
   .how-to-body li { margin-bottom: 10px; }
@@ -41,10 +40,6 @@
   .not-for-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #d97706; margin: 0 0 8px; }
   .not-for-box p:last-child { margin-bottom: 0; }
   .part-section { margin-bottom: 40px; }
-  .part-btn-label { flex: 1; min-width: 0; text-align: left; }
-  .part-btn-title { display: block; font-size: 16px; font-weight: 700; letter-spacing: 0.05em; line-height: 1.3; }
-  .part-btn-desc { display: block; font-size: 13px; font-weight: 400; color: #e8e4dc; margin-top: 2px; line-height: 1.4; }
-  .part-body { padding: 0; overflow: hidden; }
   .lesson-list { overflow: hidden; margin: 0; padding: 0; list-style: none; }
   .lesson-item { display: flex; align-items: stretch; border-bottom: 1px solid #cccccc; text-decoration: none; color: #1c1c1e; transition: background 0.15s; }
   .lesson-item:last-child { border-bottom: none; }
@@ -54,7 +49,7 @@
   .lesson-title { font-weight: 700; font-size: 15px; color: #1F3864; margin: 0; }
   .lesson-arrow { display: flex; align-items: center; padding: 0 14px; color: #1F3864; font-size: 18px; flex-shrink: 0; }
   .page-footer { font-size: 13px; color: #888; text-align: center; border-top: 1px solid #cccccc; padding: 24px 0 40px; margin-top: 24px; }
-  @media print { .how-to-body, .part-body { display: block !important; } }
+  @media print { .how-to-body { display: block !important; } }
 </style>
 <link rel="stylesheet" href="btf-site.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -125,18 +120,20 @@
   </div>
 </div>
 
-<h2 id="part1" style="margin-top:40px;">Part 1 &middot; New Life in Christ</h2>
+<details class="part-accordion">
+  <summary class="part-summary">
+    <h2>Part 1 &middot; New Life in Christ</h2>
+    <p>New Life in Christ</p>
+  </summary>
+  <div class="part-content">
 
 <!-- Section A -->
-<div class="part-section" id="section-a">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="section-a-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section A &mdash; The Gospel Foundation</span>
-      <span class="part-btn-desc">Lessons 1&ndash;3. What the Gospel actually is, how God saves us and what it means to stand righteous before Him.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="section-a-body">
+<details class="section-accordion" id="section-a">
+  <summary class="section-summary">
+    <h3>Section A &mdash; The Gospel Foundation</h3>
+    <p>Lessons 1&ndash;3. What the Gospel actually is, how God saves us and what it means to stand righteous before Him.</p>
+  </summary>
+  <div class="section-content" id="section-a-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p1-l01-eternal-life.html">
         <span class="lesson-num">01</span>
@@ -155,18 +152,15 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 <!-- Section B -->
-<div class="part-section" id="section-b">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="section-b-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section B &mdash; Knowing God</span>
-      <span class="part-btn-desc">Lessons 4&ndash;5. What it means to be in relationship with God and the true character of the God we are relating to.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="section-b-body">
+<details class="section-accordion" id="section-b">
+  <summary class="section-summary">
+    <h3>Section B &mdash; Knowing God</h3>
+    <p>Lessons 4&ndash;5. What it means to be in relationship with God and the true character of the God we are relating to.</p>
+  </summary>
+  <div class="section-content" id="section-b-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p1-l04-relationship-with-god.html">
         <span class="lesson-num">04</span>
@@ -180,18 +174,15 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 <!-- Section C -->
-<div class="part-section" id="section-c">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="section-c-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section C &mdash; Response and Commitment</span>
-      <span class="part-btn-desc">Lessons 6&ndash;8. How we respond to what God has done: through repentance, wholehearted commitment and water baptism.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="section-c-body">
+<details class="section-accordion" id="section-c">
+  <summary class="section-summary">
+    <h3>Section C &mdash; Response and Commitment</h3>
+    <p>Lessons 6&ndash;8. How we respond to what God has done: through repentance, wholehearted commitment and water baptism.</p>
+  </summary>
+  <div class="section-content" id="section-c-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p1-l06-repentance.html">
         <span class="lesson-num">06</span>
@@ -210,18 +201,15 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 <!-- Section D -->
-<div class="part-section" id="section-d">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="section-d-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section D &mdash; Life in Christ</span>
-      <span class="part-btn-desc">Lessons 9&ndash;16. Who you now are in Christ, how to handle sin, the trustworthiness of God&rsquo;s Word and living in the power of the Holy Spirit.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="section-d-body">
+<details class="section-accordion" id="section-d">
+  <summary class="section-summary">
+    <h3>Section D &mdash; Life in Christ</h3>
+    <p>Lessons 9&ndash;16. Who you now are in Christ, how to handle sin, the trustworthiness of God&rsquo;s Word and living in the power of the Holy Spirit.</p>
+  </summary>
+  <div class="section-content" id="section-d-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p1-l09-identity-in-christ-part-1.html">
         <span class="lesson-num">09</span>
@@ -265,22 +253,27 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 
 
-<h2 id="part2" style="margin-top:48px;">Part 2 &middot; Growing in Christ</h2>
+
+  </div>
+</details>
+<details class="part-accordion">
+  <summary class="part-summary">
+    <h2>Part 2 &middot; Growing in Christ</h2>
+    <p>Growing in Christ</p>
+  </summary>
+  <div class="part-content">
 
 <!-- Part 2 Section A -->
-<div class="part-section" id="p2-section-a">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="p2-section-a-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section A &mdash; Mind and Word</span>
-      <span class="part-btn-desc">Lessons 1&ndash;3. Where strife really comes from, how to meditate on God&rsquo;s Word and the renewing of the mind.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="p2-section-a-body">
+<details class="section-accordion" id="p2-section-a">
+  <summary class="section-summary">
+    <h3>Section A &mdash; Mind and Word</h3>
+    <p>Lessons 1&ndash;3. Where strife really comes from, how to meditate on God&rsquo;s Word and the renewing of the mind.</p>
+  </summary>
+  <div class="section-content" id="p2-section-a-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p2-l01-self-centredness.html">
         <span class="lesson-num">01</span>
@@ -299,18 +292,15 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 <!-- Part 2 Section B -->
-<div class="part-section" id="p2-section-b">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="p2-section-b-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section B &mdash; Church and Authority</span>
-      <span class="part-btn-desc">Lessons 4&ndash;6. Why the gathered church matters, deliverance and the believer&rsquo;s authority in Christ.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="p2-section-b-body">
+<details class="section-accordion" id="p2-section-b">
+  <summary class="section-summary">
+    <h3>Section B &mdash; Church and Authority</h3>
+    <p>Lessons 4&ndash;6. Why the gathered church matters, deliverance and the believer&rsquo;s authority in Christ.</p>
+  </summary>
+  <div class="section-content" id="p2-section-b-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p2-l04-the-importance-of-christs-church.html">
         <span class="lesson-num">04</span>
@@ -329,18 +319,15 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 <!-- Part 2 Section C -->
-<div class="part-section" id="p2-section-c">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="p2-section-c-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section C &mdash; Healing and Relationships</span>
-      <span class="part-btn-desc">Lessons 7&ndash;13. Healing in the atonement, what hinders it, forgiving others, marriage and God&rsquo;s kind of love.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="p2-section-c-body">
+<details class="section-accordion" id="p2-section-c">
+  <summary class="section-summary">
+    <h3>Section C &mdash; Healing and Relationships</h3>
+    <p>Lessons 7&ndash;13. Healing in the atonement, what hinders it, forgiving others, marriage and God&rsquo;s kind of love.</p>
+  </summary>
+  <div class="section-content" id="p2-section-c-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p2-l07-healing-is-in-the-atonement.html">
         <span class="lesson-num">07</span>
@@ -379,18 +366,15 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 <!-- Part 2 Section D -->
-<div class="part-section" id="p2-section-d">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="p2-section-d-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section D &mdash; Provision and Prayer</span>
-      <span class="part-btn-desc">Lessons 14&ndash;16. God&rsquo;s heart on finances, the grace of giving and what to do when prayers seem unanswered.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="p2-section-d-body">
+<details class="section-accordion" id="p2-section-d">
+  <summary class="section-summary">
+    <h3>Section D &mdash; Provision and Prayer</h3>
+    <p>Lessons 14&ndash;16. God&rsquo;s heart on finances, the grace of giving and what to do when prayers seem unanswered.</p>
+  </summary>
+  <div class="section-content" id="p2-section-d-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p2-l14-finances-part-1.html">
         <span class="lesson-num">14</span>
@@ -409,22 +393,27 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 
 
-<h2 id="part3" style="margin-top:48px;">Part 3 &middot; Serving in Christ</h2>
+
+  </div>
+</details>
+<details class="part-accordion">
+  <summary class="part-summary">
+    <h2>Part 3 &middot; Serving in Christ</h2>
+    <p>Serving in Christ</p>
+  </summary>
+  <div class="part-content">
 
 <!-- Part 3 p3-section-a -->
-<div class="part-section" id="p3-section-a">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="p3-section-a-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section A &mdash; Living in the Spirit's Power</span>
-      <span class="part-btn-desc">Lessons 1&ndash;3. The divine flow of God's love, using spiritual gifts to minister, and why miracles exist to glorify God.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="p3-section-a-body">
+<details class="section-accordion" id="p3-section-a">
+  <summary class="section-summary">
+    <h3>Section A &mdash; Living in the Spirit's Power</h3>
+    <p>Lessons 1&ndash;3. The divine flow of God's love, using spiritual gifts to minister, and why miracles exist to glorify God.</p>
+  </summary>
+  <div class="section-content" id="p3-section-a-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p3-l01-the-divine-flow.html">
         <span class="lesson-num">01</span>
@@ -443,18 +432,15 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 <!-- Part 3 p3-section-b -->
-<div class="part-section" id="p3-section-b">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="p3-section-b-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section B &mdash; Living Among Others</span>
-      <span class="part-btn-desc">Lessons 4&ndash;6. The power of godly relationships, facing persecution, and understanding the King and His Kingdom.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="p3-section-b-body">
+<details class="section-accordion" id="p3-section-b">
+  <summary class="section-summary">
+    <h3>Section B &mdash; Living Among Others</h3>
+    <p>Lessons 4&ndash;6. The power of godly relationships, facing persecution, and understanding the King and His Kingdom.</p>
+  </summary>
+  <div class="section-content" id="p3-section-b-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p3-l04-the-power-of-godly-relationships.html">
         <span class="lesson-num">04</span>
@@ -473,18 +459,15 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 <!-- Part 3 p3-section-c -->
-<div class="part-section" id="p3-section-c">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="p3-section-c-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section C &mdash; Living Free from Law and Sin</span>
-      <span class="part-btn-desc">Lessons 7&ndash;11. The true object of saving faith, the proper use of God's Law, grace instead of law, no more consciousness of sin, and being fully loved.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="p3-section-c-body">
+<details class="section-accordion" id="p3-section-c">
+  <summary class="section-summary">
+    <h3>Section C &mdash; Living Free from Law and Sin</h3>
+    <p>Lessons 7&ndash;11. The true object of saving faith, the proper use of God's Law, grace instead of law, no more consciousness of sin, and being fully loved.</p>
+  </summary>
+  <div class="section-content" id="p3-section-c-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p3-l07-the-object-of-saving-faith.html">
         <span class="lesson-num">07</span>
@@ -513,18 +496,15 @@
       </a>
     </div>
   </div>
-</div>
+</details>
 
 <!-- Part 3 p3-section-d -->
-<div class="part-section" id="p3-section-d">
-  <button type="button" class="part-btn" aria-expanded="false" aria-controls="p3-section-d-body">
-    <span class="part-btn-label">
-      <span class="part-btn-title">Section D &mdash; Living as a Disciple</span>
-      <span class="part-btn-desc">Lessons 12&ndash;16. The fruit that proves genuine faith, the call to make disciples, using your testimony, and mobilising every believer's gifts.</span>
-    </span>
-    <span class="part-chevron" aria-hidden="true">&#9660;</span>
-  </button>
-  <div class="part-body" id="p3-section-d-body">
+<details class="section-accordion" id="p3-section-d">
+  <summary class="section-summary">
+    <h3>Section D &mdash; Living as a Disciple</h3>
+    <p>Lessons 12&ndash;16. The fruit that proves genuine faith, the call to make disciples, using your testimony, and mobilising every believer's gifts.</p>
+  </summary>
+  <div class="section-content" id="p3-section-d-body">
     <div class="lesson-list">
       <a class="lesson-item" href="btf-p3-l12-the-fruit-of-salvation-part-1.html">
         <span class="lesson-num">12</span>
@@ -553,7 +533,10 @@
       </a>
     </div>
   </div>
-</div>
+</details>
+
+  </div>
+</details>
 
 <div class="btf-section-controls">
   <button type="button" class="btf-section-ctrl-btn" id="btf-expand-all">+ Expand All</button>

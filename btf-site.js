@@ -85,8 +85,8 @@
       if (el.matches && (
         el.matches('h2') ||
         el.matches('.section-toggle') ||
-        el.matches('.part-btn') ||
-        el.matches('.how-to-btn')
+        el.matches('.how-to-btn') ||
+        el.matches('.part-summary')
       )) return true;
       el = el.parentElement;
     }
@@ -1015,22 +1015,11 @@
       btn.setAttribute('aria-expanded', String(open));
     }
 
-    function getIndexCollapsibles() {
-      var items = [];
-      if (howToBtn && howToBody) items.push({ btn: howToBtn, body: howToBody });
-      $$('.part-section').forEach(function (part) {
-        var btn = $('.part-btn', part);
-        var body = $('.part-body', part);
-        if (btn && body) items.push({ btn: btn, body: body });
+    if (howToBtn && howToBody) {
+      howToBtn.addEventListener('click', function () {
+        setIndexCollapsible(howToBtn, howToBody, !howToBody.classList.contains('open'));
       });
-      return items;
     }
-
-    getIndexCollapsibles().forEach(function (item) {
-      item.btn.addEventListener('click', function () {
-        setIndexCollapsible(item.btn, item.body, !item.body.classList.contains('open'));
-      });
-    });
 
     if (howToBtn && howToBody && howToWrap && !howToBody.querySelector('.btf-minimise-btn')) {
       addMinimiseButton(howToBody, function () {
@@ -1044,15 +1033,17 @@
     var minimiseAll = $('#btf-minimise-all');
     if (expandAll) {
       expandAll.addEventListener('click', function () {
-        getIndexCollapsibles().forEach(function (item) {
-          setIndexCollapsible(item.btn, item.body, true);
+        if (howToBtn && howToBody) setIndexCollapsible(howToBtn, howToBody, true);
+        $$('.part-accordion, .section-accordion').forEach(function (accordion) {
+          accordion.open = true;
         });
       });
     }
     if (minimiseAll) {
       minimiseAll.addEventListener('click', function () {
-        getIndexCollapsibles().forEach(function (item) {
-          setIndexCollapsible(item.btn, item.body, false);
+        if (howToBtn && howToBody) setIndexCollapsible(howToBtn, howToBody, false);
+        $$('.part-accordion, .section-accordion').forEach(function (accordion) {
+          accordion.open = false;
         });
         window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
       });
@@ -1097,34 +1088,27 @@
       });
     }
 
-    $$('.part-section').forEach(function (part) {
-      var titleEl = $('.part-btn-title', part);
-      var title = cleanText(titleEl ? titleEl.textContent : 'Section');
-      var partBtn = $('.part-btn', part);
-      var partBody = $('.part-body', part);
+    $$('.part-accordion').forEach(function (part) {
+      var summary = $('.part-summary', part);
+      var content = $('.part-content', part);
+      var title = cleanText(summary ? $('h2', summary).textContent : 'Part');
       sections.push({
-        el: partBody || part,
+        el: content || part,
         scrollEl: part,
         title: title,
         playBtn: null,
         open: function () {
-          if (partBtn && partBody) {
-            partBody.classList.add('open');
-            partBtn.setAttribute('aria-expanded', 'true');
-          }
+          part.open = true;
           scrollToView(part);
         },
         close: function () {
-          if (partBtn && partBody) {
-            partBody.classList.remove('open');
-            partBtn.setAttribute('aria-expanded', 'false');
-          }
+          part.open = false;
         },
         isOpen: function () {
-          return !!(partBody && partBody.classList.contains('open'));
+          return part.open;
         },
         getText: function () {
-          return extractSectionText(partBody || part);
+          return extractSectionText(content || part);
         }
       });
     });

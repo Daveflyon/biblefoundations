@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# DO NOT RE-RUN: one-off from Sep 2026. index.html is now a hub; sections live in part-N.html.
 """Insert Part 3 sections into index.html, matching the exact pattern used
 for Part 1 and Part 2, and update footer/TOC/title accordingly.
 Run from the biblefoundations folder root.

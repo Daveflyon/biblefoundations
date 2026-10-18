@@ -103,6 +103,7 @@ def build(L):
                   '<title>Lesson %s: %s – Bible Truth Foundations Part %d</title>' % (nn, L['title'], part))
     h = h.replace('<p class="series-part">Part 1 of 3: New Life in Christ</p>',
                   '<p class="series-part">Part %d of 3: %s</p>' % (part, sub))
+    h = h.replace('part-1.html', 'part-%d.html' % part).replace('Back to Part 1', 'Back to Part %d' % part)
     h = h.replace('<h1>Eternal Life</h1>', '<h1>%s</h1>' % L['title'])
     h = h.replace('<p class="lesson-meta">Lesson 1 of 16 &nbsp;|&nbsp; Section A: The Gospel Foundation</p>',
                   '<p class="lesson-meta">Lesson %d of 16 &nbsp;|&nbsp; Section %s: %s</p>' % (L['num'], L['section'], L['section_name']))

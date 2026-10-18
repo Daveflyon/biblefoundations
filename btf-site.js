@@ -85,8 +85,8 @@
       if (el.matches && (
         el.matches('h2') ||
         el.matches('.section-toggle') ||
-        el.matches('.how-to-btn') ||
-        el.matches('.part-summary')
+        el.matches('.part-btn') ||
+        el.matches('.how-to-btn')
       )) return true;
       el = el.parentElement;
     }
@@ -1015,11 +1015,22 @@
       btn.setAttribute('aria-expanded', String(open));
     }
 
-    if (howToBtn && howToBody) {
-      howToBtn.addEventListener('click', function () {
-        setIndexCollapsible(howToBtn, howToBody, !howToBody.classList.contains('open'));
+    function getIndexCollapsibles() {
+      var items = [];
+      if (howToBtn && howToBody) items.push({ btn: howToBtn, body: howToBody });
+      $$('.part-section').forEach(function (part) {
+        var btn = $('.part-btn', part);
+        var body = $('.part-body', part);
+        if (btn && body) items.push({ btn: btn, body: body });
       });
+      return items;
     }
+
+    getIndexCollapsibles().forEach(function (item) {
+      item.btn.addEventListener('click', function () {
+        setIndexCollapsible(item.btn, item.body, !item.body.classList.contains('open'));
+      });
+    });
 
     if (howToBtn && howToBody && howToWrap && !howToBody.querySelector('.btf-minimise-btn')) {
       addMinimiseButton(howToBody, function () {
@@ -1033,17 +1044,15 @@
     var minimiseAll = $('#btf-minimise-all');
     if (expandAll) {
       expandAll.addEventListener('click', function () {
-        if (howToBtn && howToBody) setIndexCollapsible(howToBtn, howToBody, true);
-        $$('.part-accordion, .section-accordion').forEach(function (accordion) {
-          accordion.open = true;
+        getIndexCollapsibles().forEach(function (item) {
+          setIndexCollapsible(item.btn, item.body, true);
         });
       });
     }
     if (minimiseAll) {
       minimiseAll.addEventListener('click', function () {
-        if (howToBtn && howToBody) setIndexCollapsible(howToBtn, howToBody, false);
-        $$('.part-accordion, .section-accordion').forEach(function (accordion) {
-          accordion.open = false;
+        getIndexCollapsibles().forEach(function (item) {
+          setIndexCollapsible(item.btn, item.body, false);
         });
         window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
       });
@@ -1088,27 +1097,34 @@
       });
     }
 
-    $$('.part-accordion').forEach(function (part) {
-      var summary = $('.part-summary', part);
-      var content = $('.part-content', part);
-      var title = cleanText(summary ? $('h2', summary).textContent : 'Part');
+    $$('.part-section').forEach(function (part) {
+      var titleEl = $('.part-btn-title', part);
+      var title = cleanText(titleEl ? titleEl.textContent : 'Section');
+      var partBtn = $('.part-btn', part);
+      var partBody = $('.part-body', part);
       sections.push({
-        el: content || part,
+        el: partBody || part,
         scrollEl: part,
         title: title,
         playBtn: null,
         open: function () {
-          part.open = true;
+          if (partBtn && partBody) {
+            partBody.classList.add('open');
+            partBtn.setAttribute('aria-expanded', 'true');
+          }
           scrollToView(part);
         },
         close: function () {
-          part.open = false;
+          if (partBtn && partBody) {
+            partBody.classList.remove('open');
+            partBtn.setAttribute('aria-expanded', 'false');
+          }
         },
         isOpen: function () {
-          return part.open;
+          return !!(partBody && partBody.classList.contains('open'));
         },
         getText: function () {
-          return extractSectionText(content || part);
+          return extractSectionText(partBody || part);
         }
       });
     });
@@ -1118,6 +1134,95 @@
       mainLabel: 'Play Overview',
       wholeLesson: true,
       progressLabel: 'Overview'
+    });
+  }
+
+  // Lesson completion: one localStorage flag per lesson, e.g. 'p1-l01-complete'
+  function completionKey(path) {
+    var m = (path || '').split('/').pop().match(/^btf-(p\d+-l\d+)/i);
+    return m ? m[1].toLowerCase() + '-complete' : null;
+  }
+
+  function isComplete(key) {
+    return storageOK() && localStorage.getItem(key) === '1';
+  }
+
+  function initLessonComplete() {
+    var key = completionKey(window.location.pathname);
+    var controls = $('.btf-section-controls');
+    if (!key || !controls || !storageOK()) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'btf-section-controls';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btf-section-ctrl-btn';
+    // Bigger than the Expand/Minimise pills: this is the main tap on a phone
+    btn.style.cssText = 'min-height:44px; padding:10px 22px; font-size:13px;';
+    function render() {
+      var done = isComplete(key);
+      btn.setAttribute('aria-pressed', String(done));
+      btn.textContent = done ? '✓ Lesson completed' : 'Mark lesson complete';
+      btn.title = done ? 'Tap again to mark as not complete' : '';
+      btn.style.color = done ? '#1F3864' : '';
+      btn.style.borderColor = done ? '#1F3864' : '';
+    }
+    btn.addEventListener('click', function () {
+      if (isComplete(key)) localStorage.removeItem(key);
+      else localStorage.setItem(key, '1');
+      render();
+    });
+    render();
+    wrap.appendChild(btn);
+    controls.parentNode.insertBefore(wrap, controls);
+  }
+
+  function renderLessonTicks() {
+    var items = $$('a.lesson-item').filter(function (a) {
+      return completionKey(a.getAttribute('href'));
+    });
+    if (!items.length) return;
+    var done = 0;
+    items.forEach(function (a) {
+      var complete = isComplete(completionKey(a.getAttribute('href')));
+      var arrow = $('.lesson-arrow', a);
+      var title = $('.lesson-title', a);
+      if (complete) done++;
+      if (arrow) arrow.textContent = complete ? '✓' : '›';
+      if (complete && title) a.setAttribute('aria-label', cleanText(title.textContent) + ', completed');
+      else a.removeAttribute('aria-label');
+    });
+    var box = $('#btf-progress');
+    var heading = $('h2[id^="part"]');
+    if (!box && heading) {
+      box = document.createElement('div');
+      box.id = 'btf-progress';
+      box.style.cssText = 'margin:0;';
+      box.innerHTML = '<p style="font-size:14px; color:#555; margin:0 0 6px;"></p>' +
+        '<div role="progressbar" aria-label="Lessons completed" aria-valuemin="0" style="height:10px; background:#ffffff; border-radius:5px; overflow:hidden;">' +
+        '<div style="height:100%; width:0; background:#1F3864; transition:width 0.3s;"></div></div>';
+      heading.parentNode.insertBefore(box, heading.nextSibling);
+    }
+    if (box) {
+      var bar = $('[role="progressbar"]', box);
+      $('p', box).textContent = done + ' of ' + items.length + ' lessons completed';
+      bar.setAttribute('aria-valuemax', String(items.length));
+      bar.setAttribute('aria-valuenow', String(done));
+      bar.firstChild.style.width = (100 * done / items.length) + '%';
+    }
+  }
+
+  // Hub: count saved completion flags per part for each part link
+  function renderPartCounts() {
+    $$('[data-btf-progress]').forEach(function (el) {
+      var re = new RegExp('^p' + el.getAttribute('data-btf-progress') + '-l\\d+-complete$');
+      var done = 0;
+      if (storageOK()) {
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i);
+          if (re.test(k) && localStorage.getItem(k) === '1') done++;
+        }
+      }
+      el.textContent = done + ' of ' + el.getAttribute('data-total') + ' lessons completed';
     });
   }
 
@@ -1178,8 +1283,21 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     var page = document.body.getAttribute('data-btf-page');
-    if (page === 'lesson') initLessonPage();
-    else if (page === 'index') initIndexPage();
+    if (page === 'lesson') {
+      initLessonPage();
+      initLessonComplete();
+    } else if (page === 'index') {
+      initIndexPage();
+      renderLessonTicks();
+      renderPartCounts();
+      // Back button can restore a cached page; refresh ticks so they're current
+      window.addEventListener('pageshow', function (e) {
+        if (e.persisted) {
+          renderLessonTicks();
+          renderPartCounts();
+        }
+      });
+    }
     initToc();
     initResponsiveTables();
   });

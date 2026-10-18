@@ -19,19 +19,20 @@
   a { color: #1F3864; text-decoration: underline; }
   a:hover, a:focus { color: #2c54a0; outline: 2px solid #2c54a0; outline-offset: 2px; }
   .intro-note { border-left: 4px solid #d97706; background: #fffbf0; padding: 12px 16px; margin: 24px 0; }
-  .how-to-btn {
+  .how-to-btn, .part-btn {
     display: flex; align-items: center; justify-content: space-between;
     width: 100%; background: #1F3864; color: #ffffff; border: none;
     border-radius: 4px; padding: 14px 20px; cursor: pointer;
     font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: 700;
     text-align: left; margin-bottom: 0;
   }
-  .how-to-btn:hover { background: #2c54a0; }
-  .how-to-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
-  .how-to-chevron { font-size: 14px; transition: transform 0.25s ease; flex-shrink: 0; margin-left: 12px; }
-  .how-to-btn[aria-expanded="true"] .how-to-chevron { transform: rotate(180deg); }
-  .how-to-body { display: none; border: 2px solid #1F3864; border-top: none; border-radius: 0 0 4px 4px; padding: 20px 24px; margin-bottom: 0; }
-  .how-to-body.open { display: block; }
+  .how-to-btn:hover, .part-btn:hover { background: #2c54a0; }
+  .how-to-btn:focus, .part-btn:focus { outline: 2px solid #2c54a0; outline-offset: 2px; }
+  .how-to-chevron, .part-chevron { font-size: 14px; transition: transform 0.25s ease; flex-shrink: 0; margin-left: 12px; }
+  .how-to-btn[aria-expanded="true"] .how-to-chevron,
+  .part-btn[aria-expanded="true"] .part-chevron { transform: rotate(180deg); }
+  .how-to-body, .part-body { display: none; border: 2px solid #1F3864; border-top: none; border-radius: 0 0 4px 4px; padding: 20px 24px; margin-bottom: 0; }
+  .how-to-body.open, .part-body.open { display: block; }
   #how-to-use + .part-section { margin-top: 40px; }
   .how-to-body ul { padding-left: 20px; margin: 12px 0 16px; }
   .how-to-body li { margin-bottom: 10px; }
@@ -40,16 +41,20 @@
   .not-for-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #d97706; margin: 0 0 8px; }
   .not-for-box p:last-child { margin-bottom: 0; }
   .part-section { margin-bottom: 40px; }
+  .part-btn-label { flex: 1; min-width: 0; text-align: left; }
+  .part-btn-title { display: block; font-size: 16px; font-weight: 700; letter-spacing: 0.05em; line-height: 1.3; }
+  .part-btn-desc { display: block; font-size: 13px; font-weight: 400; color: #e8e4dc; margin-top: 2px; line-height: 1.4; }
+  .part-body { padding: 0; overflow: hidden; }
   .lesson-list { overflow: hidden; margin: 0; padding: 0; list-style: none; }
   .lesson-item { display: flex; align-items: stretch; border-bottom: 1px solid #cccccc; text-decoration: none; color: #1c1c1e; transition: background 0.15s; }
   .lesson-item:last-child { border-bottom: none; }
   .lesson-item:hover, .lesson-item:focus { background: #f2f2f2; outline: 2px solid #2c54a0; outline-offset: -2px; }
-  .lesson-num { background: #f2f2f2; color: #1F3864; font-weight: 700; font-size: 13px; padding: 14px 16px; min-width: 52px; text-align: center; display: flex; align-items: center; justify-content: center; border-right: 1px solid #cccccc; flex-shrink: 0; }
+  .lesson-num { background: #f2f2f2; color: #1F3864; font-weight: 700; font-size: 18px; padding: 16px 18px; min-width: 56px; text-align: center; display: flex; align-items: center; justify-content: center; border-right: 1px solid #cccccc; flex-shrink: 0; }
   .lesson-info { padding: 14px 16px; flex: 1; }
-  .lesson-title { font-weight: 700; font-size: 15px; color: #1F3864; margin: 0; }
+  .lesson-title { font-weight: 700; font-size: 19px; color: #1F3864; margin: 0; }
   .lesson-arrow { display: flex; align-items: center; padding: 0 14px; color: #1F3864; font-size: 18px; flex-shrink: 0; }
   .page-footer { font-size: 13px; color: #888; text-align: center; border-top: 1px solid #cccccc; padding: 24px 0 40px; margin-top: 24px; }
-  @media print { .how-to-body { display: block !important; } }
+  @media print { .how-to-body, .part-body { display: block !important; } }
 </style>
 <link rel="stylesheet" href="btf-site.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -64,7 +69,7 @@
 <hr class="title-rule">
 
 <div class="intro-note" id="welcome">
-  <p style="margin:0;">Welcome to Bible Truth Foundations. This guide works through foundational Christian truths one lesson at a time. Each lesson goes deep on a single topic so that the truth has time to take root. Use the sections below to navigate to any lesson.</p>
+  <p style="margin:0;">Welcome to Bible Truth Foundations. This guide works through foundational Christian truths one lesson at a time. Each lesson goes deep on a single topic so that the truth has time to take root. Choose a part below to see its lessons.</p>
 </div>
 
 <div class="btf-audio-panel" role="region" aria-label="Audio controls">
@@ -120,424 +125,24 @@
   </div>
 </div>
 
-<details class="part-accordion">
-  <summary class="part-summary">
-    <h2><span class="part-number">Part 1</span><span class="part-title">New Life in Christ</span></h2>
-  </summary>
-  <div class="part-content">
+<h2 id="parts" style="margin-top:40px;">The Three Parts</h2>
 
-<!-- Section A -->
-<details class="section-accordion" id="section-a">
-  <summary class="section-summary">
-    <h3>Section A &mdash; The Gospel Foundation</h3>
-    <p>Lessons 1&ndash;3. What the Gospel actually is, how God saves us and what it means to stand righteous before Him.</p>
-  </summary>
-  <div class="section-content" id="section-a-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p1-l01-eternal-life.html">
-        <span class="lesson-num">01</span>
-        <div class="lesson-info"><p class="lesson-title">Eternal Life</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l02-salvation-by-grace.html">
-        <span class="lesson-num">02</span>
-        <div class="lesson-info"><p class="lesson-title">Salvation by Grace</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l03-righteousness-by-grace.html">
-        <span class="lesson-num">03</span>
-        <div class="lesson-info"><p class="lesson-title">Righteousness by Grace</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-<!-- Section B -->
-<details class="section-accordion" id="section-b">
-  <summary class="section-summary">
-    <h3>Section B &mdash; Knowing God</h3>
-    <p>Lessons 4&ndash;5. What it means to be in relationship with God and the true character of the God we are relating to.</p>
-  </summary>
-  <div class="section-content" id="section-b-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p1-l04-relationship-with-god.html">
-        <span class="lesson-num">04</span>
-        <div class="lesson-info"><p class="lesson-title">Relationship with God</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l05-the-nature-of-god.html">
-        <span class="lesson-num">05</span>
-        <div class="lesson-info"><p class="lesson-title">The Nature of God</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-<!-- Section C -->
-<details class="section-accordion" id="section-c">
-  <summary class="section-summary">
-    <h3>Section C &mdash; Response and Commitment</h3>
-    <p>Lessons 6&ndash;8. How we respond to what God has done: through repentance, wholehearted commitment and water baptism.</p>
-  </summary>
-  <div class="section-content" id="section-c-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p1-l06-repentance.html">
-        <span class="lesson-num">06</span>
-        <div class="lesson-info"><p class="lesson-title">Repentance</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l07-commitment.html">
-        <span class="lesson-num">07</span>
-        <div class="lesson-info"><p class="lesson-title">Commitment</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l08-water-baptism.html">
-        <span class="lesson-num">08</span>
-        <div class="lesson-info"><p class="lesson-title">Water Baptism</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-<!-- Section D -->
-<details class="section-accordion" id="section-d">
-  <summary class="section-summary">
-    <h3>Section D &mdash; Life in Christ</h3>
-    <p>Lessons 9&ndash;16. Who you now are in Christ, how to handle sin, the trustworthiness of God&rsquo;s Word and living in the power of the Holy Spirit.</p>
-  </summary>
-  <div class="section-content" id="section-d-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p1-l09-identity-in-christ-part-1.html">
-        <span class="lesson-num">09</span>
-        <div class="lesson-info"><p class="lesson-title">Identity in Christ (Part 1)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l10-identity-in-christ-part-2.html">
-        <span class="lesson-num">10</span>
-        <div class="lesson-info"><p class="lesson-title">Identity in Christ (Part 2)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l11-what-happens-when-a-christian-sins.html">
-        <span class="lesson-num">11</span>
-        <div class="lesson-info"><p class="lesson-title">What Happens When a Christian Sins?</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l12-integrity-of-gods-word.html">
-        <span class="lesson-num">12</span>
-        <div class="lesson-info"><p class="lesson-title">Integrity of God&rsquo;s Word</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l13-gods-not-guilty.html">
-        <span class="lesson-num">13</span>
-        <div class="lesson-info"><p class="lesson-title">God&rsquo;s Not Guilty</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l14-the-power-of-a-spirit-filled-life.html">
-        <span class="lesson-num">14</span>
-        <div class="lesson-info"><p class="lesson-title">The Power of a Spirit-Filled Life</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l15-how-to-receive-the-holy-spirit.html">
-        <span class="lesson-num">15</span>
-        <div class="lesson-info"><p class="lesson-title">How to Receive the Holy Spirit</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p1-l16-the-benefits-of-speaking-in-tongues.html">
-        <span class="lesson-num">16</span>
-        <div class="lesson-info"><p class="lesson-title">The Benefits of Speaking in Tongues</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-
-
-
-  </div>
-</details>
-<details class="part-accordion">
-  <summary class="part-summary">
-    <h2><span class="part-number">Part 2</span><span class="part-title">Growing in Christ</span></h2>
-  </summary>
-  <div class="part-content">
-
-<!-- Part 2 Section A -->
-<details class="section-accordion" id="p2-section-a">
-  <summary class="section-summary">
-    <h3>Section A &mdash; Mind and Word</h3>
-    <p>Lessons 1&ndash;3. Where strife really comes from, how to meditate on God&rsquo;s Word and the renewing of the mind.</p>
-  </summary>
-  <div class="section-content" id="p2-section-a-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p2-l01-self-centredness.html">
-        <span class="lesson-num">01</span>
-        <div class="lesson-info"><p class="lesson-title">Self-Centredness</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l02-how-to-meditate-on-gods-word.html">
-        <span class="lesson-num">02</span>
-        <div class="lesson-info"><p class="lesson-title">How to Meditate on God&rsquo;s Word</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l03-renewing-the-mind.html">
-        <span class="lesson-num">03</span>
-        <div class="lesson-info"><p class="lesson-title">Renewing the Mind</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-<!-- Part 2 Section B -->
-<details class="section-accordion" id="p2-section-b">
-  <summary class="section-summary">
-    <h3>Section B &mdash; Church and Authority</h3>
-    <p>Lessons 4&ndash;6. Why the gathered church matters, deliverance and the believer&rsquo;s authority in Christ.</p>
-  </summary>
-  <div class="section-content" id="p2-section-b-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p2-l04-the-importance-of-christs-church.html">
-        <span class="lesson-num">04</span>
-        <div class="lesson-info"><p class="lesson-title">The Importance of Christ&rsquo;s Church</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l05-deliverance.html">
-        <span class="lesson-num">05</span>
-        <div class="lesson-info"><p class="lesson-title">Deliverance</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l06-authority-of-the-believer.html">
-        <span class="lesson-num">06</span>
-        <div class="lesson-info"><p class="lesson-title">Authority of the Believer</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-<!-- Part 2 Section C -->
-<details class="section-accordion" id="p2-section-c">
-  <summary class="section-summary">
-    <h3>Section C &mdash; Healing and Relationships</h3>
-    <p>Lessons 7&ndash;13. Healing in the atonement, what hinders it, forgiving others, marriage and God&rsquo;s kind of love.</p>
-  </summary>
-  <div class="section-content" id="p2-section-c-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p2-l07-healing-is-in-the-atonement.html">
-        <span class="lesson-num">07</span>
-        <div class="lesson-info"><p class="lesson-title">Healing is in the Atonement</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l08-hindrances-to-healing.html">
-        <span class="lesson-num">08</span>
-        <div class="lesson-info"><p class="lesson-title">Hindrances to Healing</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l09-forgiving-others.html">
-        <span class="lesson-num">09</span>
-        <div class="lesson-info"><p class="lesson-title">Forgiving Others</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l10-marriage-part-1.html">
-        <span class="lesson-num">10</span>
-        <div class="lesson-info"><p class="lesson-title">Marriage (Part 1)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l11-marriage-part-2.html">
-        <span class="lesson-num">11</span>
-        <div class="lesson-info"><p class="lesson-title">Marriage (Part 2)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l12-gods-kind-of-love-part-1.html">
-        <span class="lesson-num">12</span>
-        <div class="lesson-info"><p class="lesson-title">God&rsquo;s Kind of Love (Part 1)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l13-gods-kind-of-love-part-2.html">
-        <span class="lesson-num">13</span>
-        <div class="lesson-info"><p class="lesson-title">God&rsquo;s Kind of Love (Part 2)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-<!-- Part 2 Section D -->
-<details class="section-accordion" id="p2-section-d">
-  <summary class="section-summary">
-    <h3>Section D &mdash; Provision and Prayer</h3>
-    <p>Lessons 14&ndash;16. God&rsquo;s heart on finances, the grace of giving and what to do when prayers seem unanswered.</p>
-  </summary>
-  <div class="section-content" id="p2-section-d-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p2-l14-finances-part-1.html">
-        <span class="lesson-num">14</span>
-        <div class="lesson-info"><p class="lesson-title">Finances (Part 1)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l15-finances-part-2.html">
-        <span class="lesson-num">15</span>
-        <div class="lesson-info"><p class="lesson-title">Finances (Part 2)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p2-l16-what-to-do-when-your-prayers-seem-unanswered.html">
-        <span class="lesson-num">16</span>
-        <div class="lesson-info"><p class="lesson-title">When Prayers Seem Unanswered</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-
-
-
-  </div>
-</details>
-<details class="part-accordion">
-  <summary class="part-summary">
-    <h2><span class="part-number">Part 3</span><span class="part-title">Serving in Christ</span></h2>
-  </summary>
-  <div class="part-content">
-
-<!-- Part 3 p3-section-a -->
-<details class="section-accordion" id="p3-section-a">
-  <summary class="section-summary">
-    <h3>Section A &mdash; Living in the Spirit's Power</h3>
-    <p>Lessons 1&ndash;3. The divine flow of God's love, using spiritual gifts to minister, and why miracles exist to glorify God.</p>
-  </summary>
-  <div class="section-content" id="p3-section-a-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p3-l01-the-divine-flow.html">
-        <span class="lesson-num">01</span>
-        <div class="lesson-info"><p class="lesson-title">The Divine Flow</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l02-using-the-gifts-to-minister.html">
-        <span class="lesson-num">02</span>
-        <div class="lesson-info"><p class="lesson-title">Using the Gifts to Minister</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l03-miracles-glorify-god.html">
-        <span class="lesson-num">03</span>
-        <div class="lesson-info"><p class="lesson-title">Miracles Glorify God</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-<!-- Part 3 p3-section-b -->
-<details class="section-accordion" id="p3-section-b">
-  <summary class="section-summary">
-    <h3>Section B &mdash; Living Among Others</h3>
-    <p>Lessons 4&ndash;6. The power of godly relationships, facing persecution, and understanding the King and His Kingdom.</p>
-  </summary>
-  <div class="section-content" id="p3-section-b-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p3-l04-the-power-of-godly-relationships.html">
-        <span class="lesson-num">04</span>
-        <div class="lesson-info"><p class="lesson-title">The Power of Godly Relationships</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l05-persecution.html">
-        <span class="lesson-num">05</span>
-        <div class="lesson-info"><p class="lesson-title">Persecution</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l06-the-king-and-his-kingdom.html">
-        <span class="lesson-num">06</span>
-        <div class="lesson-info"><p class="lesson-title">The King and His Kingdom</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-<!-- Part 3 p3-section-c -->
-<details class="section-accordion" id="p3-section-c">
-  <summary class="section-summary">
-    <h3>Section C &mdash; Living Free from Law and Sin</h3>
-    <p>Lessons 7&ndash;11. The true object of saving faith, the proper use of God's Law, grace instead of law, no more consciousness of sin, and being fully loved.</p>
-  </summary>
-  <div class="section-content" id="p3-section-c-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p3-l07-the-object-of-saving-faith.html">
-        <span class="lesson-num">07</span>
-        <div class="lesson-info"><p class="lesson-title">The Object of Saving Faith</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l08-the-proper-use-of-gods-law.html">
-        <span class="lesson-num">08</span>
-        <div class="lesson-info"><p class="lesson-title">The Proper Use of God's Law</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l09-not-under-law-but-under-grace.html">
-        <span class="lesson-num">09</span>
-        <div class="lesson-info"><p class="lesson-title">Not Under Law, but Under Grace</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l10-no-more-consciousness-of-sin.html">
-        <span class="lesson-num">10</span>
-        <div class="lesson-info"><p class="lesson-title">No More Consciousness of Sin</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l11-i-am-loved-i-am-pretty.html">
-        <span class="lesson-num">11</span>
-        <div class="lesson-info"><p class="lesson-title">I Am Loved, I Am Pretty</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-<!-- Part 3 p3-section-d -->
-<details class="section-accordion" id="p3-section-d">
-  <summary class="section-summary">
-    <h3>Section D &mdash; Living as a Disciple</h3>
-    <p>Lessons 12&ndash;16. The fruit that proves genuine faith, the call to make disciples, using your testimony, and mobilising every believer's gifts.</p>
-  </summary>
-  <div class="section-content" id="p3-section-d-body">
-    <div class="lesson-list">
-      <a class="lesson-item" href="btf-p3-l12-the-fruit-of-salvation-part-1.html">
-        <span class="lesson-num">12</span>
-        <div class="lesson-info"><p class="lesson-title">The Fruit of Salvation (Part 1)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l13-the-fruit-of-salvation-part-2.html">
-        <span class="lesson-num">13</span>
-        <div class="lesson-info"><p class="lesson-title">The Fruit of Salvation (Part 2)</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l14-a-call-to-discipleship.html">
-        <span class="lesson-num">14</span>
-        <div class="lesson-info"><p class="lesson-title">A Call to Discipleship</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l15-how-to-use-your-testimony.html">
-        <span class="lesson-num">15</span>
-        <div class="lesson-info"><p class="lesson-title">How to Use Your Testimony</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-      <a class="lesson-item" href="btf-p3-l16-using-everyones-gifts-to-disciple.html">
-        <span class="lesson-num">16</span>
-        <div class="lesson-info"><p class="lesson-title">Using Everyone's Gifts to Disciple</p></div>
-        <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
-      </a>
-    </div>
-  </div>
-</details>
-
-  </div>
-</details>
-
-<div class="btf-section-controls">
-  <button type="button" class="btf-section-ctrl-btn" id="btf-expand-all">+ Expand All</button>
-  <button type="button" class="btf-section-ctrl-btn" id="btf-minimise-all">&minus; Minimise All</button>
+<div class="lesson-list" style="border:2px solid #1F3864; border-radius:4px;">
+  <a class="lesson-item" href="part-1.html">
+    <span class="lesson-num">1</span>
+    <div class="lesson-info"><p class="lesson-title">Part 1 &middot; New Life in Christ</p><p style="margin:4px 0 0; font-size:16px; color:#555;"><span data-btf-progress="1" data-total="16">16 lessons</span></p></div>
+    <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
+  </a>
+  <a class="lesson-item" href="part-2.html">
+    <span class="lesson-num">2</span>
+    <div class="lesson-info"><p class="lesson-title">Part 2 &middot; Growing in Christ</p><p style="margin:4px 0 0; font-size:16px; color:#555;"><span data-btf-progress="2" data-total="16">16 lessons</span></p></div>
+    <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
+  </a>
+  <a class="lesson-item" href="part-3.html">
+    <span class="lesson-num">3</span>
+    <div class="lesson-info"><p class="lesson-title">Part 3 &middot; Serving in Christ</p><p style="margin:4px 0 0; font-size:16px; color:#555;"><span data-btf-progress="3" data-total="16">16 lessons</span></p></div>
+    <span class="lesson-arrow" aria-hidden="true">&#8250;</span>
+  </a>
 </div>
 
 <div class="page-footer">
@@ -548,19 +153,10 @@
   <div class="toc-menu" id="toc-menu">
     <a href="#welcome">Welcome</a>
     <a href="#how-to-use">How to use this guide</a>
-    <a href="#section-a">Section A &mdash; The Gospel Foundation</a>
-    <a href="#section-b">Section B &mdash; Knowing God</a>
-    <a href="#section-c">Section C &mdash; Response and Commitment</a>
-    <a href="#section-d">Section D &mdash; Life in Christ</a>
-        <a href="#p2-section-a">Part 2: Mind and Word</a>
-    <a href="#p2-section-b">Part 2: Church and Authority</a>
-    <a href="#p2-section-c">Part 2: Healing and Relationships</a>
-    <a href="#p2-section-d">Part 2: Provision and Prayer</a>
-    <a href="#p3-section-a">Part 3: Living in the Spirit's Power</a>
-    <a href="#p3-section-b">Part 3: Living Among Others</a>
-    <a href="#p3-section-c">Part 3: Living Free from Law and Sin</a>
-    <a href="#p3-section-d">Part 3: Living as a Disciple</a>
-<a href="#" class="toc-back-top">&#8593; Back to top</a>
+    <a href="part-1.html">Part 1 &middot; New Life in Christ</a>
+    <a href="part-2.html">Part 2 &middot; Growing in Christ</a>
+    <a href="part-3.html">Part 3 &middot; Serving in Christ</a>
+    <a href="#" class="toc-back-top">&#8593; Back to top</a>
   </div>
   <button type="button" class="toc-btn" id="toc-btn" aria-expanded="false" aria-controls="toc-menu">&#9776; Jump to section</button>
 </nav>

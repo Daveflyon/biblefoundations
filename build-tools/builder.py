@@ -105,6 +105,10 @@ def build(L):
     h = h.replace('<p class="series-part">Part 1 of 3: New Life in Christ</p>',
                   '<p class="series-part">Part %d of 3: %s</p>' % (part, sub))
     h = h.replace('part-1.html', 'part-%d.html' % part).replace('Back to Part 1', 'Back to Part %d' % part)
+    # Template's "Next lesson" points at p1-l02: set L['next'] to the next lesson's filename; omit it on lesson 16
+    nxt = ('<a class="back-link" href="%s" style="text-align:right;">Next lesson &#8594;</a>' % L['next']) if L.get('next') \
+        else '<a class="back-link" href="index.html" style="text-align:right;">Main page &#8594;</a>'
+    h = re.sub(r'<a class="back-link" href="[^"]*" style="text-align:right;">[^<]*</a>', lambda m: nxt, h)
     h = h.replace('<h1>Eternal Life</h1>', '<h1>%s</h1>' % L['title'])
     h = h.replace('<p class="lesson-meta">Lesson 1 of 16 &nbsp;|&nbsp; Section A: The Gospel Foundation</p>',
                   '<p class="lesson-meta">Lesson %d of 16 &nbsp;|&nbsp; Section %s: %s</p>' % (L['num'], L['section'], L['section_name']))

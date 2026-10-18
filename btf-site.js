@@ -1313,7 +1313,9 @@
       saveText(progressText(parts, titles), filename);
     });
     var note = document.createElement('p');
-    note.textContent = 'Saved in this browser on this device only. Download a copy to keep it safe.';
+    note.appendChild(document.createTextNode('Saved in this browser on this device only.'));
+    note.appendChild(document.createElement('br'));
+    note.appendChild(document.createTextNode('Download a copy to keep it safe.'));
     note.style.cssText = 'font-size:13px; color:#555; margin:8px 0 0;';
     wrap.appendChild(btn);
     wrap.appendChild(note);

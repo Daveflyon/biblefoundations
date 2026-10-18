@@ -37,8 +37,12 @@ this project is hosted.
 
 ## File map
 
-- `index.html` — homepage/hub, links to every lesson, holds the
-  collapsible Part/Section navigation.
+- `index.html` — homepage/hub: welcome, How to use, and links to the
+  three part pages.
+- `part-1.html`, `part-2.html`, `part-3.html` — one page per part, each
+  holding that part's collapsible Section A to D lesson lists. They use
+  `<body data-btf-page="index">` so `btf-site.js` runs the same index
+  behaviours. Lesson pages link back to their own part page.
 - `btf-pN-lNN-slug.html` — one file per lesson (N = part number, NN =
   lesson number *within that part*, zero-padded, restarting at 01 for
   each new part — confirmed from Part 2's files, e.g. `btf-p2-l01-...`).
@@ -124,6 +128,9 @@ this project is hosted.
 - `localStorage` answer keys: `p{part}-l{NN}-{M}-answer` /
   `-notes` pattern (part-namespaced, to prevent cross-part collisions —
   confirmed this is the pattern actually used in Part 2's shipped files).
+  Lesson completion uses `p{part}-l{NN}-complete` = `'1'`, set by the
+  "Mark lesson complete" button that `btf-site.js` injects on lesson pages
+  and read by the part pages for the ticks and "X of 16" count.
   `btf-audio-rate` (speed preference) is the one exception: always
   shared site-wide, never namespaced per part.
 
@@ -241,8 +248,8 @@ query string before concluding anything is wrong.
    `btf-p1-l01-eternal-life.html`, so it inherits the live audio engine
    automatically) rather than reconstructing structure from this spec
    alone or from an older template copy.
-5. Add the new part's sections to the existing `index.html` (don't
-   create a second index page unless explicitly asked).
+5. Add the part's sections to its `part-N.html` page and a link to it
+   on the `index.html` hub.
 6. Generate the part's Complete Course markdown and Teacher's Guide HTML
    once all lessons are built.
 7. Commit in logical chunks, not one giant commit — but check

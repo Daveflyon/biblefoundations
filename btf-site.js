@@ -1201,6 +1201,10 @@
         '<div role="progressbar" aria-label="Lessons completed" aria-valuemin="0" style="height:10px; background:#ffffff; border-radius:5px; overflow:hidden;">' +
         '<div style="height:100%; width:0; background:#1F3864; transition:width 0.3s;"></div></div>';
       heading.parentNode.insertBefore(box, heading.nextSibling);
+      var part = +completionKey(items[0].getAttribute('href')).match(/^p(\d+)/)[1];
+      var tools = progressTools([part], 'btf-p' + part + '-my-progress.txt', 'Download my progress');
+      tools.style.marginTop = '14px';
+      box.appendChild(tools);
     }
     if (box) {
       var bar = $('[role="progressbar"]', box);
@@ -1222,6 +1226,106 @@
     label.textContent = 'Pt' + m[1] + ' · ' + m[2];
     label.style.cssText = 'max-width:900px; margin:0 auto 6px; font-size:13px; font-weight:700; color:#1F3864; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;';
     panel.insertBefore(label, panel.firstChild);
+  }
+
+  // "Download my progress": ticks + saved answers as one text file
+  // shortcut: part names and lesson count hardcoded, update if parts change
+  var PART_NAMES = ['New Life in Christ', 'Growing in Christ', 'Serving in Christ'];
+  var LESSONS_PER_PART = 16;
+
+  function getStored(key) {
+    try { return localStorage.getItem(key) || ''; } catch (e) { return ''; }
+  }
+
+  function progressText(parts, titles) {
+    var lines = [
+      'Bible Truth Foundations: My Progress',
+      'Downloaded ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
+      'Progress and answers are saved on the device they were entered on.',
+      ''
+    ];
+    parts.forEach(function (p) {
+      var body = [];
+      var done = 0;
+      for (var l = 1; l <= LESSONS_PER_PART; l++) {
+        var nn = (l < 10 ? '0' : '') + l;
+        var id = 'p' + p + '-l' + nn;
+        var complete = getStored(id + '-complete') === '1';
+        var info = {};
+        try { info = JSON.parse(getStored(id + '-info') || '{}'); } catch (e) {}
+        // Part 1 answer keys have no part prefix (l01-q1-answer); later parts do (p2-l01-q1-answer)
+        var answer = function (suffix) {
+          return getStored(id + suffix) || (p === 1 ? getStored('l' + nn + suffix) : '');
+        };
+        var qa = [];
+        for (var q = 1; q <= 20; q++) {
+          var ans = answer('-q' + q + '-answer');
+          var notes = answer('-q' + q + '-notes');
+          if (!ans && !notes) continue;
+          var qText = info.questions && info.questions[q - 1];
+          qa.push('  Q' + q + ': ' + (qText || '(open this lesson once to include the question text)'));
+          qa.push('  My Answer: ' + (ans || '(no answer entered)'));
+          qa.push('  Group Notes: ' + (notes || '(no notes entered)'));
+          qa.push('');
+        }
+        if (complete) done++;
+        if (!complete && !qa.length) continue;
+        var title = titles[id] || info.title;
+        body.push((complete ? '[✓] ' : '[ ] ') + 'Lesson ' + nn + (title ? ': ' + title : ''));
+        body = body.concat(qa.length ? qa : ['']);
+      }
+      lines.push('Part ' + p + ' of 3: ' + PART_NAMES[p - 1]);
+      lines.push(done + ' of ' + LESSONS_PER_PART + ' lessons completed');
+      lines.push('');
+      lines = lines.concat(body.length ? body : ['No lessons started yet.', '']);
+      lines.push('');
+    });
+    return lines.join('\n');
+  }
+
+  function saveText(text, filename) {
+    try {
+      var url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (e) {}
+  }
+
+  function progressTools(parts, filename, label) {
+    var wrap = document.createElement('div');
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btf-section-ctrl-btn';
+    btn.style.cssText = 'min-height:44px; padding:10px 22px; font-size:13px;';
+    btn.textContent = '↓ ' + label;
+    btn.addEventListener('click', function () {
+      var titles = {};
+      $$('a.lesson-item').forEach(function (a) {
+        var key = completionKey(a.getAttribute('href'));
+        var t = $('.lesson-title', a);
+        if (key && t) titles[key.replace(/-complete$/, '')] = cleanText(t.textContent);
+      });
+      saveText(progressText(parts, titles), filename);
+    });
+    var note = document.createElement('p');
+    note.textContent = 'Saved in this browser on this device only. Download a copy to keep it safe.';
+    note.style.cssText = 'font-size:13px; color:#555; margin:8px 0 0;';
+    wrap.appendChild(btn);
+    wrap.appendChild(note);
+    return wrap;
+  }
+
+  function initHubTools() {
+    var last = $$('.part-accordion').pop();
+    if (!last || !$('[data-btf-progress]')) return;
+    var tools = progressTools([1, 2, 3], 'btf-my-progress.txt', 'Download all my progress');
+    tools.style.cssText = 'text-align:center; margin:0 0 40px;';
+    last.parentNode.insertBefore(tools, last.nextSibling);
   }
 
   // Hub: count saved completion flags per part for each part link
@@ -1303,6 +1407,7 @@
       initIndexPage();
       renderLessonTicks();
       renderPartCounts();
+      initHubTools();
       // Back button can restore a cached page; refresh ticks so they're current
       window.addEventListener('pageshow', function (e) {
         if (e.persisted) {

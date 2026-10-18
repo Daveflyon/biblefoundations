@@ -162,7 +162,7 @@ Christ's mission was not only to secure your future in eternity but to intervene
 
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | Read John 3:16. What does this verse say God's purpose was in sending Jesus into the world? |  |  |
@@ -311,7 +311,7 @@ The promise is unconditional in its scope:allunrighteousness. There is no catego
 
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | Read Luke 18:9. Jesus directed this parable at a specific group. Who were they and what was their attitude toward others? |  |  |
@@ -470,7 +470,7 @@ The problem Paul identifies here is not wickedness; it is ignorance of what God 
 
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | Read Romans 3:23. Paul says "all have sinned." What does that include, and what does it rule out as a basis for comparing yourself favourably with others before God? |  |  |
@@ -619,7 +619,7 @@ The change that genuine relationship with God produces is real, but it works in 
 
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | Read Genesis 3:1-5. What was the core accusation Satan made about God's character? Put it in your own words. |  |  |
@@ -763,7 +763,7 @@ Because Jesus is the fullest expression of God's character, reading the Gospels 
 
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | Read Romans 7:7. Paul says "I would not have known sin except through the law." What does this tell you about the law's purpose? Was the law meant to be the way to earn God's acceptance? |  |  |
@@ -919,7 +919,7 @@ This verse sits in the same chapter as the prodigal son parable. Jesus had alrea
 
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | Read Luke 15:17-20. Trace the prodigal son's repentance through three stages: the change of mind, the decision of will, and the action taken. What was each stage, in your own words? |  |  |
@@ -1071,7 +1071,7 @@ Many believed in His name because of the signs. Jesus did not commit Himself to 
 
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | Read Luke 14:25-26. Jesus said these words to a large crowd of followers. What effect do you think His words were intended to have on that crowd? What was He separating out? |  |  |
@@ -1219,7 +1219,7 @@ Notice that the condemnation in the second half of that verse falls on the one w
 
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | Read Acts 10:43-44. In this account, when did the Holy Spirit fall on the people who heard Peter speaking? What does that sequence tell you about the relationship between faith and baptism? |  |  |
@@ -1386,7 +1386,7 @@ The instruction is to be renewed in the spirit of the mind: to allow the truth o
 
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | Read 2 Corinthians 5:17. Paul says "old things have passed away; all things have become new." If someone asked you what specifically became new at your salvation, what would you say? |  |  |
@@ -1601,7 +1601,7 @@ This week, before you begin your prayer time, read Ephesians 1:3-6 aloud slowly.
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | --- | --- | --- |
@@ -1858,7 +1858,7 @@ When you sin, your instinct may be to wait: to feel sufficiently sorry, to do pe
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | --- | --- | --- |
@@ -2133,7 +2133,7 @@ Choose one scripture this week that addresses an area of your life where you nee
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | --- | --- | --- |
@@ -2396,7 +2396,7 @@ When you face a difficulty this week, instead of asking "what is God teaching me
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | --- | --- | --- |
@@ -2653,7 +2653,7 @@ If this teaching is new to you, the most useful next step is not to try to produ
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | --- | --- | --- |
@@ -2907,7 +2907,7 @@ If you want to pursue receiving the Holy Spirit: find a time when you will not b
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | --- | --- | --- |
@@ -3149,7 +3149,7 @@ If you speak in tongues, build the practice into your daily prayer rather than r
 Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.
 
 
-Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.
+Note: answers are saved to your browser on this device.
 
 | Question | My Answer | Group Discussion Notes |
 | --- | --- | --- |

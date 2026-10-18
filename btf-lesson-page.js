@@ -87,12 +87,28 @@
       });
     });
 
+    // Remember title + question text so the part/main page progress download can show them
+    var slug = lessonSlug();
+    if (canStore && slug !== 'btf-lesson') {
+      var h1 = document.querySelector('h1');
+      var qs = [];
+      document.querySelectorAll('#discovery-questions tbody tr').forEach(function (row) {
+        var cell = row.querySelector('td');
+        qs.push(cell ? cell.innerText.trim() : '');
+      });
+      try {
+        localStorage.setItem(slug.replace(/^btf-/, '') + '-info',
+          JSON.stringify({ title: h1 ? h1.textContent.trim() : '', questions: qs }));
+      } catch (e) {}
+    }
+
     var downloadBtn = document.getElementById('download-btn');
     if (downloadBtn) {
       downloadBtn.addEventListener('click', function () {
         var questions = document.querySelectorAll('#discovery-questions tbody tr');
+        var partNum = (slug.match(/^btf-p(\d+)/) || [])[1] || '1';
         var lines = [
-          'Bible Truth Foundations: Part 1 of 3',
+          'Bible Truth Foundations: Part ' + partNum + ' of 3',
           lessonLabel(),
           'Key Discovery Questions',
           ''

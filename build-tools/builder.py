@@ -43,10 +43,11 @@ def kdq_section(L):
           '          <td><div class="fillable" contenteditable="true" data-key="%s-q%d-notes" data-placeholder="Group notes&hellip;"></div></td>\n        </tr>' % (q, ns, i, ns, i))
     return (sec_toggle('discovery-questions','Key Discovery Questions')
       + '  <p>Work through these on your own before your group meets. Type your answers directly into the table below. Your answers are saved automatically in your browser.</p>\n\n'
-      + '  <div class="answers-toolbar">\n    <button id="download-btn">&#8595; Download my answers</button>\n    <button class="clear-btn" id="clear-btn">Clear all answers</button>\n  </div>\n'
-      + '  <p class="answers-note">Note: answers are saved to your browser on this device. If you are viewing this inside Google Sites, open the file directly in your browser for reliable saving.</p>\n\n'
       + '  <div class="table-wrap">\n    <table>\n      <thead>\n        <tr>\n          <th style="width:38%">Question</th>\n          <th style="width:31%">My Answer</th>\n          <th style="width:31%">Group Discussion Notes</th>\n        </tr>\n      </thead>\n      <tbody>\n'
-      + '\n'.join(rows) + '\n      </tbody>\n    </table>\n  </div>\n' + end_sec())
+      + '\n'.join(rows) + '\n      </tbody>\n    </table>\n  </div>\n'
+      + '  <div class="answers-toolbar">\n    <button id="download-btn">&#8595; Download my answers</button>\n    <button class="clear-btn" id="clear-btn">Clear all answers</button>\n  </div>\n'
+      + '  <p class="answers-note">Note: your answers are saved in this browser on this device only. Download a copy to keep it safe.</p>\n'
+      + end_sec())
 
 def gdq_section(L):
     items = ''.join('    <li style="margin-bottom:16px;">%s</li>\n' % q for q in L['gdq'])

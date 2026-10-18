@@ -1211,6 +1211,19 @@
     }
   }
 
+  // Part title in the sticky audio bar, read from the page's own subtitle
+  // ("Part 2 of 3: Growing in Christ" on lessons, "Part 2 of 3 · ..." on part pages)
+  function initPartLabel() {
+    var panel = $('.btf-audio-panel');
+    var sub = $('.series-part') || $('.series-sub');
+    var m = sub && cleanText(sub.textContent).match(/Part (\d+) of \d+\s*[:·]\s*(.+)/);
+    if (!panel || !m) return;
+    var label = document.createElement('div');
+    label.textContent = 'Pt' + m[1] + ' · ' + m[2];
+    label.style.cssText = 'max-width:900px; margin:0 auto 6px; font-size:13px; font-weight:700; color:#1F3864; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;';
+    panel.insertBefore(label, panel.firstChild);
+  }
+
   // Hub: count saved completion flags per part for each part link
   function renderPartCounts() {
     $$('[data-btf-progress]').forEach(function (el) {
@@ -1298,6 +1311,7 @@
         }
       });
     }
+    initPartLabel();
     initToc();
     initResponsiveTables();
   });

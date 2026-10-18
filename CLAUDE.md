@@ -197,7 +197,9 @@ Question → Key Scripture → Core Truth → Bible Teaching (collapsible,
 Note/Depth/Caution callouts as needed — no Tip in student files) → Key
 Discovery Questions (collapsible, fillable) → Group Discussion
 (collapsible) → Application (collapsible) → Revision Cards (collapsible,
-flashcards) → Expand All/Minimise All → back link → page footer →
+flashcards) → Expand All/Minimise All → back link (left) + "Next lesson"
+(right; lesson 16 says "Main page" → index.html; `builder.py` sets it from
+`L['next']`) → page footer →
 floating TOC → `<script src="btf-site.js">` → `<script
 src="btf-lesson-page.js">` → inline script (flashcard flip + fillable
 answers only).

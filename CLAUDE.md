@@ -128,6 +128,11 @@ this project is hosted.
 - `localStorage` answer keys: `p{part}-l{NN}-{M}-answer` /
   `-notes` pattern (part-namespaced, to prevent cross-part collisions —
   confirmed this is the pattern actually used in Part 2's shipped files).
+  Exception: Part 1's shipped answer keys are NOT part-namespaced
+  (`l01-q1-answer`); Parts 2 and 3 use `p2-l01-q1-answer`. The progress
+  download in `btf-site.js` reads both.
+  `btf-lesson-page.js` also stores `p{part}-l{NN}-info` (lesson title +
+  question texts as JSON) on each visit, for the "Download my progress" file.
   Lesson completion uses `p{part}-l{NN}-complete` = `'1'`, set by the
   "Mark lesson complete" button that `btf-site.js` injects on lesson pages
   and read by the part pages for the ticks and "X of 16" count.

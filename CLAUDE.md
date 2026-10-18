@@ -144,7 +144,10 @@ this project is hosted.
    index), Stop button, a speed **dropdown** (`.btf-speed-dropdown` /
    `.btf-speed-toggle` / `.btf-speed-menu` / `.btf-speed-option[data-rate]`
    — this replaced the earlier row of five separate speed buttons), and a
-   live progress label.
+   live progress label. On part and lesson pages `btf-site.js`
+   (`initPartLabel`) adds a one-line part title ("Pt2 · Growing in
+   Christ") at the top of this sticky bar, read from `.series-part` /
+   `.series-sub`, so readers always know which part they are in.
 
 2. **Text-to-speech engine** — browser `speechSynthesis`, en-GB. Main
    button plays every section on the page in order, opening/scrolling/
